@@ -1,0 +1,56 @@
+{% extends 'std_portal/base.html' %}
+{% load static %}
+{% block main %}
+
+<div class="row justify-content-center">
+  <div class="col-md-12 mb-3">
+    <h2>View Student Information</h2>
+  </div>
+  <div class="col-md-12 table-responsive">
+    <table class="table" style="white-space: nowrap;">
+      <tbody>
+        <tr>
+          <th scope="col">Student ID</th>
+          <td>{{ studentObj.student_id }}</td>
+          <th scope="col">Name</th>
+          <td>{{ studentObj.name }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Email</th>
+          <td>{{ studentObj.email }}</td>
+          <th scope="col">Phone</th>
+          <td>{{ studentObj.phone }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Father Name</th>
+          <td>{{ studentObj.fathername }}</td>
+          <th scope="col">Mother Name</th>
+          <td>{{ studentObj.mothername }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Date of Birth</th>
+          <td>{{ studentObj.dob }}</td>
+          <th scope="col">Adminsion Year</th>
+          <td>{{ studentObj.adminsion_year }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Address</th>
+          <td>{{ studentObj.address }}</td>
+          <th scope="col">Academic Status</th>
+          <td>{{ studentObj.academic_status }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Department</th>
+          <td>{{ studentObj.department }}</td>
+          <th scope="col">Religion</th>
+          <td>{{ studentObj.religion }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Nationality</th>
+          <td>{{ studentObj.nationality }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  {% endblock main %}

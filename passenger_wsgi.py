@@ -1,0 +1,1 @@
+from ncbt.wsgi import application

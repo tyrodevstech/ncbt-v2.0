@@ -1,0 +1,53 @@
+{% extends 'std_portal/base.html' %}
+{% load static %}
+{% block title %}Financial{% endblock title %}
+{% block main %}
+
+<div class="row justify-content-center">
+    <div class="col-md-12 mb-3">
+        <h2>Financial Information</h2>
+    </div>
+    <div class="col-md-12 table-responsive">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>S. No</th>
+                    <th>Year</th>
+                    <th>Semester</th>
+                    <th>Paid</th>
+                    <th>Payment Date</th>
+                    <th>Money Receipt No.</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for obj in finansobjs %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{obj.year}}</td>
+                    <td>{{obj.semester}}</td>
+                    <td>{{obj.payment_amount}}</td>
+                    <td>{{obj.payment_date}}</td>
+                    <td>{{obj.money_receipt_no}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>S. No</th>
+                    <th>Year</th>
+                    <th>Semester</th>
+                    <th>Paid</th>
+                    <th>Payment Date</th>
+                    <th>Money Receipt No.</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="col-md-12">
+        <div class="export">
+            <span>Export: </span>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/std_portal/css/std_login.css' %}">
+
+
+    <title>NCBT Student Login</title>
+</head>
+
+<body>
+
+    <form method="POST" class="login">
+        <h3
+            style="margin: 0; margin-bottom: 2rem; color: #333; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            NCBT STUDENT LOGIN</h3>
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button>Login</button>
+    </form>
+
+
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags == 'success' %}
+    <div id="msg_text_success" class="message" style="display: none;">{{ message }}</div>
+    {% elif message.tags == 'error' %}
+    <div id="msg_text_error" class="message" style="display: none;">{{ message }}</div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'assets/std_portal/js/tata.js' %}"></script>
+    <script>
+        if ($('#msg_text_success').text() != '') {
+            tata.success('Success', $('#msg_text_success').text(), {
+                position: 'tr',
+                duration: 10000
+            })
+        } else if ($('#msg_text_error').text() != '') {
+            tata.error('Error', $('#msg_text_error').text(), {
+                position: 'tr',
+                duration: 10000
+            })
+        }
+    </script>
+</body>
+
+</html>

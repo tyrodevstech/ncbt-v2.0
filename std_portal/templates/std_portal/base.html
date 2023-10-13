@@ -1,0 +1,147 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!-- Style -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="{% static 'assets/std_portal/css/style.css' %}">
+
+    <title>N. CBT Studen Portal | {% block title %}Home{% endblock title %}</title>
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="toggle">
+            <a class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
+                <span></span>
+            </a>
+        </div>
+        <div class="side-inner">
+
+            <div class="profile">
+                {% if student == 'uni' %}
+                <img src="{% if request.user.studentregistrationuni.profile_picture %}{{ request.user.studentregistrationuni.profile_picture.url }}{% else %}{% static 'assets/std_portal/images/default_avatar.png' %}{% endif %}"
+                    alt="Image" class="img-fluid">
+                <h3 class="name">{{request.user.studentregistrationuni.name}}</h3>
+                {% endif %}
+
+                {% if student == 'clg' %}
+                <img src="{% if request.user.studentregistrationcollage.profile_picture %}{{ request.user.studentregistrationcollage.profile_picture.url }}{% else %}{% static 'assets/std_portal/images/default_avatar.png' %}{% endif %}"
+                    alt="Image" class="img-fluid">
+                <h3 class="name">{{request.user.studentregistrationcollage.name}}</h3>
+                {% endif %}
+
+            </div>
+
+
+            <div class="nav-menu">
+                <ul>
+                    <!-- <li class="accordion">
+                        <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
+                            aria-controls="collapseOne" class="collapsible">
+                            <i class='bx bx-home mr-3'></i></span>Feed
+                        </a>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+                            <div>
+                                <ul>
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="#">Sport</a></li>
+                                    <li><a href="#">Health</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li> -->
+
+                    <li><a href="{% url 'dashboard' %}"><i class='bx bxs-home  mr-3'></i>Home</a></li>
+                    {% if student == 'uni' %}
+                    <li><a href="{% url 'enroll' %}"><i class='bx bx-collapse-alt mr-3'></i>Enroll Cources</a></li>
+                    <li><a href="{% url 'result' %}"><i class='bx bx-transfer  mr-3'></i>Results</a></li>
+                    <li><a href="{% url 'financial' %}"><i class='bx bxs-wallet-alt mr-3'></i>Financial</a></li>
+                    {% else %}
+                    <li><a href="{% url 'financialcollege' %}"><i class='bx bxs-wallet-alt mr-3'></i>Financial (HSC)</a>
+                    </li>
+                    {% endif %}
+                    <li><a href="{% url 'logout' %}" onclick="return confirm('Are you sure ?')"><i
+                                class='bx bx-log-in  mr-3'></i>Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </aside>
+    <main>
+        <div class="site-section">
+            <div class="container">
+                {% block main %}
+                {% endblock main %}
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous">
+    </script>
+
+    <script src=" https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    <script src=" https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap5.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script>
+
+
+
+
+
+    <script src="{% static 'assets/std_portal/js/main.js' %}"></script>
+
+    <script>
+        $(document).ready(function () {
+            table = $('#example').DataTable({
+                // lengthChange: true,
+
+                buttons: [{
+                        extend: 'pdfHtml5',
+                        title: 'NCBT',
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        title: 'NCBT',
+                    },
+                    {
+                        extend: 'print',
+                        title: 'NCBT',
+                    },
+                    'colvis',
+                ]
+            });
+            table.buttons().container()
+                .appendTo('.export');
+        });
+    </script>
+</body>
+
+</html>

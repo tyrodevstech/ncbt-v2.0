@@ -1,0 +1,453 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>N. Haque University College - NCBT</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.html"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="#">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <!-- <link rel="stylesheet" href="{% static 'assets/common/css/bootstrap.min.css' %}"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css"
+        integrity="sha512-WEQNv9d3+sqyHjrqUZobDhFARZDko2wpWdfcpv44lsypsSuMO0kHGd3MQ8rrsBn/Qa39VojphdU6CMkpJUmDVw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="{% static 'assets/common/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/common/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/common/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/common/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/common/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/common/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/common/css/meanmenu.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/common/css/default.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/common/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/common/css/responsive.css' %}">
+    <style>
+        .logo a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo h6 {
+            width: max-content;
+            margin: 0;
+            margin-left: 1rem;
+            font-size: 2.5rem;
+            color: #28a745;
+            font-weight: 700;
+        }
+
+        .slick-track {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .slick-slide {
+            height: auto;
+            flex: 1;
+        }
+
+        .courses-wrapper {
+            height: 100%;
+        }
+
+        .course-main-content {
+            border: 0;
+        }
+
+        .courses-content {
+            padding: 1rem 1.5rem;
+        }
+
+        .events-text {
+            border-radius: 5px;
+        }
+
+        .advisor-img {
+            position: relative;
+        }
+
+        .advisor-img::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            border: 1px solid black;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .testimonilas-author-title {
+            margin: 0;
+        }
+
+        a.std-portal-btn {
+            font-size: 12px;
+            color: #fff !important;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-family: 'Roboto', sans-serif;
+            background-color: #00A651;
+            padding: 9px 15px !important;
+            border-radius: 3px;
+            display: inline-block;
+            transition: .3s;
+            width: max-content !important;
+            margin: 1rem !important;
+            margin-left: 5% !important;
+        }
+
+        a.std-portal-btn:hover {
+            background-color: #444;
+        }
+
+        .container {
+            max-width: 1250px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader-main">
+        <div class="loader book">
+            <figure class="page"></figure>
+            <figure class="page"></figure>
+            <figure class="page"></figure>
+        </div>
+
+        <h1 class="text-loading">Reading</h1>
+    </div>
+    <!-- Preloader End -->
+    <!-- header-start -->
+    <header id="home">
+        <div class="header-area">
+            <!-- header-top -->
+            <div class="header-top primary-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                            <div class="header-contact-info d-flex justify-content-center">
+                                <div class="header-contact header-contact-phone">
+                                    <span class="ti-headphone"></span>
+                                    <p class="phone-number">+880177837750</p>
+                                </div>
+                                <div class="header-contact header-contact-email">
+                                    <span class="ti-email"></span>
+                                    <p class="email-name">nhaquecollege@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="header-social-icon-list">
+                                <ul>
+                                    <li><a href="#"><span class="ti-facebook"></span></a></li>
+                                    <li><a href="#"><span class="ti-twitter-alt"></span></a></li>
+                                    <li><a href="#"><span class="ti-google"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /end header-top -->
+            <!-- header-bottom -->
+            <div class="header-bottom-area header-sticky" style="transition: .6s;">
+                <div class="container-fluid px-xl-5">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-lg-2 col-md-6 col-9">
+                            <div class="logo float-left">
+                                <a href="{% url 'home' %}">
+                                    <img class="img-fluid" src="{% static 'assets/images/default_logo.png' %}" alt="">
+                                    <h6>NCBT</h6>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-6 col-3">
+                            <div class="main-menu f-right">
+                                <nav id="mobile-menu" style="display: block;">
+                                    <ul>
+                                        <li>
+                                            <a href="{% url 'home' %}">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'aboutus' %}">About Us</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'admission' %}">Admission</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'teachers' %}">Faculty Members</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'course' %}">Courses</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'notice' %}">Notice</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'contactus' %}">Contact Us</a>
+                                        </li>
+                                        <li>
+                                            <a class="std-portal-btn" href="{% url 'dashboard' %}">Student Portal</a>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile-menu"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /end header-bottom -->
+        </div>
+    </header>
+    <!-- header-end -->
+    {% block main %}
+    {% endblock main %}
+    <!-- subscribe start -->
+    <div class="subscribe-area">
+        <div class="container">
+            <div class="subscribe-box">
+                <div class="row">
+                    <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-12">
+                        <div class="row justify-content-between">
+                            <div class="col-xl-6 col-lg-7 col-md-8">
+                                <div class="subscribe-text">
+                                    <h1>Subscribe</h1>
+                                    <span>Enter your email and get latest updates and offers subscribe us</span>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-5 col-md-4 justify-content-end">
+                                <div class="email-submit-form">
+                                    <div class="subscribe-form">
+                                        <form action="#">
+                                            <input placeholder="Enter your email" type="email">
+                                            <i class="fas fa-long-arrow-alt-right"></i>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- subscribe end -->
+    <!-- footer start -->
+    <footer id="Contact">
+        <div class="footer-area primary-bg pt-150">
+            <div class="container">
+                <div class="footer-top pb-35">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="footer-widget mb-30">
+                                <div class="footer-logo">
+                                    <img class="img-fluid" src="{% static 'assets/images/default_logo.png' %}" alt="">
+                                    <span>NCBT</span>
+                                </div>
+                                <div class="footer-para">
+                                    <p>N.Haque College of Business and Technology (NCBT) is one of the leading
+                                        institutes affiliated with the National University of Bangladesh. N.Haque
+                                        College of Business and Technology is a seat of higher education, situated in
+                                        Gopalgonj, the district where the founder president of Bangladesh Bangabandhu
+                                        Sheikh Mujibur Rahman was born</p>
+                                </div>
+                                <div class="footer-socila-icon">
+                                    <span>Follow Us</span>
+                                    <div class="footer-social-icon-list">
+                                        <ul>
+                                            <li><a href="#"><span class="ti-facebook"></span></a></li>
+                                            <li><a href="#"><span class="ti-twitter-alt"></span></a></li>
+                                            <li><a href="#"><span class="ti-google"></span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="footer-widget mb-30">
+                                <div class="footer-heading">
+                                    <h1>Main Campus</h1>
+                                </div>
+                                <div class="footer-contact-list">
+                                    <div class="single-footer-contact-info">
+                                        <span class="ti-headphone "></span>
+                                        <span class="footer-contact-list-text">6681144; 01818518220; 0177837750</span>
+                                    </div>
+                                    <div class="single-footer-contact-info">
+                                        <span class="ti-email "></span>
+                                        <span class="footer-contact-list-text">nhaquecollege@gmail.com</span>
+                                    </div>
+                                    <div class="single-footer-contact-info">
+                                        <span class="ti-location-pin"></span>
+                                        <span class="footer-contact-list-text">Manikdah,
+                                            Gopalganj-8100,Bangladesh</span>
+                                    </div>
+                                </div>
+                                <div class="opening-time">
+                                    <span>Opening Hour</span>
+                                    <span class="opening-date">
+                                        Sun - Sat : 10:00 am - 05:00 pm
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="footer-widget mb-30">
+                                <div class="footer-heading">
+                                    <h1>Dhaka Office</h1>
+                                </div>
+                                <div class="footer-contact-list">
+                                    <div class="single-footer-contact-info">
+                                        <span class="ti-headphone "></span>
+                                        <span class="footer-contact-list-text">9119263, 01720978060</span>
+                                    </div>
+                                    <div class="single-footer-contact-info">
+                                        <span class="ti-email "></span>
+                                        <span class="footer-contact-list-text">info@ncbt.edu.bd</span>
+                                    </div>
+                                    <div class="single-footer-contact-info">
+                                        <span class="ti-location-pin"></span>
+                                        <span class="footer-contact-list-text">House # 39/A, Road 11(New),
+                                            Dhanmondi R/A, Dhaka</span>
+                                    </div>
+                                </div>
+                                <div class="opening-time">
+                                    <span>Opening Hour</span>
+                                    <span class="opening-date">
+                                        Sun - Sat : 10:00 am - 05:00 pm
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom pt-25 pb-25">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="footer-copyright text-center">
+                                    <span>
+                                        <a target="_blank" href="https://www.itsourcebd.com/"
+                                            style="text-align: center"> Copyright &copy; 2022-
+                                            <script>document.write(new Date().getFullYear())</script> ITSOURCEBD All
+                                            Rights Reserved
+                                        </a>
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+
+
+    <!-- JS here -->
+    <script src="{% static 'assets/common/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+
+    <script src="{% static 'assets/common/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"
+        integrity="sha512-C1zvdb9R55RAkl6xCLTPt+Wmcz6s+ccOvcr6G57lbm8M2fbgn2SUjUJbQ13fEyjuLViwe97uJvwa1EUf4F1Akw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="{% static 'assets/common/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/common/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/common/js/one-page-nav-min.js' %}"></script>
+    <script src="{% static 'assets/common/js/slick.min.js' %}"></script>
+    <script src="{% static 'assets/common/js/ajax-form.js' %}"></script>
+    <script src="{% static 'assets/common/js/wow.min.js' %}"></script>
+    <script src="{% static 'assets/common/js/jquery.meanmenu.min.js' %}"></script>
+    <script src="{% static 'assets/common/js/jquery.scrollUp.min.js' %}"></script>
+    <script src="{% static 'assets/common/js/jquery.barfiller.js' %}"></script>
+    <script src="{% static 'assets/common/js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/common/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'assets/common/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/common/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/common/js/plugins.js' %}"></script>
+    <script src="{% static 'assets/common/js/main.js' %}"></script>
+    <script>
+        $(window).load(function () {
+            $(".preloader-main").delay(700).fadeOut("slow");
+        })
+
+        $(document).ready(function () {
+
+            function scrollWaypointInit(items, trigger) {
+                items.each(function () {
+                    var element = $(this),
+                        osAnimationClass = element.data("animation"),
+                        osAnimationDelay = element.attr('data-animation-delay');
+
+                    element.css({
+                        '-webkit-animation-delay': osAnimationDelay,
+                        '-moz-animation-delay': osAnimationDelay,
+                        'animation-delay': osAnimationDelay
+                    });
+
+                    var trigger = (trigger) ? trigger : element;
+
+                    trigger.waypoint(function () {
+                        element.addClass(osAnimationClass);
+                    }, {
+                        triggerOnce: true,
+                        offset: '80%'
+                    });
+                });
+            }
+
+            //Call the init
+            scrollWaypointInit($('.animate__animated'));
+
+
+
+            $('.popup-gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                tLoading: 'Loading image #%curr%...',
+                mainClass: 'mfp-img-mobile',
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    preload: [0,
+                        1
+                    ] // Will preload 0 - before current, and 1 after the current image
+                },
+                image: {
+                    tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+                }
+            });
+        })
+    </script>
+</body>
+
+
+</html>

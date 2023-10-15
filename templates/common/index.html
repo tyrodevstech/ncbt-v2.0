@@ -1,0 +1,746 @@
+{% extends 'common/base.html' %} {% load static %} {% block main %}
+<!-- slider-start -->
+<div id="header-slider" class="header-area">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide">
+      <div class="relative isolate flex h-[85vh] items-center bg-gray-950">
+        <img
+          src="{% static 'assets/images/web_banner_1.jpg' %}"
+          alt="slider bg"
+          class="absolute inset-0 -z-10 h-full w-full opacity-90"
+        />
+        <div class="container w-full text-white">
+          <h1
+            class="text-7xl font-bold uppercase"
+            data-animation="fadeInUp"
+            data-delay=".2s"
+          >
+            <span></span>
+            Welcome to NCBT
+          </h1>
+          <p
+            data-animation="fadeInUp"
+            data-delay=".4s"
+            class="mt-10 max-w-3xl text-lg leading-loose text-gray-200"
+          >
+            N.Haque College of Business and Technology ( NCBT ) is one of the
+            leading institutes affiliated with the National University of
+            Bangladesh.
+          </p>
+          <button
+            class="mt-8 rounded bg-green-600 px-10 py-3"
+            data-animation="fadeInUp"
+            data-delay=".6s"
+          >
+            <span class="btn-text">admit now</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  <div class="swiper-scrollbar"></div>
+</div>
+<!-- slider-end -->
+
+<!-- about start -->
+<div id="about" class="about-area pt-100 pb-70 text-md-left text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-8 col-lg-8">
+        <div class="about-title-section mb-30">
+          <h1>ABOUT THE FOUNDER</h1>
+          <p>
+            The dream of a globally acclaimed institution promoted Mr. Nurul
+            Haque Chowdhury to set up NCBT. Mr. Chowdhury visited many countries
+            of the world and observed the way the universities of those
+            countries work. He made up his mind to establish such an institution
+            which will be the torch bearer of knowledge and wisdom. In spite of
+            his busy schedule, he spent a lot of time to actualize his dream
+            into reality. Being the chairman of Reliance industrial park, he has
+            also associated himself with a variety of humanitarian works. In
+            accordance with the slogan, 'Digital Bangladesh', Mr Haque wants to
+            make the students go digital by setting up a college which excels in
+            business and technology.
+          </p>
+          <p>
+            NCBT undertakes to build up a reputation as a rural level low cost
+            digital education in Business and Technology with innovative
+            research and development as a private institution.
+          </p>
+          <!-- <button class="theme-btn blue-bg-border mt-20"><span class="btn-text">admit now</span></button> -->
+        </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-4 mb-30">
+        <div
+          class="advisor-img mb-35 animate__animated float-lg-right mx-auto"
+          data-animation="animate__fadeInRightBig"
+        >
+          <img src="{% static 'assets/images/advisors-img_1.jpg' %}" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="row pt-65">
+      <div class="col-xl-4 col-lg-4 col-md-6 mb-4">
+        <div class="feature-wrapper">
+          <div class="feature-title-heading">
+            <h3>Lab Facility</h3>
+            <span>01</span>
+          </div>
+          <div class="feature-text">
+            <p>
+              No science can survive without labs. NCBT has a spacious computer
+              lab. Groomed with 50 computers the lab is an example of
+              ultra-modern technology. The lab gives the most cutting-edge
+              technical support to the students.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-6 mb-4">
+        <div class="feature-wrapper">
+          <div class="feature-title-heading">
+            <h3>Hostel Facility</h3>
+            <span>02</span>
+          </div>
+          <div class="feature-text">
+            <p>
+              For the purpose of accommodating the students a modern residential
+              complex is being built on the bank of the Modhumoti river. At
+              least, 200 students will live in the yet to-be made complex. A
+              makeshift hostel is currently at work.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-6 mb-4">
+        <div class="feature-wrapper">
+          <div class="feature-title-heading">
+            <h3>Scholarship Facility</h3>
+            <span>03</span>
+          </div>
+          <div class="feature-text">
+            <p>
+              Students who have outstanding result at SSC and HSC levels are
+              eligible for scholarships and financial assistance. Besides these,
+              students who have excellent performance in the first and second
+              semesters are given special scholarship.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- about end -->
+
+<!-- courses start -->
+<div id="courses" class="courses-area relative isolate py-16 md:py-20">
+  <img
+    loading="lazy"
+    src="{% static 'assets/images/courses_bg.png' %}"
+    alt="courses bg image"
+    class="absolute inset-0 -z-10 h-full w-full object-cover"
+  />
+  <div class="container">
+    <div class="section-title mb-12 text-center text-white">
+      <h1 class="section-title-heading mb-3 text-3xl font-semibold md:text-4xl">
+        Our Programs
+      </h1>
+      <p class="section-title-para text-sm text-gray-200 md:text-base">
+        N.Haque College of Business and Technology (NCBT) programs offered for
+        students -
+      </p>
+    </div>
+    <div class="courses-list">
+      <div class="courses-active grid gap-6 md:grid-cols-3 md:gap-12">
+        <div
+          class="course animate__animated overflow-hidden rounded bg-white"
+          data-animation="animate__fadeInUp"
+        >
+          <div class="courses-thumb">
+            <a href="{% url 'app_main:course' %}">
+              <img
+                src="{% static 'assets/images/course_1.jpg' %}"
+                class="w-full"
+                alt=""
+              />
+            </a>
+          </div>
+          <div class="course-main-content p-6">
+            <div class="courses-content">
+              <span
+                class="courses-category-name mb-4 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white"
+              >
+                Business
+              </span>
+              <h1
+                class="courses-heading mb-4 text-lg font-semibold uppercase leading-snug text-gray-900"
+              >
+                Bachelor of Business Administration
+              </h1>
+              <p class="courses-para line-clamp-3 text-justify text-gray-500">
+                The Bachelor of Business Administration (BBA) Program aims at
+                training the boys and girls for this act and providing clear
+                understanding of the functioning of business from theoretical,
+                practical, and managerial perspectives.
+              </p>
+              <div class="mt-2 text-right">
+                <a
+                  href=""
+                  #
+                  class="inline-block gap-2 font-medium text-green-600 transition-colors hover:text-green-700"
+                >
+                  Read more &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="course animate__animated overflow-hidden rounded bg-white"
+          data-animation="animate__fadeInUp"
+        >
+          <div class="courses-thumb">
+            <a href="{% url 'app_main:course' %}">
+              <img
+                src="{% static 'assets/images/course_1.jpg' %}"
+                class="w-full"
+                alt=""
+              />
+            </a>
+          </div>
+          <div class="course-main-content p-6">
+            <div class="courses-content">
+              <span
+                class="courses-category-name mb-4 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white"
+              >
+                Business
+              </span>
+              <h1
+                class="courses-heading mb-4 text-lg font-semibold uppercase leading-snug text-gray-900"
+              >
+                Bachelor of Business Administration
+              </h1>
+              <p class="courses-para line-clamp-3 text-justify text-gray-500">
+                The Bachelor of Business Administration (BBA) Program aims at
+                training the boys and girls for this act and providing clear
+                understanding of the functioning of business from theoretical,
+                practical, and managerial perspectives.
+              </p>
+              <div class="mt-2 text-right">
+                <a
+                  href=""
+                  #
+                  class="inline-block gap-2 font-medium text-green-600 transition-colors hover:text-green-700"
+                >
+                  Read more &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="course animate__animated overflow-hidden rounded bg-white"
+          data-animation="animate__fadeInUp"
+        >
+          <div class="courses-thumb">
+            <a href="{% url 'app_main:course' %}">
+              <img
+                src="{% static 'assets/images/course_1.jpg' %}"
+                class="w-full"
+                alt=""
+              />
+            </a>
+          </div>
+          <div class="course-main-content p-6">
+            <div class="courses-content">
+              <span
+                class="courses-category-name mb-4 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white"
+              >
+                Business
+              </span>
+              <h1
+                class="courses-heading mb-4 text-lg font-semibold uppercase leading-snug text-gray-900"
+              >
+                Bachelor of Business Administration
+              </h1>
+              <p class="courses-para line-clamp-3 text-justify text-gray-500">
+                The Bachelor of Business Administration (BBA) Program aims at
+                training the boys and girls for this act and providing clear
+                understanding of the functioning of business from theoretical,
+                practical, and managerial perspectives.
+              </p>
+              <div class="mt-2 text-right">
+                <a
+                  href=""
+                  #
+                  class="inline-block gap-2 font-medium text-green-600 transition-colors hover:text-green-700"
+                >
+                  Read more &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- courses end -->
+
+<!-- team start -->
+<div class="team-area my-8 py-8 md:my-16 md:py-16">
+  <div class="container">
+    <div class="section-title mb-12 text-center text-gray-900">
+      <h1 class="section-title-heading mb-3 text-3xl font-semibold md:text-4xl">
+        Our Honorable Advisors
+      </h1>
+      <p class="section-title-para text-sm text-gray-700 md:text-base">
+        Our Honorable Advisors From N.Haque College of Business and Technology
+        (NCBT).
+      </p>
+    </div>
+
+    <div class="team-list">
+      <div class="grid gap-6 md:grid-cols-4 md:gap-8">
+        <div
+          class="team-wrapper group mb-8 overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
+        >
+          <div
+            class="team-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
+          >
+            <img
+              src="{% static 'assets/images/teammember1.jpg' %}"
+              alt=""
+              class="w-full"
+            />
+            <div
+              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100"
+            >
+              N.Haque College of Business and Technology ( NCBT )
+            </div>
+          </div>
+          <div
+            class="team-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
+          >
+            <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
+            <span class="text-sm text-gray-500">Vice Chancellor</span>
+          </div>
+        </div>
+        <div
+          class="team-wrapper group mb-8 overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
+        >
+          <div
+            class="team-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
+          >
+            <img
+              src="{% static 'assets/images/teammember1.jpg' %}"
+              alt=""
+              class="w-full"
+            />
+            <div
+              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100"
+            >
+              N.Haque College of Business and Technology ( NCBT )
+            </div>
+          </div>
+          <div
+            class="team-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
+          >
+            <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
+            <span class="text-sm text-gray-500">Vice Chancellor</span>
+          </div>
+        </div>
+        <div
+          class="team-wrapper group mb-8 overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
+        >
+          <div
+            class="team-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
+          >
+            <img
+              src="{% static 'assets/images/teammember1.jpg' %}"
+              alt=""
+              class="w-full"
+            />
+            <div
+              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100"
+            >
+              N.Haque College of Business and Technology ( NCBT )
+            </div>
+          </div>
+          <div
+            class="team-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
+          >
+            <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
+            <span class="text-sm text-gray-500">Vice Chancellor</span>
+          </div>
+        </div>
+        <div
+          class="team-wrapper group mb-8 overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
+        >
+          <div
+            class="team-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
+          >
+            <img
+              src="{% static 'assets/images/teammember1.jpg' %}"
+              alt=""
+              class="w-full"
+            />
+            <div
+              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100"
+            >
+              N.Haque College of Business and Technology ( NCBT )
+            </div>
+          </div>
+          <div
+            class="team-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
+          >
+            <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
+            <span class="text-sm text-gray-500">Vice Chancellor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- team end -->
+
+<!-- notice start -->
+<div
+  id="notice"
+  class="notice-area relative isolate my-8 py-8 md:my-16 md:py-16"
+>
+  <img
+    loading="lazy"
+    src="{% static 'assets/images/courses_bg.png' %}"
+    alt="notices bg image"
+    class="absolute inset-0 -z-10 h-full w-full object-cover"
+  />
+  <div class="container">
+    <div class="section-title mb-12 text-center text-white">
+      <h1 class="section-title-heading mb-3 text-3xl font-semibold md:text-4xl">
+        Recent Notices
+      </h1>
+      <p class="section-title-para text-sm text-gray-200 md:text-base">
+        N.Haque College of Business and Technology (NCBT) notice and events
+      </p>
+    </div>
+    <div class="events grid gap-7 md:grid-cols-2">
+      <!-- Notice Content Start -->
+      {% for obj in notice %}
+      <div class="event flex justify-between overflow-hidden rounded bg-white">
+        <img
+          src="{% static 'assets/images/notice-default.png' %}"
+          alt=""
+          class="hidden bg-white object-cover md:block md:w-48"
+        />
+        <div class="events-text p-6">
+          <div
+            class="event-text-heading mb-4 flex flex-col justify-start gap-4 md:mb-6 md:flex-row md:items-center md:gap-3"
+          >
+            <div
+              class="events-calendar flex w-max flex-col items-center justify-center whitespace-nowrap rounded bg-green-600 px-3 py-1.5 text-center text-white"
+            >
+              <span class="date text-xl font-bold">{{obj.date|date:'d'}}</span>
+              <span class="month text-xs">{{obj.date|date:'M, Y'}}</span>
+            </div>
+            <div class="events-text-title">
+              <h4 class="line-clamp-1 text-xl font-semibold text-gray-900">
+                {{ obj.post_title }}
+              </h4>
+
+              <div class="time-area mt-1 text-sm">
+                <span class="published-time text-gray-500">
+                  <i class="ti ti-clock mr-1"></i>
+                  05:23 AM - 09:23 AM
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="events-para line-clamp-2 text-sm text-gray-500 md:text-base"
+          >
+            <p>{{ obj.post_content }}</p>
+          </div>
+          <div class="mt-2 text-right">
+            <a
+              href=""
+              #
+              class="inline-block gap-2 text-green-600 transition-colors hover:text-green-700"
+            >
+              Read more &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- Notice Content End -->
+    </div>
+  </div>
+  <div
+    class="events-view-btn view-all-events mt-10 text-center uppercase text-white"
+  >
+    <a
+      href="{% url 'app_main:notice' %}"
+      class="text-sm font-semibold transition-colors hover:text-green-400"
+    >
+      view all notice
+      <span>&rarr;</span>
+    </a>
+  </div>
+</div>
+<!-- events end -->
+
+<!-- Extra -->
+<div id="infos" class="my-8 py-8 md:my-16 md:py-16">
+  <div class="container">
+    <div
+      class="mb-14 flex flex-col-reverse justify-between gap-4 md:mb-20 md:flex-row"
+    >
+      <div class="flex w-full flex-col justify-center md:w-1/2">
+        <h3
+          class="mb-4 text-2xl font-semibold text-gray-900 md:mb-8 md:text-4xl"
+        >
+          ACADEMIC COLLABORATION
+        </h3>
+        <p class="line-clamp-5 text-gray-700 md:line-clamp-none">
+          NCBT's strong international partnerships create a vibrant, globally
+          connected educational community. The institution collaborates with
+          renowned universities worldwide, offering students opportunities for
+          higher education abroad. NCBT is committed to diversity, welcoming
+          students from diverse backgrounds to foster cross-cultural
+          interactions.
+          <br />
+          <br />
+          The institution envisions a future where students worldwide can engage
+          in enriching learning experiences. It is excited to expand its global
+          network, promoting education and knowledge exchange on a global scale.
+        </p>
+        <a
+          class="mt-6 inline-block w-max rounded bg-green-600 px-6 py-2 font-medium uppercase text-white md:mt-10 md:px-10 md:py-3"
+          data-animation="fadeInUp"
+          data-delay=".6s"
+        >
+          <span class="btn-text">admit now</span>
+        </a>
+      </div>
+      <img
+        src="{% static 'assets/images/academic_new.jpg' %}"
+        alt=""
+        class="animate__animated w-full object-cover md:w-2/5"
+        data-animation="animate__backInRight"
+      />
+    </div>
+    <div class="flex flex-col justify-between gap-4 md:flex-row">
+      <img
+        src="{% static 'assets/images/extra.jpg' %}"
+        alt=""
+        class="animate__animated w-full object-cover md:w-2/5"
+        data-animation="animate__backInRight"
+      />
+      <div class="flex w-full flex-col justify-center md:w-1/2">
+        <h3
+          class="mb-4 text-2xl font-semibold text-gray-900 md:mb-8 md:text-4xl"
+        >
+          EXTRA - CURRICULAR ACTIVITIE
+        </h3>
+        <p class="line-clamp-5 text-gray-700 md:line-clamp-none">
+          NCBT places equal importance on physical and mental well-being,
+          offering diverse sports opportunities like football, cricket, and
+          more. They nurture artistic and intellectual growth through a vibrant
+          cultural club, promoting drama, poetry, music, and debate training.
+          Additionally, non-Computer Science and Engineering (CSE) students have
+          access to free computer courses.
+          <br />
+          <br />
+          The NCBT English club further enhances language skills and critical
+          thinking while organizing debate competitions. This comprehensive
+          approach ensures students' all-around development, covering physical
+          fitness, creative expression, and intellectual growth.
+        </p>
+        <a
+          class="mt-6 inline-block w-max rounded bg-green-600 px-6 py-2 font-medium uppercase text-white md:mt-10 md:px-10 md:py-3"
+          data-animation="fadeInUp"
+          data-delay=".6s"
+        >
+          <span class="btn-text">admit now</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Extra end -->
+
+<!-- counter start -->
+<div
+  id="counters"
+  class="counter-area relative isolate my-8 py-10 md:my-16 md:py-20"
+>
+  <img
+    loading="lazy"
+    src="{% static 'assets/images/courses_bg.png' %}"
+    alt="courses bg image"
+    class="absolute inset-0 -z-10 h-full w-full object-cover"
+  />
+  <div class="container">
+    <div class="grid gap-8 text-white md:grid-cols-4">
+      <div class="w-full">
+        <div
+          class="couter-wrapper flex flex-col items-center justify-center text-center"
+        >
+          <img
+            src="{% static 'assets/images/counter_icon1.png' %}"
+            alt=""
+            class=""
+          />
+          <span class="counter mt-4 text-4xl font-bold">1500</span>
+          <h3 class="text-gray-200">Total Students</h3>
+        </div>
+      </div>
+      <div class="w-full">
+        <div
+          class="couter-wrapper flex flex-col items-center justify-center text-center"
+        >
+          <img src="{% static 'assets/images/counter_icon4.png' %}" alt="" />
+          <span class="counter mt-4 text-4xl font-bold">30</span>
+          <h3 class="text-gray-200">Expert Teacher</h3>
+        </div>
+      </div>
+      <div class="w-full">
+        <div
+          class="couter-wrapper flex flex-col items-center justify-center text-center"
+        >
+          <img src="{% static 'assets/images/counter_icon2.png' %}" alt="" />
+          <span class="counter mt-4 text-4xl font-bold">2500</span>
+          <h3 class="text-gray-200">Books</h3>
+        </div>
+      </div>
+      <div class="w-full">
+        <div
+          class="couter-wrapper flex flex-col items-center justify-center text-center"
+        >
+          <img src="{% static 'assets/images/counter_4.png' %}" alt="" />
+          <span class="counter mt-4 text-4xl font-bold">40</span>
+          <h3 class="text-gray-200">Computer</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- counter end -->
+
+<!-- student facilites start -->
+<div class="student-facilities-area my-8 py-8 md:my-16 md:py-16">
+  <div class="container">
+    <div class="section-title mb-12 text-center text-gray-900">
+      <h1 class="section-title-heading mb-3 text-3xl font-semibold md:text-4xl">
+        Our Students Facilities
+      </h1>
+      <p class="section-title-para text-sm text-gray-700 md:text-base">
+        N.Haque College of Business and Technology (NCBT) provides facilities
+        for students -
+      </p>
+    </div>
+
+    <div id="student-facilities" class="swiper pb-12">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div
+            class="slide-wrapper border-4 border-dashed border-green-600 bg-white p-4"
+          >
+            <div class="testimonilas-heading mb-3">
+              <h3 class="font-semibold text-gray-900">
+                Free Transportation Facility
+              </h3>
+              <span class="text-sm text-gray-700">From NCBT</span>
+            </div>
+            <div class="testimonilas-para text-gray-500">
+              <p>
+                But also the leap into electronic type reman see essentially
+                unchanged. It was popul arised thew with the release of letraset
+                sheets.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div
+            class="slide-wrapper border-4 border-dashed border-green-600 bg-white p-4"
+          >
+            <div class="testimonilas-heading mb-3">
+              <h3 class="font-semibold text-gray-900">
+                Free Transportation Facility
+              </h3>
+              <span class="text-sm text-gray-700">From NCBT</span>
+            </div>
+            <div class="testimonilas-para text-gray-500">
+              <p>
+                But also the leap into electronic type reman see essentially
+                unchanged. It was popul arised thew with the release of letraset
+                sheets.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div
+            class="slide-wrapper border-4 border-dashed border-green-600 bg-white p-4"
+          >
+            <div class="testimonilas-heading mb-3">
+              <h3 class="font-semibold text-gray-900">
+                Free Transportation Facility
+              </h3>
+              <span class="text-sm text-gray-700">From NCBT</span>
+            </div>
+            <div class="testimonilas-para text-gray-500">
+              <p>
+                But also the leap into electronic type reman see essentially
+                unchanged. It was popul arised thew with the release of letraset
+                sheets.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div
+            class="slide-wrapper border-4 border-dashed border-green-600 bg-white p-4"
+          >
+            <div class="testimonilas-heading mb-3">
+              <h3 class="font-semibold text-gray-900">
+                Free Transportation Facility
+              </h3>
+              <span class="text-sm text-gray-700">From NCBT</span>
+            </div>
+            <div class="testimonilas-para text-gray-500">
+              <p>
+                But also the leap into electronic type reman see essentially
+                unchanged. It was popul arised thew with the release of letraset
+                sheets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+<!-- testimonials end -->
+{% endblock main %}

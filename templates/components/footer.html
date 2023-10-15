@@ -1,0 +1,177 @@
+{% load static %}
+<footer
+  class="footer-bg flex w-full flex-col items-center justify-center bg-indigo-950 text-gray-300"
+>
+  <div class="container">
+    <div
+      class="-mt-16 flex flex-col items-center justify-between gap-4 bg-green-700 p-6 md:h-32 md:flex-row md:px-20"
+    >
+      <div>
+        <h2 class="text-xl text-white md:text-3xl">Subscribe</h2>
+        <p class="text-sm md:text-base">
+          Enter your email and get latest updates and offers suHbscribe us
+        </p>
+      </div>
+      <form class="flex w-full max-w-xs gap-2 rounded-3xl bg-white px-5 py-2" action="{% url 'app_main:contactus' %}">
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Enter your email"
+          class="w-full border-none px-2 text-sm text-gray-700 outline-none"
+        />
+        <button><i class="ti ti-arrow-move-right text-gray-900"></i></button>
+      </form>
+    </div>
+    <div
+      class="my-4 grid w-full gap-16 py-8 md:mb-8 md:py-16 lg:grid-cols-9 lg:gap-0"
+    >
+      {% if footer %}
+      <div class="flex flex-col items-center md:items-start lg:col-span-4">
+        <a class="mb-8 flex items-center gap-4 text-5xl" href="#">
+          <img
+            src="{{footer.logo.url}}"
+            alt="footer logo"
+            class="w-16 rounded-full bg-white p-1"
+          />
+          <span class="text-white">NCBT</span>
+        </a>
+
+        <p
+          class="mb-6 max-w-md text-center text-sm leading-relaxed md:max-w-none md:text-left lg:text-justify"
+        >
+          {{ footer.details }}
+        </p>
+        <ul class="flex gap-5 text-xl">
+          <li>
+            <a
+              href="{% if  footer.facebook_link %}{{ footer.facebook_link }}{% else %}#{% endif %}"
+              class="grid aspect-square w-8 place-items-center rounded-full bg-white text-zinc-500"
+            >
+              <i class="ti ti-brand-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="{% if  footer.instagram_link %}{{ footer.instagram_link }}{% else %}#{% endif %}"
+              class="grid aspect-square w-8 place-items-center rounded-full bg-white text-zinc-500"
+            >
+              <i class="ti ti-brand-instagram"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="{% if  footer.twitter_link %}{{ footer.twitter_link }}{% else %}#{% endif %}"
+              class="grid aspect-square w-8 place-items-center rounded-full bg-white text-zinc-500"
+            >
+              <i class="ti ti-brand-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="{% if  footer.youtube_link %}{{ footer.youtube_link }}{% else %}#{% endif %}"
+              class="grid aspect-square w-8 place-items-center rounded-full bg-white text-zinc-500"
+            >
+              <i class="ti ti-brand-youtube"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      {% endif %}
+
+      <div
+        class="flex w-full flex-col flex-wrap justify-center gap-6 md:flex-row md:gap-12 lg:col-span-5 lg:pl-10 xl:pl-16"
+      >
+        <div class="w-max">
+          <h2 class="mb-3 text-sm font-bold text-white md:text-base">
+            Quick Links
+          </h2>
+          <div
+            class="grid grid-cols-2 gap-6 text-[0.8rem] sm:grid-cols-1 md:gap-3 md:text-sm"
+          >
+            <div class="flex flex-col gap-3">
+              <a href="#">About Us</a>
+              <a href="#">Contact Us</a>
+              <a href="#">Privacy Policy</a>
+            </div>
+            <div class="flex flex-col gap-3">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Support Policy</a>
+              <a href="#">FAQ</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-1">
+          <h2 class="mb-3 text-sm font-bold text-green-600 md:text-base">
+            Main Campus
+          </h2>
+          {% if contact %}
+          <div class="flex flex-col gap-3 text-[0.8rem] md:text-sm">
+            <a href="#" class="flex items-center gap-4">
+              <i class="ti ti-map-pin-filled text-[1.25em]"></i>
+              <span>{{ contact.address }}</span>
+            </a>
+            <a href="#" class="flex items-center gap-4">
+              <i class="ti ti-phone-call text-[1.25em]"></i>
+              <span>{{ contact.phone }}</span>
+            </a>
+            <a href="#" class="flex items-center gap-4">
+              <i class="ti ti-mail-filled text-[1.25em]"></i>
+              <span>{{ contact.email }}</span>
+            </a>
+            <div class="mt-2">
+              <h5 class="mb-2 font-medium text-white">Opening Hour</h5>
+              <span class="flex items-center gap-4">
+                <i class="ti ti-clock text-[1.25em]"></i>
+                {{contact.work}}
+              </span>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        <div class="flex-1">
+          <h2 class="mb-3 text-sm font-bold text-green-600 md:text-base">
+            Dhaka Office
+          </h2>
+          {% if contact %}
+          <div class="flex flex-col gap-3 text-[0.8rem] md:text-sm">
+            <a href="#" class="flex items-center gap-4">
+              <i class="ti ti-map-pin-filled text-[1.25em]"></i>
+              <span>{{ contact.address }}</span>
+            </a>
+            <a href="#" class="flex items-center gap-4">
+              <i class="ti ti-phone-call text-[1.25em]"></i>
+              <span>{{ contact.phone }}</span>
+            </a>
+            <a href="#" class="flex items-center gap-4">
+              <i class="ti ti-mail-filled text-[1.25em]"></i>
+              <span>{{ contact.email }}</span>
+            </a>
+            <div class="mt-2">
+              <h5 class="mb-2 font-medium text-white">Opening Hour</h5>
+              <span class="flex items-center gap-4">
+                <i class="ti ti-clock text-[1.25em]"></i>
+                {{contact.work}}
+              </span>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4 w-full bg-gray-900 p-4 text-center text-xs sm:text-sm">
+    <p class="text-white">
+      Developed by
+      <a
+        class="text-blue-500 hover:underline"
+        href="https://www.itsourcebd.com/"
+        target="_blank"
+      >
+        ITSOURCE
+      </a>
+      | © 2020-2023 ncbt. All rights reserved.
+    </p>
+  </div>
+</footer>

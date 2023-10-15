@@ -32,8 +32,6 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "jazzmin",
-    "common",
-    "std_portal",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -42,6 +40,8 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "django_cleanup.apps.CleanupConfig",
+    "app_main",
+    "std_portal",
 ]
 
 MIDDLEWARE = [
@@ -69,6 +69,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "std_portal.custom_context_processor.get_profile_image",
+                "app_main.custom_context_processor.miscellaneous_common_data",
             ],
         },
     },

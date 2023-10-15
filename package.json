@@ -1,0 +1,33 @@
+{
+  "name": "tailwind-project-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "serve": "concurrently \"postcss static/css/input.scss -o static/css/output.css --watch\"  \"live-server --host=192.168.10.127\"",
+    "tw-watch": "tailwindcss -i ./src/input.scss -o ./src/output.css -w",
+    "watch-p": "postcss ./static/assets/css/input.scss -o ./static/assets/css/output.css --watch",
+    "build-p": "postcss -i ./src/input.scss -o ./src/output.css -minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.15",
+    "concurrently": "^8.2.1",
+    "live-server": "^1.2.2",
+    "postcss": "^8.4.29",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "postcss-mixins": "^9.0.4",
+    "postcss-preset-env": "^9.1.3",
+    "postcss-scss": "^4.0.8",
+    "postcss-strip-inline-comments": "^0.1.5",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.4.1",
+    "tailwindcss": "^3.3.3"
+  },
+  "dependencies": {
+    "flowbite": "^1.8.1"
+  }
+}

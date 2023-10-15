@@ -1,0 +1,148 @@
+<div class="nav-secondary bg-indigo-950">
+  <div
+    class="container hidden items-center justify-between py-1.5 text-sm text-gray-300 md:flex"
+  >
+    <div class="flex items-center gap-5">
+      <span class="flex items-center gap-2">
+        <i class="ti ti-phone-call"></i>
+        <span class="mt-1">+880177837750</span>
+      </span>
+      <span class="flex items-center gap-2">
+        <i class="ti ti-mail"></i>
+        <span class="mt-0.5">nhaquecollege@gmail.com</span>
+      </span>
+    </div>
+    <div class="flex items-center gap-3 text-base text-gray-300">
+      <a
+        href="{% if  footer.facebook_link %}{{ footer.facebook_link }}{% else %}#{% endif %}"
+        class=""
+      >
+        <i class="ti ti-brand-facebook"></i>
+      </a>
+      <span class="inline-block h-4 w-0.5 bg-gray-600"></span>
+      <a
+        href="{% if  footer.twitter_link %}{{ footer.twitter_link }}{% else %}#{% endif %}"
+        class=""
+      >
+        <i class="ti ti-brand-twitter"></i>
+      </a>
+      <span class="inline-block h-4 w-0.5 bg-gray-600"></span>
+      <a
+        href="{% if  footer.youtube_link %}{{ footer.youtube_link }}{% else %}#{% endif %}"
+        class=""
+      >
+        <i class="ti ti-brand-youtube"></i>
+      </a>
+    </div>
+  </div>
+</div>
+<nav class="sticky top-0 z-50 w-full bg-white" aria-label="Global">
+  <div class="nav-wrapper container flex h-20 items-center justify-between">
+    <div class="flex w-full items-center justify-between md:w-auto">
+      <a class="flex items-center gap-4" href="{% url 'app_main:home' %}">
+        <img
+          src="{{footer.logo.url}}"
+          alt="footer logo"
+          class="w-14 rounded-full bg-white p-1"
+        />
+        <span class="text-4xl font-bold text-green-600">NCBT</span>
+      </a>
+      <div class="nav-icons flex items-center gap-4 md:hidden">
+        <a href="{% url 'admin:index' %}" class="grid place-items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-user"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+          </svg>
+        </a>
+        <button
+          class="nav-toggle-btn inline-flex items-center justify-center gap-2 rounded-md border bg-white p-2 align-middle text-sm text-zinc-700 shadow-sm transition-all hover:bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-zinc-600 focus:ring-offset-2 focus:ring-offset-white"
+        >
+          <i class="ti ti-menu-2"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="navbar" class="">
+      <ul class="nav-menu">
+        <li>
+          <a class="nav-link active" href="/">Home</a>
+        </li>
+
+        <li class="dropdown [--strategy:static] md:[--strategy:absolute]">
+          <button
+            type="button"
+            class="nav-link menu-toggle-btn flex items-center gap-x-3"
+          >
+            Products
+            <i class="ti ti-chevron-down"></i>
+          </button>
+
+          <ul class="dropdown-menu">
+            <li>
+              <a class="menu-link" href="">All Category</a>
+            </li>
+            <li
+              class="submenu__left submenu [--strategy:static] md:[--strategy:absolute]"
+            >
+              <button type="button" class="submenu-btn menu-toggle-btn">
+                Category
+                <i class="ti ti-chevron-right rotate-90 md:rotate-0"></i>
+              </button>
+              <ul class="submenu-menu">
+                <li>
+                  <a class="menu-link" href="">All Subcategory</a>
+                </li>
+                <li>
+                  <a class="menu-link" href="">Subcategory</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <li class="">
+          <a class="nav-link" href="{% url 'app_main:contactus' %}">Contact</a>
+        </li>
+        <li class="">
+          <a class="nav-link" href="{% url 'app_main:aboutus' %}">About</a>
+        </li>
+        <li class="mt-4 inline-block md:mt-0">
+          <a
+            href="{% url 'admin:index' %}"
+            class="flex items-center gap-2 rounded bg-zinc-800 py-1.5 pl-3 pr-3.5 text-sm uppercase text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-user"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+              <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+            </svg>
+            <span class="mt-1 inline-block">Student Portal</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

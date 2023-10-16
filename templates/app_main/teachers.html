@@ -1,4 +1,4 @@
-{% extends 'app_main/base.html' %} {% load static %} {% block main %}
+{% extends 'common/base.html' %} {% load static %} {% block main %}
 
 <!-- slider-start -->
 <div class="slider-area">
@@ -54,7 +54,7 @@
                 src="{% if obj.teacher_picture %}{{ obj.teacher_picture.url }}{% else %}{% static 'assets/std_portal/images/teacher_defulte.jpg' %}{% endif %}"
                 alt="Teacher Image"
               />
-              <!-- <img src="{% static 'assets/app_main/img/team/teammember1.jpg' %}" alt=""> -->
+              <!-- <img src="{% static 'assets/common/img/team/teammember1.jpg' %}" alt=""> -->
             </div>
             <div class="team-social-info text-center">
               <div class="team-social-para">

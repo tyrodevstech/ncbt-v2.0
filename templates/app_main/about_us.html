@@ -1,290 +1,402 @@
 {% extends 'app_main/base.html' %} {% load static %} {% block main %}
-<!-- slider-start -->
-<div class="slider-area">
-  <div class="page-title">
+<!-- cover image start -->
+<section id="contact-cover-image">
+  <div class="relative isolate h-[24rem] w-full bg-black">
+    <img
+      loading="lazy"
+      class="absolute inset-0 -z-10 h-full w-full object-cover opacity-70"
+      src="{% static 'assets/images/sliedbar-bg.jpg' %}"
+      alt="contact-cover"
+    />
+    <div class="pt-[10rem] text-center text-white">
+      <h2 class="text-4xl font-bold uppercase md:text-6xl">About US</h2>
+    </div>
+  </div>
+</section>
+<!-- cover image end -->
+
+<!-- our history start -->
+<section id="our-history" class="my-8 py-8 md:my-16 md:py-16">
+  <div
+    class="container flex flex-col items-start justify-start gap-8 md:flex-row md:justify-center md:gap-8"
+  >
+    <div class="w-full md:w-1/2">
+      <h2 class="mb-6 text-3xl font-bold uppercase text-green-700">
+        Our History
+      </h2>
+      <p class="text-sm font-normal text-zinc-900">
+        N.Haque College of Business and Technology (NCBT) is one of the leading
+        institutes affiliated with the National University of Bangladesh.
+        N.Haque College of Business and Technology is a seat of higher
+        education, situated in Gopalgonj, the district where the founder
+        president of Bangladesh Bangabandhu Sheikh Mujibur Rahman was born. Our
+        customized curriculum builds the knowledge, skill and attitudes that
+        students need to succeed in their academic and professional careers
+        after College & University. Students are encouraged to challenge
+        themselves their partners and their teachers in a setting that gives
+        them confidence and builds their skills to think independently.NCBT
+        undertakes to build up a reputation as a rural level low cost digital
+        education in Business and Technology with innovative research and
+        development as a private institution.
+      </p>
+      <p class="mt-4 text-sm font-normal text-zinc-900">
+        Students are encouraged to challenge themselves their partners and their
+        teachers in a setting that gives them confidence and builds their skills
+        to think independently.NCBT undertakes to build up a reputation as a
+        rural level low cost digital education in Business and Technology with
+        innovative research and development as a private institution.
+      </p>
+    </div>
+    <div class="mt-4 w-full md:mt-0 md:w-1/2">
+      <div class="grid grid-flow-col place-items-end">
+        <img
+          class="rounded-md"
+          src="https://preview.colorlib.com/theme/university/images/img_1.jpg.webp"
+          alt="about-students-img"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<!-- our history end -->
+
+<!-- line draw start -->
+<div class="grid place-items-center">
+  <span class="inline-block h-1 w-56 bg-green-700"></span>
+</div>
+<!-- line draw end -->
+
+<!-- about sections starts -->
+<section class="my-8 py-8 md:my-16 md:py-16">
+  <div class="container">
+    <div class="mb-12 text-center md:mb-24">
+      <h2
+        class="text-2xl font-bold uppercase leading-tight tracking-wider text-zinc-900 md:text-3xl"
+      >
+        Why Choose Us
+      </h2>
+      <p class="text-md mt-2 font-medium text-zinc-700">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui
+        neque sint eveniet tempore sapiente.
+      </p>
+    </div>
+
+    <!-- item 1 -->
     <div
-      class="single-slider slider-height slider-height-breadcrumb d-flex align-items-center"
-      style="
-        background-image: url({%static'assets/images/sliedbar-bg.jpg'%});
-        min-height: 250px;
-      "
+      class="flex flex-col items-center justify-center md:flex-row md:justify-center"
     >
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-12">
-            <div class="slider-content slider-content-breadcrumb text-center">
-              <h1 class="white-color f-700">About Us</h1>
-            </div>
-          </div>
+      <div class="w-full md:w-1/2">
+        <div class="relative h-[32rem] w-full">
+          <img
+            loading="lazy"
+            class="absolute inset-0 -z-10 h-full w-full object-cover"
+            src="https://preview.colorlib.com/theme/university/images/img_2.jpg.webp"
+            alt="about-img-1"
+          />
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<!-- slider-end -->
-<!-- slider-start -->
-<div id="about" class="about-area pt-100 pb-70">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-7 col-lg-7">
-        <div class="about-title-section mb-30">
-          <h1>Welcome To NCBT</h1>
-          <p>
-            N.Haque College of Business and Technology (NCBT) is one of the
-            leading institutes affiliated with the National University of
-            Bangladesh. N.Haque College of Business and Technology is a seat of
-            higher education, situated in Gopalgonj, the district where the
-            founder president of Bangladesh Bangabandhu Sheikh Mujibur Rahman
-            was born. Our customized curriculum builds the knowledge, skill and
-            attitudes that students need to succeed in their academic and
-            professional careers after College & University. Students are
-            encouraged to challenge themselves their partners and their teachers
-            in a setting that gives them confidence and builds their skills to
-            think independently.NCBT undertakes to build up a reputation as a
-            rural level low cost digital education in Business and Technology
-            with innovative research and development as a private institution.
-          </p>
-          <button class="theme-btn blue-bg-border mt-20">
-            <span class="btn-text">admit now</span>
-          </button>
-        </div>
-      </div>
-      <div class="col-xl-5 col-lg-5">
-        <div class="about-right-img mb-30">
-          <img src="{% static 'assets/images/student-cover.png' %}" alt="" />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- slider-end -->
-
-<style>
-  .line {
-    background-color: #00a651;
-    margin: auto;
-    width: 50%;
-    height: 3px;
-  }
-</style>
-
-<div class="line"></div>
-
-<!-- founder-start -->
-<div id="about" class="about-area pt-100 pb-70 text-md-left text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-4 col-lg-4 mb-30 mx-4">
-        <div class="advisor-img mb-35">
-          <img src="{% static 'assets/images/advisors-img_1.jpg' %}" alt="" />
-        </div>
-      </div>
-      <div class="col-xl-7 col-lg-7">
-        <div class="about-title-section mb-30">
-          <h1 class="">ABOUT THE FOUNDER</h1>
-          <p>
-            The dream of a globally acclaimed institution promoted Mr. Nurul
-            Haque Chowdhury to set up NCBT. Mr. Chowdhury visited many countries
-            of the world and observed the way the universities of those
-            countries work. He made up his mind to establish such an institution
-            which will be the torch bearer of knowledge and wisdom. In spite of
-            his busy schedule, he spent a lot of time to actualize his dream
-            into reality. Being the chairman of Reliance industrial park, he has
-            also associated himself with a variety of humanitarian works. In
-            accordance with the slogan, 'Digital Bangladesh', Mr Haque wants to
-            make the students go digital by setting up a college which excels in
-            business and technology.
-          </p>
-          <p>
-            NCBT undertakes to build up a reputation as a rural level low cost
-            digital education in Business and Technology with innovative
-            research and development as a private institution.
-          </p>
-          <!-- <button class="theme-btn blue-bg-border mt-20"><span class="btn-text">admit now</span></button> -->
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- founder-end -->
-
-<!-- mission vision-start -->
-<div
-  id="events"
-  class="events-area events-bg-height pt-100 pb-95 text-md-left text-center"
-  style="background-image: url({%static'assets/images/courses_bg.png'%})"
->
-  <div class="container">
-    <div class="row card flex-lg-row flex-column-reverse m-0 flex-row">
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 p-xl-5 p-3">
-        <h3>Our Mission</h3>
-        <p>
-          The mission of NCBT is to contribute, through collaborative research
-          and education to efforts to create a Digital Bangladesh. NCBT pays due
-          attention to the spread of technological knowledge everywhere.
+      <div class="w-full px-0 py-8 md:w-1/2 md:px-24">
+        <p class="mb-2 text-xs uppercase">NICE TEXT HERE</p>
+        <h2 class="mb-6 text-4xl font-bold uppercase text-zinc-900 lg:text-6xl">
+          Excellent Teachers
+        </h2>
+        <p class="text-sm text-zinc-900">
+          Even the all-powerful Pointing has no control about the blind texts it
+          is an almost unorthographic life One day however a small line of blind
+          text by the name of Lorem Ipsum decided to leave for the far World of
+          Grammar.
         </p>
       </div>
-      <img
-        src="{% static 'assets/images/gd_img.jpg' %}"
-        alt=""
-        class="col-12 col-sm-12 col-md-6 col-lg-6 img-fluid p-xl-5 rounded p-3"
-      />
     </div>
 
-    <div class="row card m-0 mt-5 flex-row">
-      <img
-        src="{% static 'assets/images/vission.jpg' %}"
-        alt=""
-        class="col-12 col-sm-12 col-md-6 col-lg-6 img-fluid p-xl-5 rounded p-3"
-      />
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 p-xl-5 p-3">
-        <h3>Our Vision</h3>
-        <p>
-          NCBT aspires to be a world class teaching and capacity development
-          institution that addresses the needs of present and future generation.
-          It endeavors to provide global leadership on the aspects of business
-          and technology. NCBT also seeks to become a widely recognized
-          international graduate teaching and research institution known for-
-          <br />
-          <br />
-          &nbsp;- Strict adherence to rigorous scientific method.
-          <br />
-          &nbsp;- Emphasis on issues providing high quality services & outputs.
-          <br />
-          &nbsp;- A focus on issues that impact sustainability.
-          <br />
-          &nbsp;- High ethical standard along with academic excellence.
-          <br />
-          &nbsp;- Intellectual vitality and spirit of cooperation.
-          <br />
-          &nbsp;- Equality and openness in access to opportunities.
-          <br />
-          &nbsp;- Strict adherence to the principle of gender balance.
-          <br />
-          &nbsp;- Going carbon free amongst all campuses in Bangladesh.
+    <!-- item 2 -->
+    <div
+      class="flex flex-col items-center justify-center md:flex-row-reverse md:justify-center"
+    >
+      <div class="w-full md:w-1/2">
+        <div class="relative h-[32rem] w-full">
+          <img
+            loading="lazy"
+            class="absolute inset-0 -z-10 h-full w-full object-cover"
+            src="https://preview.colorlib.com/theme/university/images/img_1.jpg.webp"
+            alt="about-img-1"
+          />
+        </div>
+      </div>
+      <div class="w-full px-0 py-8 md:w-1/2 md:px-24">
+        <p class="mb-2 text-xs uppercase">NICE TEXT HERE</p>
+        <h2 class="mb-6 text-4xl font-bold uppercase text-zinc-900 lg:text-6xl">
+          Outstanding Facilities
+        </h2>
+        <p class="text-sm text-zinc-900">
+          Even the all-powerful Pointing has no control about the blind texts it
+          is an almost unorthographic life One day however a small line of blind
+          text by the name of Lorem Ipsum decided to leave for the far World of
+          Grammar.
+        </p>
+      </div>
+    </div>
+
+    <!-- item 3 -->
+    <div
+      class="flex flex-col items-center justify-center md:flex-row md:justify-center"
+    >
+      <div class="w-full md:w-1/2">
+        <div class="relative h-[32rem] w-full">
+          <img
+            loading="lazy"
+            class="absolute inset-0 -z-10 h-full w-full object-cover"
+            src="https://preview.colorlib.com/theme/university/images/img_3.jpg.webp"
+            alt="about-img-1"
+          />
+        </div>
+      </div>
+      <div class="w-full px-0 py-8 md:w-1/2 md:px-24">
+        <p class="mb-2 text-xs uppercase">World Class Education</p>
+        <h2 class="mb-6 text-4xl font-bold uppercase text-zinc-900 lg:text-6xl">
+          Excellent Teachers
+        </h2>
+        <p class="text-sm text-zinc-900">
+          Even the all-powerful Pointing has no control about the blind texts it
+          is an almost unorthographic life One day however a small line of blind
+          text by the name of Lorem Ipsum decided to leave for the far World of
+          Grammar.
         </p>
       </div>
     </div>
   </div>
+</section>
+<!-- about sections end -->
+
+<!-- line draw start -->
+<div class="grid place-items-center">
+  <span class="inline-block h-1 w-56 bg-green-700"></span>
 </div>
-<!-- mission vision-end -->
+<!-- line draw end -->
 
-<!-- faq start -->
-<div class="fag-area pt-70 pb-70">
+<!-- code of conduct start -->
+<section class="my-8 py-8 md:my-16 md:py-16">
   <div class="container">
-    <h2 class="f-700 my-5 text-center">CODE OF CONDUCT</h2>
-    <div class="faq-list">
-      <div class="row">
-        <style>
-          .span-br span {
-            display: table;
-            margin-bottom: 0.5rem;
-          }
+    <div class="mb-8 text-center md:mb-16">
+      <h2
+        class="text-2xl font-bold uppercase leading-tight tracking-wider text-green-700 md:text-3xl"
+      >
+        Code of Conduct
+      </h2>
+      <p
+        class="text-md border-b-2 border-green-700 py-4 font-medium text-zinc-700"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui
+        neque sint eveniet tempore sapiente.
+      </p>
+    </div>
 
-          .span-br span i {
-            display: table-cell;
-            padding-right: 0.75rem;
-          }
-        </style>
-        <div class="col-sm-6 span-br mb-lg-0 mb-4">
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Students must abide by the rules of NCBT. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Doloribus, sed.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Any type of political activity is banned in the campus.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Every student should dress well before entering the campus.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Sunglasses are not allowed in the classrooms or in the examination
-            halls.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Using any kinds of offensive language is strictly prohibited in the
-            campus.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Students should take care of all types of properties of NCBT.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Cheating or coping in the examination halls is a punishable offence.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Students shall not write anything on the walls, chairs and tables.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Students are not permitted to paste any poster or write any slogan
-            on the walls.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            The use of cellular phone in the classrooms or in the examination
-            halls is strictly prohibited.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Smoking is not allowed in the campus.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Possession or use of drugs in the campus is prohibited.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            In case of any discontent against any official or student of NCBT, a
-            written application should be forwarded to the authority.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Any activity subversive to the state is strictly prohibited.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Breaking the code of conduct is a serious offence.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Students should not take law in their hands.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            The NCBT authority has the right to take disciplinary actions
-            against any student for unethical or illegal acts.
-          </span>
-          <span>
-            <i class="fas fa-arrow-circle-right"></i>
-            Eve-teasing or stalking is strictly prohibited.
-          </span>
-        </div>
-        <div class="col-sm-6 d-flex justify-content-between flex-column">
-          <img
-            src="{% static 'assets/images/a-new.jpg' %}"
-            alt="images"
-            class="img-fluid mb-lg-0 mb-4"
-          />
-          <img
-            src="{% static 'assets/images/a-new-2.jpg' %}"
-            alt="images"
-            class="img-fluid"
-          />
-        </div>
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Students must abide by the rules of NCBT. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Doloribus, sed.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Any type of political activity is banned in the campus.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Every student should dress well before entering the campus.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Sunglasses are not allowed in the classrooms or in the examination
+          halls.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Using any kinds of offensive language is strictly prohibited in the
+          campus.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Students should take care of all types of properties of NCBT.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Cheating or coping in the examination halls is a punishable offence.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Students shall not write anything on the walls, chairs and tables.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Students are not permitted to paste any poster or write any slogan on
+          the walls.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          The use of cellular phone in the classrooms or in the examination
+          halls is strictly prohibited.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Smoking is not allowed in the campus.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Possession or use of drugs in the campus is prohibited.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          In case of any discontent against any official or student of NCBT, a
+          written application should be forwarded to the authority.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Any activity subversive to the state is strictly prohibited.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Breaking the code of conduct is a serious offence.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Students should not take law in their hands.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          The NCBT authority has the right to take disciplinary actions against
+          any student for unethical or illegal acts.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+    >
+      <div class="flex items-center justify-start gap-4">
+        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
+        <p class="text-lg font-semibold text-zinc-900">
+          Eve-teasing or stalking is strictly prohibited.
+        </p>
       </div>
     </div>
   </div>
-</div>
-<!-- faq end -->
+</section>
+<!-- code of conduct end -->
 
 {% endblock main %}

@@ -1,123 +1,113 @@
 {% extends 'app_main/base.html' %} {% load static %} {% block main %}
-
-<!-- slider-start -->
-<div class="slider-area">
-  <div class="page-title">
-    <div
-      class="single-slider slider-height slider-height-breadcrumb d-flex align-items-center"
-      style="
-        background-image: url({%static'assets/images/sliedbar-bg.jpg'%});
-        min-height: 250px;
-      "
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-12">
-            <div class="slider-content slider-content-breadcrumb text-center">
-              <h1 class="white-color f-700">Contact Us</h1>
-            </div>
-          </div>
-        </div>
-      </div>
+<!-- cover image start -->
+<section id="contact-cover-image">
+  <div class="relative isolate h-[24rem] w-full bg-black">
+    <img
+      loading="lazy"
+      class="absolute inset-0 -z-10 h-full w-full object-cover opacity-70"
+      src="{% static 'assets/images/sliedbar-bg.jpg' %}"
+      alt="contact-cover"
+    />
+    <div class="pt-[10rem] text-center text-white">
+      <h2 class="text-4xl font-bold uppercase md:text-6xl">Contact US</h2>
     </div>
   </div>
-</div>
-<!-- slider-end -->
-<!-- courses start -->
-<div class="advisors-area gray-bg pt-95 pb-70">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-5 col-lg-6 col-md-10 offset-md-1 ml-md-auto">
-        <div class="contact-info-text">
-          <div class="section-title mb-20">
-            <div class="section-title-heading mb-10">
-              <h1>Contact Info</h1>
-            </div>
-            <div class="section-title-para">
-              <p>
-                Lorem ipsum dolor sit amet, consecte adipisicing elit sed do
-                eiusmod tempor incididunt.
-              </p>
-            </div>
-          </div>
+</section>
+<!-- cover image end -->
+
+<!-- card & contact form start -->
+<section id="card-contact-form" class="my-8 py-8 md:my-16 md:py-16">
+  <div
+    class="container flex flex-col items-start justify-start gap-8 md:flex-row md:justify-center md:gap-12"
+  >
+    <div class="w-full md:w-1/2">
+      <h2 class="mb-6 text-4xl font-bold uppercase text-green-700">
+        GET IN TOUCH WITH US
+      </h2>
+      {% if contact %}
+      <p class="text-sm font-normal text-zinc-900">{{ info.details }}</p>
+      <div class="mt-10 flex flex-row items-center justify-start gap-2">
+        <i class="ti ti-phone"></i>
+        <p class="text-sm text-zinc-900">{{ info.phone }}</p>
+      </div>
+      <div class="mt-2 flex flex-row items-center justify-start gap-2">
+        <i class="ti ti-mail"></i>
+        <p class="text-sm text-zinc-900">{{ info.email }}</p>
+      </div>
+      <div class="mt-2 flex flex-row items-center justify-start gap-2">
+        <i class="ti ti-map"></i>
+        <p class="text-sm text-zinc-900">{{ info.address }}</p>
+      </div>
+      <div class="mt-2 flex flex-row items-start justify-start gap-2">
+        <i class="ti ti-calendar-time"></i>
+        <p class="text-sm text-black">{{ contact.work }}</p>
+      </div>
+      {% endif %}
+    </div>
+    <div class="mt-4 w-full md:mt-0 md:w-1/2">
+      <form class="mb-10 md:mb-0" action="" method="post">
+        {% csrf_token %}
+        <div
+          class="flex flex-col items-center justify-center gap-4 md:flex-row"
+        >
+          <input
+            class="block w-full border-b-[1.5px] border-green-700 bg-zinc-50 py-2 placeholder:text-xs placeholder:font-bold placeholder:text-zinc-600 focus:outline-none placeholder:focus:text-zinc-900"
+            type="text"
+            name="name"
+            placeholder="NAME"
+            required
+          />
+          <input
+            class="block w-full border-b-[1.5px] border-green-700 bg-zinc-50 py-2 placeholder:text-xs placeholder:font-bold placeholder:text-zinc-600 focus:outline-none placeholder:focus:text-zinc-900"
+            type="email"
+            name="email"
+            placeholder="EMAIL"
+            required
+          />
         </div>
         <div
-          class="contact-info mb-50 wow fadeInRight"
-          data-wow-delay=".3s"
-          style="
-            visibility: visible;
-            animation-delay: 0.3s;
-            animation-name: fadeInRight;
-          "
+          class="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row"
         >
-          <ul>
-            <li>
-              <div class="contact-icon">
-                <i class="ti-headphone"></i>
-              </div>
-              <div class="contact-text">
-                <h5>Call Us</h5>
-                <span>01818518220</span>
-                <br />
-                <span>0177837750</span>
-              </div>
-            </li>
-            <li>
-              <div class="contact-icon">
-                <i class="ti-email"></i>
-              </div>
-              <div class="contact-text">
-                <h5>Email Us</h5>
-                <span>nhaquecollege@gmail.com</span>
-              </div>
-            </li>
-            <li>
-              <div class="contact-icon">
-                <i class="ti-location-pin"></i>
-              </div>
-              <div class="contact-text">
-                <h5>Location</h5>
-                <span>Manikdah, Gopalganj-8100, Bangladesh</span>
-              </div>
-            </li>
-          </ul>
+          <input
+            class="block w-full border-b-[1.5px] border-green-700 bg-zinc-50 py-2 placeholder:text-xs placeholder:font-bold placeholder:text-zinc-600 focus:outline-none placeholder:focus:text-zinc-900"
+            type="text"
+            name="phone"
+            placeholder="PHONE"
+            required
+          />
+          <input
+            class="block w-full border-b-[1.5px] border-green-700 bg-zinc-50 py-2 placeholder:text-xs placeholder:font-bold placeholder:text-zinc-600 focus:outline-none placeholder:focus:text-zinc-900"
+            type="text"
+            name="address"
+            placeholder="ADDRESS"
+            required
+          />
         </div>
-      </div>
-      <div class="col-xl-7 col-lg-6 col-md-10 offset-md-1 ml-md-auto">
-        <div class="events-details-form faq-area-form mb-30 p-0">
-          <form method="post">
-            {% csrf_token %}
-            <div class="row">
-              <div class="col-xl-8">
-                <div class="events-form-title mb-25">
-                  <h2>Do You Have Any Questions</h2>
-                </div>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6">{{ form.name }}</div>
-              <div class="col-xl-6 col-lg-6 col-md-6">{{ form.email }}</div>
-              <div class="col-xl-6 col-lg-6 col-md-6">{{ form.phone }}</div>
-              <div class="col-xl-6 col-lg-6 col-md-6">{{ form.address }}</div>
-              <div class="col-xl-12">{{ form.desc }}</div>
-              <div class="col-xl-12">
-                <div class="faq-form-btn events-form-btn">
-                  <button class="btn m-0">submit now</button>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
+        <textarea
+          class="mt-8 block w-full border-b-[1.5px] border-green-700 bg-zinc-50 placeholder:text-xs placeholder:font-bold placeholder:text-zinc-600 focus:outline-none placeholder:focus:text-zinc-900"
+          name="message"
+          id=""
+          rows="6"
+          placeholder="MESSAGE"
+          required
+        ></textarea>
+        <button
+          type="text"
+          class="mt-8 border-[1.5px] border-green-700 px-8 py-4 font-sans text-xs font-semibold uppercase hover:bg-green-700 hover:text-white hover:duration-1000"
+        >
+          Send Message
+        </button>
+      </form>
     </div>
   </div>
-</div>
-<!-- courses end -->
+</section>
+<!-- card & contact form end -->
 
-{% if messages %} {% for message in messages %} {% if message.tags == 'success'
-%}
+{% if messages %} {% for message in messages %}
 <div id="msg_text_success" class="message" style="display: none">
   {{ message }}
 </div>
-{% endif %} {% endfor %} {% endif %}
+{% endfor %} {% endif %}
 
 <style>
   .tata-text {

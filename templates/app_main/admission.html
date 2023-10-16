@@ -1,117 +1,54 @@
-{% extends 'app_main/base.html' %}
-{% load static %}
+{% extends 'app_main/base.html' %} {% load static %} {% block main %}
 
-{% block main %}
-<!-- slider-start -->
-<div class="slider-area">
-    <div class="pages-title">
-        <div class="single-slider slider-height slider-height-breadcrumb d-flex align-items-center"
-            style="background-image: url({% static 'assets/images/sliedbar-bg.jpg' %}); min-height: 250px;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="slider-content slider-content-breadcrumb text-center">
-                            <h1 class="white-color f-700">Admission Information</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- cover image start -->
+<section id="contact-cover-image">
+  <div class="relative isolate h-[24rem] w-full bg-black">
+    <img
+      loading="lazy"
+      class="absolute inset-0 -z-10 h-full w-full object-cover opacity-70"
+      src="{% static 'assets/images/sliedbar-bg.jpg' %}"
+      alt="contact-cover"
+    />
+    <div class="pt-[10rem] text-center text-white">
+      <h2 class="text-4xl font-bold uppercase md:text-6xl">
+        Admission Information
+      </h2>
     </div>
-</div>
-<!-- slider-end -->
+  </div>
+</section>
+<!-- cover image end -->
 
-<!-- events start -->
-<div id="events" class="events-area events-bg-height pt-100 pb-95"
-    style="background-image: url({% static 'assets/images/courses_bg.png' %})">
-    <div class="container">
-        <div class="row">
-            <!-- Notice Content Start -->
-            <div class="col-xl-6 offset-xl-0 col-lg-6 offset-lg-0 col-md-10 offset-md-1 mb-4">
-                <div class="events-wrapper events-wrapper-padding h-100">
-                    <div class="events-text white-bg">
-                        <div class="event-text-heading mb-20">
-                            <div class="events-text-title clearfix">
-                                <a>
-                                    <h4>Admission Eligibility</h4>
-                                </a>
-                                <div class="time-area">
-                                    <span class="published-time" style="margin: 0;">From NCBT Admission
-                                        Office.</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="events-para">
-                            <p>Candidates seeking admission must apply in prescribed application Form which can
-                                be collected on payment of Tk. 1000.00 Candidates having 2nd division or at
-                                least GPA 2.50 in both SSC & HSC examinations, or their equivalents are eligible
-                                to apply for admission into Honours program in Law,English, Sociology and
-                                Business Administration. For B.Sc in (Computer Science & Engineering), B.Sc.(
-                                Electrical, Electronics and Telecommunication Engineering) and B.Sc (Civil
-                                Engineering) programs, candidate must have physics & Mathematics at their HSC
-                                level.For Bachelor of Pharmacy (B.Pharm.).
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- banner image start -->
 
-
-            <div class="col-xl-6 offset-xl-0 col-lg-6 offset-lg-0 col-md-10 offset-md-1 mb-4">
-                <div class="events-wrapper events-wrapper-padding h-100">
-                    <div class="events-inner d-flex">
-                        <div class="events-text white-bg">
-                            <div class="event-text-heading mb-20">
-                                <div class="events-text-title clearfix">
-                                    <a>
-                                        <h4>Required Documents</h4>
-                                    </a>
-                                    <div class="time-area">
-                                        <span class="published-time" style="margin: 0;">From NCBT Admission
-                                            Office.</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="events-para">
-                                <h5>For Undergraduate/ Honors Program:</h5>
-                                <p>- Original Transcript & Certificate of S.S.C. or Equivalent with 2 photocopies.
-                                </p>
-                                <p>- Original Transcript & Certificate of H.S.C. or Equivalent with 2 photocopies
-                                    and 7 Copies of Pass Port size Photograph .</p>
-                                <h5>For HSC Program:</h5>
-                                <p>- Original Transcript & Certificate of S.S.C. or Equivalent with 2 photocopies.
-                                </p>
-                                <p>- 7 Copies of Pass Port size Photograph .</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Notice Content End -->
-        </div>
+{% if admission %}
+<section class="my-8 py-8 md:my-16 md:py-16">
+  <div class="container">
+    <div class="z-10 max-w-full bg-green-300">
+      <img
+        loading="lazy"
+        class="popup-image h-full w-full object-cover hover:opacity-70"
+        src="{{ admission.admission_banner.url }}"
+        alt="about-img-1"
+      />
     </div>
-</div>
-</div>
-<!-- events end -->
 
+    <div class="my-16 max-w-full">{{ admission.admission_details|safe }}</div>
+  </div>
+</section>
+{% endif %}
 
+<!-- banner image end -->
 
-
-<div class="testimonilas-area pt-100 pb-90">
-    <div class="container">
-        <div class="row">
-            <div class="section-title mb-500 text-center col-12">
-                <div class="section-title-heading mb-20">
-                    <h1 class="primary-color">APPLICATION FOR ADMISSION</h1>
-                </div>
-                <p class="gray-color">A candidate seeking admission to a program must procure prescribed
-                    Application From from DIU office on payment of TK. 1000.00. Admission form available at
-                    admission information section: On the basis of admission test result, a student will get
-                    full free scholarship.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-{% endblock main %}
+{% endblock main %} {% block script %}
+<script>
+  $(".popup-image").magnificPopup({
+    type: "image",
+    mainClass: "mfp-fade",
+    callbacks: {
+      elementParse: function (item) {
+        item.src = item.el.attr("src");
+      },
+    },
+  });
+</script>
+{% endblock script %}

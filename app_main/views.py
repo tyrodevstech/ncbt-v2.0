@@ -22,7 +22,10 @@ def course_view(request):
 
 
 def admission_view(request):
-    return render(request, "app_main/admission.html")
+    context = {
+        "admission": AdmissionModel.objects.first(),
+    }
+    return render(request, "app_main/admission.html", context)
 
 
 def teachers_view(request):
@@ -51,6 +54,7 @@ def notice_view(request):
 
 
 def contact_us_view(request):
+    info = ContactInformationModel.objects.first()
     form = ContactForm()
     if request.method == "POST":
         form = ContactForm(request.POST)
@@ -59,7 +63,10 @@ def contact_us_view(request):
             messages.success(request, "Your message has been sent successfully!")
             return redirect("contactus")
 
-    context = {"form": form}
+    context = {
+        "form": form,
+        "info": info,
+    }
     return render(request, "app_main/contact_us.html", context)
 
 

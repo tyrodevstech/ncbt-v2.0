@@ -4,15 +4,15 @@
   >
     <div class="flex items-center gap-5">
       <span class="flex items-center gap-2">
-        <i class="ti ti-phone-call"></i>
+        <i class="ti ti-phone-call text-green-600"></i>
         <span class="mt-1">+880177837750</span>
       </span>
       <span class="flex items-center gap-2">
-        <i class="ti ti-mail"></i>
+        <i class="ti ti-mail text-green-600"></i>
         <span class="mt-0.5">nhaquecollege@gmail.com</span>
       </span>
     </div>
-    <div class="flex items-center gap-3 text-base text-gray-300">
+    <div class="flex items-center gap-3 text-sm text-gray-300">
       <a
         href="{% if  footer.facebook_link %}{{ footer.facebook_link }}{% else %}#{% endif %}"
         class=""
@@ -33,27 +33,34 @@
       >
         <i class="ti ti-brand-youtube"></i>
       </a>
+      <span class="inline-block h-4 w-0.5 bg-gray-600"></span>
+      <a href="" class="font-medium uppercase">
+        <i class="ti ti-user mr-1"></i>
+        Student Portal
+      </a>
     </div>
   </div>
 </div>
 <nav class="sticky top-0 z-50 w-full bg-white" aria-label="Global">
-  <div class="nav-wrapper container flex h-20 items-center justify-between">
-    <div class="flex w-full items-center justify-between md:w-auto">
-      <a class="flex items-center gap-4" href="{% url 'app_main:home' %}">
+  <div
+    class="nav-wrapper container flex h-16 items-center justify-between lg:h-20"
+  >
+    <div class="flex w-full items-center justify-between lg:w-auto">
+      <a class="flex items-center gap-3" href="{% url 'app_main:home' %}">
         <img
           src="{{footer.logo.url}}"
           alt="footer logo"
-          class="w-14 rounded-full bg-white p-1"
+          class="w-12 rounded-full bg-white p-1 md:w-14"
         />
-        <span class="text-4xl font-bold text-green-600">NCBT</span>
+        <span class="text-3xl font-bold text-green-600 md:text-4xl">NCBT</span>
       </a>
-      <div class="nav-icons flex items-center gap-4 md:hidden">
+      <div class="nav-icons flex items-center gap-4 lg:hidden">
         <a href="{% url 'admin:index' %}" class="grid place-items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="icon icon-tabler icon-tabler-user"
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             stroke-width="2"
             stroke="currentColor"
@@ -79,49 +86,99 @@
         <li>
           <a class="nav-link active" href="/">Home</a>
         </li>
-
-        <li class="dropdown [--strategy:static] md:[--strategy:absolute]">
+        <li class="">
+          <a class="nav-link" href="{% url 'app_main:aboutus' %}">About</a>
+        </li>
+        <li class="">
+          <a class="nav-link" href="{% url 'app_main:contactus' %}">
+            Admission
+          </a>
+        </li>
+        <li class="dropdown [--strategy:static] lg:[--strategy:absolute]">
           <button
             type="button"
             class="nav-link menu-toggle-btn flex items-center gap-x-3"
           >
-            Products
+            Courses
             <i class="ti ti-chevron-down"></i>
           </button>
 
           <ul class="dropdown-menu">
             <li>
-              <a class="menu-link" href="">All Category</a>
+              <a class="menu-link" href="">BBA</a>
+            </li>
+            <li>
+              <a class="menu-link" href="">CSE</a>
+            </li>
+            <li>
+              <a class="menu-link" href="">HSC</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown [--strategy:static] lg:[--strategy:absolute]">
+          <button
+            type="button"
+            class="nav-link menu-toggle-btn flex items-center gap-x-3"
+          >
+            Notice & Routine
+            <i class="ti ti-chevron-down"></i>
+          </button>
+
+          <ul class="dropdown-menu">
+            <li>
+              <a class="menu-link" href="">Notice</a>
             </li>
             <li
-              class="submenu__left submenu [--strategy:static] md:[--strategy:absolute]"
+              class="submenu__left submenu [--strategy:static] lg:[--strategy:absolute]"
             >
               <button type="button" class="submenu-btn menu-toggle-btn">
-                Category
-                <i class="ti ti-chevron-right rotate-90 md:rotate-0"></i>
+                Routine
+                <i class="ti ti-chevron-right rotate-90 lg:rotate-0"></i>
               </button>
               <ul class="submenu-menu">
                 <li>
-                  <a class="menu-link" href="">All Subcategory</a>
+                  <a class="menu-link" href="">BBA</a>
                 </li>
                 <li>
-                  <a class="menu-link" href="">Subcategory</a>
+                  <a class="menu-link" href="">CSE</a>
+                </li>
+                <li>
+                  <a class="menu-link" href="">HSC</a>
                 </li>
               </ul>
             </li>
           </ul>
         </li>
+        <li class="dropdown [--strategy:static] lg:[--strategy:absolute]">
+          <button
+            type="button"
+            class="nav-link menu-toggle-btn flex items-center gap-x-3"
+          >
+            Administration
+            <i class="ti ti-chevron-down"></i>
+          </button>
+
+          <ul class="dropdown-menu">
+            <li>
+              <a class="menu-link" href="">Authorities</a>
+            </li>
+            <li>
+              <a class="menu-link" href="">Teachers</a>
+            </li>
+            <li>
+              <a class="menu-link" href="">Staffs</a>
+            </li>
+          </ul>
+        </li>
 
         <li class="">
-          <a class="nav-link" href="{% url 'app_main:contactus' %}">Contact</a>
+          <a class="nav-link !pr-0" href="{% url 'app_main:contactus' %}">Contact</a>
         </li>
-        <li class="">
-          <a class="nav-link" href="{% url 'app_main:aboutus' %}">About</a>
-        </li>
-        <li class="mt-4 inline-block md:mt-0">
+
+        <li class="mt-4 inline-block lg:mt-0 lg:hidden">
           <a
             href="{% url 'admin:index' %}"
-            class="flex items-center gap-2 rounded bg-zinc-800 py-1.5 pl-3 pr-3.5 text-sm uppercase text-white"
+            class="flex w-max items-center gap-2 rounded bg-zinc-800 py-1.5 pl-3 pr-3.5 text-sm uppercase text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -1,345 +1,87 @@
-(function ($) {
-    "use strict";
+// Cache frequently used elements
+const $menuToggleBtns = $(".menu-toggle-btn");
+const $navToggleBtn = $(".nav-toggle-btn");
+const progressCircle = document.querySelector(".autoplay-progress svg");
+const progressContent = document.querySelector(".autoplay-progress span");
+const preloader = document.querySelector(".preloader");
 
-    // meanmenu
-    jQuery('#mobile-menu').meanmenu({
-        meanMenuContainer: '.mobile-menu',
-        meanScreenWidth: "991"
-    });
+// Function to handle preloader animation
+function hidePreloader() {
+  gsap.to(preloader, {
+    ease: Power1.easeOut,
+    opacity: 0,
+    display: "none",
+    duration: 1,
+  });
+  document.body.style.overflowY = "unset";
+}
 
-    // One Page Nav
-    var top_offset = $('.header-area').height() - 5;
-    $('.main-menu nav ul').onePageNav({
-        currentClass: 'active',
-        scrollOffset: top_offset,
-    });
+// Hide preloader on page load
+window.addEventListener("load", (event) => {
+  // Click event handler for menu toggle buttons
+  $menuToggleBtns.on("click", function () {
+    const $dropdownEl = $(this).parent();
+    const strategy = $dropdownEl.css("--strategy") || "static";
+    if (strategy.trim() !== "static") return;
+    $(this).next("ul").toggleClass("menu-open");
+  });
 
+  // Click event handler for nav toggle button
+  $navToggleBtn.on("click", function () {
+    $(this).find("i").toggleClass("ti-x");
+    $("#navbar").toggleClass("nav-open");
+  });
 
-    $(window).on('scroll', function () {
-        var scroll = $(window).scrollTop();
-        if (scroll < 300) {
-            $(".header-sticky").removeClass("sticky");
-        } else {
-            $(".header-sticky").addClass("sticky");
-        }
-    });
+  // Initialize Swiper for header slider
+  new Swiper("#header-slider", {
+    preloadImages: false,
+    lazy: true,
+    centeredSlides: true,
+    autoplay: {
+      delay: 6000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    keyboard: true,
+    on: {
+      autoplayTimeLeft(s, time, progress) {
+        progressCircle.style.setProperty("--progress", 1 - progress);
+        progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+      },
+    },
+  });
 
-    // mainSlider
-    function mainSlider() {
-        var BasicSlider = $(".slider-active");
-        BasicSlider.on("init", function (e, slick) {
-            var $firstAnimatingElements = $(".single-slider:first-child").find(
-                "[data-animation]"
-            );
-            doAnimations($firstAnimatingElements);
-        });
-        BasicSlider.on("beforeChange", function (e, slick, currentSlide, nextSlide) {
-            var $animatingElements = $(
-                '.single-slider[data-slick-index="' + nextSlide + '"]'
-            ).find("[data-animation]");
-            doAnimations($animatingElements);
-        });
-        BasicSlider.slick({
-            dots: true,
-            fade: true,
-            arrows: true,
-            autoplay: true,
-            autoplaySpeed: 4000,
-            prevArrow: "<button type='button' class='slick-prev pull-left'>prev</button>",
-            nextArrow: "<button type='button' class='slick-next pull-right'>next</button>",
-            responsive: [{
-                breakpoint: 767,
-                settings: {
-                    dots: false,
-                    arrows: false
-                }
-            }]
-        });
+  // Initialize Swiper for testimonial slider
+  new Swiper(".testimonial-slider", {
+    preloadImages: false,
+    lazy: true,
+    centeredSlides: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    keyboard: true,
+  });
 
-        function doAnimations(elements) {
-            var animationEndEvents =
-                "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
-            elements.each(function () {
-                var $this = $(this);
-                var $animationDelay = $this.data("delay");
-                var $animationType = "animated " + $this.data("animation");
-                $this.css({
-                    "animation-delay": $animationDelay,
-                    "-webkit-animation-delay": $animationDelay
-                });
-                $this.addClass($animationType).one(animationEndEvents, function () {
-                    $this.removeClass($animationType);
-                });
-            });
-        }
-    }
-    mainSlider();
+  $(".open-popup-link").magnificPopup({
+    type: "iframe",
+    midClick: true,
+    mainClass: "mfp-fade",
+  });
 
-    // slider-active
-    $('.slider-active-3').slick({
-        dots: true,
-        arrows: true,
-        prevArrow: '<button type="button" class="slick-prev"><span class="ti-angle-left"></span></button>',
-        nextArrow: '<button type="button" class="slick-next"><span class="ti-angle-right"></span></button>',
-        infinite: true,
-        fade: true,
-        speed: 800,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    arrows: false,
-                }
-            }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-        ]
-    });
+  hidePreloader();
+});
 
-    // courses-active
-    $('.courses-active').slick({
-        dots: false,
-        arrows: true,
-        prevArrow: "<button type='button' class='slick-prev pull-left'>prev</button>",
-        nextArrow: "<button type='button' class='slick-next pull-right'>next</button>",
-        infinite: true,
-        speed: 600,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        responsive: [{
-                breakpoint: 1080,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            },
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-        ]
-    });
-
-    // testimonilas-active
-    $('.testimonilas-active').slick({
-        dots: true,
-        arrows: false,
-        infinite: true,
-        speed: 600,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-        ]
-    });
-    $('.notice-slider-active').slick({
-        dots: false,
-        arrows: false,
-        infinite: false,
-        speed: 600,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-        ]
-    });
-
-    // testimonilas-active
-    $('.testimonilas-active-2').slick({
-        dots: true,
-        arrows: false,
-        infinite: true,
-        speed: 600,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-        ]
-    });
-
-    // shop-active
-    $('.shop-active').slick({
-        dots: false,
-        arrows: false,
-        infinite: true,
-        speed: 600,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        responsive: [{
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false
-                }
-            },
-            {
-                breakpoint: 991,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-        ]
-    });
-
-    // CIRCLE PROGRESSBAR
-
-    $('#bar1').barfiller();
-    $('#bar2').barfiller();
-    $('#bar3').barfiller();
-
-
-    // counter js
-    $('.counter').counterUp({
-        delay: 10,
-        time: 1000
-    });
-
-    /* magnificPopup img view */
-    $('.popup-image').magnificPopup({
-        type: 'image',
-        gallery: {
-            enabled: true
-        }
-    });
-
-    /* magnificPopup video view */
-    $('.popup-video').magnificPopup({
-        type: 'iframe'
-    });
-
-    // scrollToTop
-    $.scrollUp({
-        scrollName: 'scrollUp', // Element ID
-        topDistance: '300', // Distance from top before showing element (px)
-        topSpeed: 300, // Speed back to top (ms)
-        animation: 'fade', // Fade, slide, none
-        animationInSpeed: 200, // Animation in speed (ms)
-        animationOutSpeed: 200, // Animation out speed (ms)
-        scrollText: '<span class="ti-arrow-up"></span>', // Text for element
-        activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
-    });
-
-    // WOW active
-    new WOW().init();
-
-
-})(jQuery);
+// Automatically hide preloader after 5 seconds
+setTimeout(hidePreloader, 5000);

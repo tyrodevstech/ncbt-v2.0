@@ -24,7 +24,7 @@ body {
 }
 #navbar {
   @apply -translate-x-full transition-transform duration-300;
-  @apply fixed bottom-0 left-0 top-20 z-50 w-full max-w-xs text-sm;
+  @apply fixed bottom-0 left-0 top-16 z-50 w-full max-w-xs text-sm;
 }
 
 .dropdown > .dropdown-menu,
@@ -42,7 +42,7 @@ body {
 .nav-link {
   @apply font-medium text-zinc-600 hover:text-zinc-400;
 }
-@media screen(md) {
+@media screen(lg) {
   #navbar {
     @apply static top-auto max-w-none translate-x-0 transition-none;
   }
@@ -83,7 +83,7 @@ body {
     @apply translate-x-5;
   }
   .nav-menu {
-    @apply flex-row items-center justify-end gap-5 bg-transparent p-0;
+    @apply flex-row items-center justify-end bg-transparent p-0;
   }
   .nav-link {
     @apply px-3;
@@ -118,7 +118,7 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  color: #27272a;
+  color: #f0fdf4;
 }
 
 .autoplay-progress svg {
@@ -130,17 +130,23 @@ body {
   width: 100%;
   height: 100%;
   stroke-width: 4px;
-  stroke: #27272a;
+  stroke: #f0fdf4;
   fill: none;
   stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
   stroke-dasharray: 125.6;
   transform: rotate(-90deg);
 }
 
-.swiper-pagination-bullet-active {
-  @apply bg-zinc-900;
+#header-slider .swiper-pagination-bullet {
+  @apply !bg-gray-200 transition-all w-4 h-1 rounded;
 }
 
+#advisor-slider .swiper-pagination-bullet {
+  @apply !bg-gray-700 transition-all w-4 h-1 rounded;
+}
+.swiper-pagination-bullet-active {
+  @apply !w-10;
+}
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;

@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "whitenoise.runserver_nostatic",
-    "django.contrib.staticfiles",
+    # "django.contrib.staticfiles",
     "django_cleanup.apps.CleanupConfig",
     "app_main",
     "std_portal",

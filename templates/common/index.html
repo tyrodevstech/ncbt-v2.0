@@ -1,19 +1,21 @@
 {% extends 'common/base.html' %} {% load static %} {% block main %}
 <!-- slider-start -->
-<div id="header-slider" class="header-area">
+<div id="header-slider" class="header-area swiper">
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
     <div class="swiper-slide">
-      <div class="relative isolate flex h-[85vh] items-center bg-gray-950">
+      <div
+        class="relative isolate flex min-h-[400px] items-center bg-gray-950 lg:h-[85vh] md:min-h-[700px]"
+      >
         <img
           src="{% static 'assets/images/web_banner_1.jpg' %}"
           alt="slider bg"
-          class="absolute inset-0 -z-10 h-full w-full opacity-90"
+          class="absolute inset-0 -z-10 h-full w-full object-cover opacity-90"
         />
         <div class="container w-full text-white">
           <h1
-            class="text-7xl font-bold uppercase"
+            class="text-4xl font-bold uppercase md:text-5xl lg:text-7xl"
             data-animation="fadeInUp"
             data-delay=".2s"
           >
@@ -23,14 +25,52 @@
           <p
             data-animation="fadeInUp"
             data-delay=".4s"
-            class="mt-10 max-w-3xl text-lg leading-loose text-gray-200"
+            class="mt-10 max-w-3xl text-base text-gray-200 md:text-lg md:leading-loose"
           >
             N.Haque College of Business and Technology ( NCBT ) is one of the
             leading institutes affiliated with the National University of
             Bangladesh.
           </p>
           <button
-            class="mt-8 rounded bg-green-600 px-10 py-3"
+            class="mt-8 rounded bg-green-600 px-6 py-2 text-sm font-semibold uppercase md:px-12 md:py-4"
+            data-animation="fadeInUp"
+            data-delay=".6s"
+          >
+            <span class="btn-text">admit now</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Slides -->
+    <div class="swiper-slide">
+      <div
+        class="relative isolate flex min-h-[400px] items-center bg-gray-950 lg:h-[85vh] md:min-h-[700px]"
+      >
+        <img
+          src="{% static 'assets/images/web_banner_1.jpg' %}"
+          alt="slider bg"
+          class="absolute inset-0 -z-10 h-full w-full object-cover opacity-90"
+        />
+        <div class="container w-full text-white">
+          <h1
+            class="text-4xl font-bold uppercase md:text-5xl lg:text-7xl"
+            data-animation="fadeInUp"
+            data-delay=".2s"
+          >
+            <span></span>
+            Welcome to NCBT
+          </h1>
+          <p
+            data-animation="fadeInUp"
+            data-delay=".4s"
+            class="mt-10 max-w-3xl text-base text-gray-200 md:text-lg md:leading-loose"
+          >
+            N.Haque College of Business and Technology ( NCBT ) is one of the
+            leading institutes affiliated with the National University of
+            Bangladesh.
+          </p>
+          <button
+            class="mt-8 rounded bg-green-600 px-6 py-2 text-sm font-semibold uppercase md:px-12 md:py-4"
             data-animation="fadeInUp"
             data-delay=".6s"
           >
@@ -44,100 +84,116 @@
   <div class="swiper-pagination"></div>
 
   <!-- If we need navigation buttons -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
+  <div
+    class="swiper-button-prev !hidden text-green-50 after:content-none lg:!flex"
+  >
+    <i class="ti ti-arrow-left text-3xl"></i>
+  </div>
+  <div
+    class="swiper-button-next !hidden text-green-50 after:content-none lg:!flex"
+  >
+    <i class="ti ti-arrow-right text-3xl"></i>
+  </div>
 
-  <!-- If we need scrollbar -->
-  <div class="swiper-scrollbar"></div>
+  <div class="autoplay-progress">
+    <svg viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="20"></circle>
+    </svg>
+    <span></span>
+  </div>
 </div>
 <!-- slider-end -->
 
 <!-- about start -->
-<div id="about" class="about-area pt-100 pb-70 text-md-left text-center">
+<div id="about" class="about-area my-8 py-8 md:my-16 md:py-16">
   <div class="container">
-    <div class="row">
-      <div class="col-xl-8 col-lg-8">
-        <div class="about-title-section mb-30">
-          <h1>ABOUT THE FOUNDER</h1>
-          <p>
-            The dream of a globally acclaimed institution promoted Mr. Nurul
-            Haque Chowdhury to set up NCBT. Mr. Chowdhury visited many countries
-            of the world and observed the way the universities of those
-            countries work. He made up his mind to establish such an institution
-            which will be the torch bearer of knowledge and wisdom. In spite of
-            his busy schedule, he spent a lot of time to actualize his dream
-            into reality. Being the chairman of Reliance industrial park, he has
-            also associated himself with a variety of humanitarian works. In
-            accordance with the slogan, 'Digital Bangladesh', Mr Haque wants to
-            make the students go digital by setting up a college which excels in
-            business and technology.
-          </p>
-          <p>
-            NCBT undertakes to build up a reputation as a rural level low cost
-            digital education in Business and Technology with innovative
-            research and development as a private institution.
-          </p>
-          <!-- <button class="theme-btn blue-bg-border mt-20"><span class="btn-text">admit now</span></button> -->
-        </div>
+    <div
+      class="mb-12 flex flex-col-reverse items-center justify-between gap-8 md:mb-16 lg:flex-row"
+    >
+      <div
+        class="about-title-section flex max-w-xl flex-col items-center gap-6 text-center md:max-w-xl lg:items-start lg:text-left xl:max-w-2xl"
+      >
+        <h1 class="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
+          ABOUT THE FOUNDER
+        </h1>
+        <span
+          class="inline-block font-semibold text-gray-700 md:mt-4 md:text-lg"
+        >
+          Founder of N.Haque College of Business and Technology.
+        </span>
+        <p class="text-justify text-sm text-gray-500 md:text-base">
+          The dream of a globally acclaimed institution promoted Mr. Nurul Haque
+          Chowdhury to set up NCBT. Mr. Chowdhury visited many countries of the
+          world and observed the way the universities of those countries work.
+          He made up his mind to establish such an institution which will be the
+          torch bearer of knowledge and wisdom. In spite of his busy schedule,
+          he spent a lot of time to actualize his dream into reality. Being the
+          chairman of Reliance industrial park, he has also associated himself
+          with a variety of humanitarian works.
+        </p>
+        <button
+          class="mt-2 w-max rounded bg-green-600 px-7 py-3 text-sm font-semibold uppercase text-white"
+        >
+          <span class="btn-text">Read More</span>
+        </button>
       </div>
 
-      <div class="col-xl-4 col-lg-4 mb-30">
-        <div
-          class="advisor-img mb-35 animate__animated float-lg-right mx-auto"
-          data-animation="animate__fadeInRightBig"
-        >
-          <img src="{% static 'assets/images/advisors-img_1.jpg' %}" alt="" />
-        </div>
+      <div
+        class="advisor-img animate__animated relative w-full max-w-xs p-2 before:absolute before:bottom-0 before:right-0 before:h-12 before:w-2/5 before:border-b-2 before:border-r-2 before:border-gray-800 before:transition-all before:duration-300 before:ease-in-out after:absolute after:left-0 after:top-0 after:h-12 after:w-2/5 after:border-l-2 after:border-t-2 after:border-gray-800 after:transition-all after:duration-300 after:ease-in-out hover:before:h-[calc(100%+0.5rem)] hover:before:w-[calc(100%+0.5rem)] hover:after:h-[calc(100%+0.5rem)] hover:after:w-[calc(100%+0.5rem)]"
+        data-animation="animate__fadeInRightBig"
+      >
+        <img
+          src="{% static 'assets/images/advisors-img_1.jpg' %}"
+          alt=""
+          class="aspect-[3/4] h-full w-full object-cover"
+        />
       </div>
     </div>
-    <div class="row pt-65">
-      <div class="col-xl-4 col-lg-4 col-md-6 mb-4">
-        <div class="feature-wrapper">
-          <div class="feature-title-heading">
-            <h3>Lab Facility</h3>
-            <span>01</span>
-          </div>
-          <div class="feature-text">
-            <p>
-              No science can survive without labs. NCBT has a spacious computer
-              lab. Groomed with 50 computers the lab is an example of
-              ultra-modern technology. The lab gives the most cutting-edge
-              technical support to the students.
-            </p>
-          </div>
+
+    <div class="flex flex-col gap-8 lg:flex-row">
+      <div
+        class="feature-wrapper rounded-lg border-l-8 border-l-green-600 bg-white p-5 drop-shadow-xl"
+      >
+        <div class="feature-title-heading mb-2 flex justify-between">
+          <h3 class="text-xl font-semibold text-gray-900">Lab Facility</h3>
+          <span class="text-3xl text-gray-300">01</span>
         </div>
+        <p class="feature-text text-sm text-gray-500 md:text-base">
+          No science can survive without labs. NCBT has a spacious computer lab.
+          Groomed with 50 computers the lab is an example of ultra-modern
+          technology. The lab gives the most cutting-edge technical support to
+          the students.
+        </p>
       </div>
-      <div class="col-xl-4 col-lg-4 col-md-6 mb-4">
-        <div class="feature-wrapper">
-          <div class="feature-title-heading">
-            <h3>Hostel Facility</h3>
-            <span>02</span>
-          </div>
-          <div class="feature-text">
-            <p>
-              For the purpose of accommodating the students a modern residential
-              complex is being built on the bank of the Modhumoti river. At
-              least, 200 students will live in the yet to-be made complex. A
-              makeshift hostel is currently at work.
-            </p>
-          </div>
+      <div
+        class="feature-wrapper rounded-lg border-l-8 border-l-green-600 bg-white p-5 drop-shadow-xl"
+      >
+        <div class="feature-title-heading mb-2 flex justify-between">
+          <h3 class="text-xl font-semibold text-gray-900">Hostel Facility</h3>
+          <span class="text-3xl text-gray-300">02</span>
         </div>
+        <p class="feature-text text-sm text-gray-500 md:text-base">
+          For the purpose of accommodating the students a modern residential
+          complex is being built on the bank of the Modhumoti river. At least,
+          200 students will live in the yet to-be made complex. A makeshift
+          hostel is currently at work.
+        </p>
       </div>
-      <div class="col-xl-4 col-lg-4 col-md-6 mb-4">
-        <div class="feature-wrapper">
-          <div class="feature-title-heading">
-            <h3>Scholarship Facility</h3>
-            <span>03</span>
-          </div>
-          <div class="feature-text">
-            <p>
-              Students who have outstanding result at SSC and HSC levels are
-              eligible for scholarships and financial assistance. Besides these,
-              students who have excellent performance in the first and second
-              semesters are given special scholarship.
-            </p>
-          </div>
+      <div
+        class="feature-wrapper rounded-lg border-l-8 border-l-green-600 bg-white p-5 drop-shadow-xl"
+      >
+        <div class="feature-title-heading mb-2 flex justify-between">
+          <h3 class="text-xl font-semibold text-gray-900">
+            Scholarship Facility
+          </h3>
+          <span class="text-3xl text-gray-300">03</span>
         </div>
+        <p class="feature-text text-sm text-gray-500 md:text-base">
+          Students who have outstanding result at SSC and HSC levels are
+          eligible for scholarships and financial assistance. Besides these,
+          students who have excellent performance in the first and second
+          semesters are given special scholarship.
+        </p>
       </div>
     </div>
   </div>
@@ -145,7 +201,10 @@
 <!-- about end -->
 
 <!-- courses start -->
-<div id="courses" class="courses-area relative isolate py-16 md:py-20">
+<div
+  id="courses"
+  class="courses-area relative isolate my-8 py-16 md:my-16 md:py-20"
+>
   <img
     loading="lazy"
     src="{% static 'assets/images/courses_bg.png' %}"
@@ -162,22 +221,22 @@
         students -
       </p>
     </div>
-    <div class="courses-list">
-      <div class="courses-active grid gap-6 md:grid-cols-3 md:gap-12">
+    <div class="courses-list mx-auto max-w-6xl">
+      <div class="courses-active grid gap-6 md:grid-cols-3">
         <div
-          class="course animate__animated overflow-hidden rounded bg-white"
+          class="course animate__animated overflow-hidden rounded bg-white md:scale-95"
           data-animation="animate__fadeInUp"
         >
           <div class="courses-thumb">
             <a href="{% url 'app_main:course' %}">
               <img
                 src="{% static 'assets/images/course_1.jpg' %}"
-                class="w-full"
+                class="aspect-[3/2] w-full"
                 alt=""
               />
             </a>
           </div>
-          <div class="course-main-content p-6">
+          <div class="course-main-content p-5">
             <div class="courses-content">
               <span
                 class="courses-category-name mb-4 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white"
@@ -185,11 +244,13 @@
                 Business
               </span>
               <h1
-                class="courses-heading mb-4 text-lg font-semibold uppercase leading-snug text-gray-900"
+                class="courses-heading mb-2 font-semibold uppercase leading-snug text-gray-900"
               >
                 Bachelor of Business Administration
               </h1>
-              <p class="courses-para line-clamp-3 text-justify text-gray-500">
+              <p
+                class="courses-para line-clamp-3 text-sm text-gray-500 md:text-base"
+              >
                 The Bachelor of Business Administration (BBA) Program aims at
                 training the boys and girls for this act and providing clear
                 understanding of the functioning of business from theoretical,
@@ -214,25 +275,27 @@
           <div class="courses-thumb">
             <a href="{% url 'app_main:course' %}">
               <img
-                src="{% static 'assets/images/course_1.jpg' %}"
-                class="w-full"
+                src="{% static 'assets/images/course_2.jpg' %}"
+                class="aspect-[3/2] w-full"
                 alt=""
               />
             </a>
           </div>
-          <div class="course-main-content p-6">
+          <div class="course-main-content p-5">
             <div class="courses-content">
               <span
-                class="courses-category-name mb-4 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white"
+                class="courses-category-name mb-2 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white"
               >
-                Business
+                CSE
               </span>
               <h1
-                class="courses-heading mb-4 text-lg font-semibold uppercase leading-snug text-gray-900"
+                class="courses-heading mb-4 font-semibold uppercase leading-snug text-gray-900"
               >
-                Bachelor of Business Administration
+                Computer Science & Engineering
               </h1>
-              <p class="courses-para line-clamp-3 text-justify text-gray-500">
+              <p
+                class="courses-para line-clamp-3 text-sm text-gray-500 md:text-base"
+              >
                 The Bachelor of Business Administration (BBA) Program aims at
                 training the boys and girls for this act and providing clear
                 understanding of the functioning of business from theoretical,
@@ -251,31 +314,33 @@
           </div>
         </div>
         <div
-          class="course animate__animated overflow-hidden rounded bg-white"
+          class="course animate__animated overflow-hidden rounded bg-white md:scale-95"
           data-animation="animate__fadeInUp"
         >
           <div class="courses-thumb">
             <a href="{% url 'app_main:course' %}">
               <img
-                src="{% static 'assets/images/course_1.jpg' %}"
-                class="w-full"
+                src="{% static 'assets/images/course_3.jpg' %}"
+                class="aspect-[3/2] w-full"
                 alt=""
               />
             </a>
           </div>
-          <div class="course-main-content p-6">
+          <div class="course-main-content p-5">
             <div class="courses-content">
               <span
                 class="courses-category-name mb-4 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white"
               >
-                Business
+                HSC
               </span>
               <h1
-                class="courses-heading mb-4 text-lg font-semibold uppercase leading-snug text-gray-900"
+                class="courses-heading mb-2 font-semibold uppercase leading-snug text-gray-900"
               >
-                Bachelor of Business Administration
+                Higher Secondary Certificate
               </h1>
-              <p class="courses-para line-clamp-3 text-justify text-gray-500">
+              <p
+                class="courses-para line-clamp-3 text-sm text-gray-500 md:text-base"
+              >
                 The Bachelor of Business Administration (BBA) Program aims at
                 training the boys and girls for this act and providing clear
                 understanding of the functioning of business from theoretical,
@@ -300,7 +365,7 @@
 <!-- courses end -->
 
 <!-- team start -->
-<div class="team-area my-8 py-8 md:my-16 md:py-16">
+<div class="advisor-area my-8 py-8 md:my-16 md:py-16">
   <div class="container">
     <div class="section-title mb-12 text-center text-gray-900">
       <h1 class="section-title-heading mb-3 text-3xl font-semibold md:text-4xl">
@@ -312,13 +377,13 @@
       </p>
     </div>
 
-    <div class="team-list">
-      <div class="grid gap-6 md:grid-cols-4 md:gap-8">
+    <div id="advisor-slider" class="advisor-list swiper pb-8">
+      <div class="swiper-wrapper">
         <div
-          class="team-wrapper group mb-8 overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
+          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
         >
           <div
-            class="team-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
+            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
           >
             <img
               src="{% static 'assets/images/teammember1.jpg' %}"
@@ -332,17 +397,17 @@
             </div>
           </div>
           <div
-            class="team-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
+            class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
           >
             <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
             <span class="text-sm text-gray-500">Vice Chancellor</span>
           </div>
         </div>
         <div
-          class="team-wrapper group mb-8 overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
+          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
         >
           <div
-            class="team-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
+            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
           >
             <img
               src="{% static 'assets/images/teammember1.jpg' %}"
@@ -356,17 +421,17 @@
             </div>
           </div>
           <div
-            class="team-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
+            class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
           >
             <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
             <span class="text-sm text-gray-500">Vice Chancellor</span>
           </div>
         </div>
         <div
-          class="team-wrapper group mb-8 overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
+          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
         >
           <div
-            class="team-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
+            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
           >
             <img
               src="{% static 'assets/images/teammember1.jpg' %}"
@@ -380,17 +445,17 @@
             </div>
           </div>
           <div
-            class="team-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
+            class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
           >
             <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
             <span class="text-sm text-gray-500">Vice Chancellor</span>
           </div>
         </div>
         <div
-          class="team-wrapper group mb-8 overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
+          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
         >
           <div
-            class="team-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
+            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
           >
             <img
               src="{% static 'assets/images/teammember1.jpg' %}"
@@ -404,12 +469,26 @@
             </div>
           </div>
           <div
-            class="team-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
+            class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
           >
             <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
             <span class="text-sm text-gray-500">Vice Chancellor</span>
           </div>
         </div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div
+        class="swiper-button-prev !hidden text-gray-50 after:content-none lg:!flex"
+      >
+        <i class="ti ti-arrow-left text-3xl"></i>
+      </div>
+      <div
+        class="swiper-button-next !hidden text-gray-50 after:content-none lg:!flex"
+      >
+        <i class="ti ti-arrow-right text-3xl"></i>
       </div>
     </div>
   </div>

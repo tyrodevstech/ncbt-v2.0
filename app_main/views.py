@@ -11,23 +11,26 @@ def index_view(request):
     context = {
         'notice': notice
     }
-    return render(request,'common/index.html', context)
+    return render(request,'app_main/index.html', context)
 
 def about_us_view(request):
-    return render(request,'common/about_us.html')
+    return render(request,'app_main/about_us.html')
 
 def course_view(request):
-    return render(request,'common/course.html')
+    return render(request,'app_main/course.html')
 
 def admission_view(request):
-    return render(request,'common/admission.html')
+    context = {
+        'admission': AdmissionModel.objects.first(),
+    }
+    return render(request,'app_main/admission.html', context)
 
 def teachers_view(request):
     teachers_obj = Teacher.objects.all()
     context = {
         'teachers_obj': teachers_obj
     }
-    return render(request,'common/teachers.html', context)
+    return render(request,'app_main/teachers.html', context)
 
 def notice_view(request):
     notice_obj = Notice.objects.all().order_by('-date')
@@ -45,9 +48,10 @@ def notice_view(request):
         'notice': notice,
         'notice_imagesObj':notice_imagesObj,
     }
-    return render(request,'common/notice.html', context)
+    return render(request,'app_main/notice.html', context)
 
 def contact_us_view(request):
+    info = ContactInformationModel.objects.first()
     form = ContactForm()
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -58,9 +62,10 @@ def contact_us_view(request):
 
 
     context = {
-        'form' : form
+        'form' : form,
+        'info' : info,
     }
-    return render(request,'common/contact_us.html', context)
+    return render(request,'app_main/contact_us.html', context)
 
 
 

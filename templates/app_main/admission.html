@@ -1,0 +1,56 @@
+{% extends 'app_main/base.html' %} {% load static %} {% block main %}
+
+<!-- cover image start -->
+<section id="contact-cover-image">
+  <div class="relative isolate h-[24rem] w-full bg-black">
+    <img
+      loading="lazy"
+      class="absolute inset-0 -z-10 h-full w-full object-cover opacity-70"
+      src="{% static 'assets/images/sliedbar-bg.jpg' %}"
+      alt="contact-cover"
+    />
+    <div class="pt-[10rem] text-center text-white">
+      <h2 class="text-4xl font-bold uppercase md:text-6xl">
+        Admission Information
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- cover image end -->
+
+<!-- banner image start -->
+
+{% if admission %}
+<section class="my-8 py-8 md:my-16 md:py-16">
+  <div class="container">
+    <div class="z-10 max-w-full bg-green-300">
+      <img
+        loading="lazy"
+        class="popup-image h-full w-full object-cover hover:opacity-70"
+        src="{{ admission.admission_banner.url }}"
+        alt="about-img-1"
+      />
+    </div>
+
+    <div class="my-16 max-w-full">
+      {{ admission.admission_details|safe }}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- banner image end -->
+
+{% endblock main %} {% block script %}
+<script>
+  $(".popup-image").magnificPopup({
+    type: "image",
+    mainClass: "mfp-fade",
+    callbacks: {
+      elementParse: function (item) {
+        item.src = item.el.attr("src");
+      },
+    },
+  });
+</script>
+{% endblock script %}

@@ -80,6 +80,16 @@
           <a class="nav-link active" href="/">Home</a>
         </li>
 
+        <li class="">
+          <a class="nav-link" href="{% url 'app_main:aboutus' %}">About</a>
+        </li>
+
+        <li>
+          <a class="nav-link active" href="{% url 'app_main:admission' %}">
+            Admission
+          </a>
+        </li>
+
         <li class="dropdown [--strategy:static] md:[--strategy:absolute]">
           <button
             type="button"
@@ -115,9 +125,7 @@
         <li class="">
           <a class="nav-link" href="{% url 'app_main:contactus' %}">Contact</a>
         </li>
-        <li class="">
-          <a class="nav-link" href="{% url 'app_main:aboutus' %}">About</a>
-        </li>
+
         <li class="mt-4 inline-block md:mt-0">
           <a
             href="{% url 'admin:index' %}"

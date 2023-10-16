@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Teacher(models.Model):
@@ -54,8 +55,8 @@ class ContactInformationModel(models.Model):
     phone = models.CharField(max_length=122, null=True)
     email = models.CharField(max_length=122, null=True)
     address = models.TextField(null=True, blank=True, max_length=325)
-    work = models.TextField(
-        null=True, blank=True, max_length=325, verbose_name="Working Date & Time"
+    work = models.CharField(
+        null=True, blank=True, max_length=225, verbose_name="Working Date & Time"
     )
 
     def __str__(self):
@@ -66,6 +67,17 @@ class ContactInformationModel(models.Model):
         verbose_name_plural = "Contact Informations"
         ordering = ["-id"]
 
+
+class AdmissionModel(models.Model):
+    admission_banner = models.ImageField(upload_to="admission-banner", null=True)
+    admission_details = RichTextUploadingField(null=True)
+
+    def __str__(self):
+        return f"{self.id} - Admission"
+
+    class Meta:
+        verbose_name = "Admission"
+        verbose_name_plural = "Admissions"
 
 # Define Footer Information Model
 class FooterInformationModel(models.Model):

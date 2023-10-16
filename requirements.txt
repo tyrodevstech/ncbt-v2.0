@@ -1,9 +1,13 @@
 asgiref==3.7.2
 backports.zoneinfo==0.2.1
 Django==4.2.6
+<<<<<<< HEAD
 django-ckeditor==6.7.0
 django-cleanup==8.0.0
 django-js-asset==2.1.0
+=======
+django-cleanup==8.0.0
+>>>>>>> f8687ad09ef31203bd1bee13289f12c60c575d7b
 Pillow==10.0.1
 sqlparse==0.4.4
 typing_extensions==4.8.0

@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .form import *
 from .models import *
@@ -8,8 +8,15 @@ from .models import *
 
 
 def index_view(request):
-    notice = Notice.objects.all().order_by("-date")[:4]
-    context = {"notice": notice}
+    context = {
+        "notice": Notice.objects.all().order_by("-date")[:4],
+        "sliders": HeaderSliderModel.objects.all(),
+        "counter": CounterModel.objects.first(),
+        "founder": FounderModel.objects.first(),
+        "important_facilities": FacilityModel.objects.filter(is_important=True)[:3],
+        "facilities": FacilityModel.objects.filter(is_important=False),
+        "activities": StudentActivitiesModel.objects.filter(is_active=True)
+    }
     return render(request, "app_main/index.html", context)
 
 
@@ -38,7 +45,7 @@ def notice_view(request):
     notice_obj = Notice.objects.all().order_by("-date")
     all_post = Paginator(notice_obj, 6)
     page = request.GET.get("page")
-    notice_imagesObj = NoticeImages.objects.all().order_by("-id")
+
     try:
         notice = all_post.page(page)
     except PageNotAnInteger:
@@ -48,9 +55,15 @@ def notice_view(request):
 
     context = {
         "notice": notice,
-        "notice_imagesObj": notice_imagesObj,
     }
     return render(request, "app_main/notice.html", context)
+
+
+def notice_details_view(request, pk):
+    context = {
+        "notice": get_object_or_404(Notice, id=pk)
+    }
+    return render(request, "app_main/notice_details.html", context)
 
 
 def contact_us_view(request):

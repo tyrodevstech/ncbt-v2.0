@@ -1,84 +1,55 @@
 {% extends 'app_main/base.html' %} {% load static %} {% block main %}
 <!-- slider-start -->
+{% if sliders %}
 <div id="header-slider" class="header-area swiper">
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
+    {% for slider in sliders %}
     <div class="swiper-slide">
       <div
         class="relative isolate flex min-h-[400px] items-center bg-gray-950 md:min-h-[700px] lg:h-[85vh]"
       >
         <img
-          src="{% static 'assets/images/web_banner_1.jpg' %}"
+          src="{{ slider.bg_img.url }}"
           alt="slider bg"
           class="absolute inset-0 -z-10 h-full w-full object-cover opacity-90"
         />
         <div class="container w-full text-white">
+          {% if slider.title %}
           <h1
             class="text-4xl font-bold uppercase md:text-5xl lg:text-7xl"
             data-animation="fadeInUp"
             data-delay=".2s"
           >
             <span></span>
-            Welcome to NCBT
+            {{ slider.title }}
           </h1>
+          {% endif %}
+          {% if slider.sub_title %}
           <p
             data-animation="fadeInUp"
             data-delay=".4s"
-            class="mt-10 max-w-3xl text-base text-gray-200 md:text-lg md:leading-loose"
+            class="mt-10 mb-8 max-w-3xl text-base text-gray-200 md:text-lg md:leading-loose"
           >
-            N.Haque College of Business and Technology ( NCBT ) is one of the
-            leading institutes affiliated with the National University of
-            Bangladesh.
+          {{ slider.sub_title }}
           </p>
-          <button
-            class="mt-8 rounded bg-green-600 px-6 py-2 text-sm font-semibold uppercase md:px-12 md:py-4"
+          {% endif %}
+          {% if slider.btn_text and slider.btn_link %}
+          <a
+            href="{% if slider.btn_link %}{{ slider.btn_link }}{% else %}#{% endif %}"
+            class="rounded bg-green-600 px-6 py-2 text-sm font-semibold uppercase md:px-12 md:py-4"
             data-animation="fadeInUp"
             data-delay=".6s"
           >
-            <span class="btn-text">admit now</span>
-          </button>
+            <span class="btn-text">{{ slider.btn_text }}</span>
+          </a>
+          {% endif %}
         </div>
       </div>
     </div>
-    <!-- Slides -->
-    <div class="swiper-slide">
-      <div
-        class="relative isolate flex min-h-[400px] items-center bg-gray-950 md:min-h-[700px] lg:h-[85vh]"
-      >
-        <img
-          src="{% static 'assets/images/web_banner_1.jpg' %}"
-          alt="slider bg"
-          class="absolute inset-0 -z-10 h-full w-full object-cover opacity-90"
-        />
-        <div class="container w-full text-white">
-          <h1
-            class="text-4xl font-bold uppercase md:text-5xl lg:text-7xl"
-            data-animation="fadeInUp"
-            data-delay=".2s"
-          >
-            <span></span>
-            Welcome to NCBT
-          </h1>
-          <p
-            data-animation="fadeInUp"
-            data-delay=".4s"
-            class="mt-10 max-w-3xl text-base text-gray-200 md:text-lg md:leading-loose"
-          >
-            N.Haque College of Business and Technology ( NCBT ) is one of the
-            leading institutes affiliated with the National University of
-            Bangladesh.
-          </p>
-          <button
-            class="mt-8 rounded bg-green-600 px-6 py-2 text-sm font-semibold uppercase md:px-12 md:py-4"
-            data-animation="fadeInUp"
-            data-delay=".6s"
-          >
-            <span class="btn-text">admit now</span>
-          </button>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
+
   </div>
   <!-- If we need pagination -->
   <div class="swiper-pagination"></div>
@@ -102,11 +73,13 @@
     <span></span>
   </div>
 </div>
+{% endif %}
 <!-- slider-end -->
 
 <!-- about start -->
 <div id="about" class="about-area my-8 py-8 md:my-16 md:py-16">
   <div class="container">
+    {% if founder %}
     <div
       class="mb-12 flex flex-col-reverse items-center justify-between gap-8 md:mb-16 lg:flex-row"
     >
@@ -121,21 +94,15 @@
         >
           Founder of N.Haque College of Business and Technology.
         </span>
-        <p class="text-justify text-sm text-gray-500 md:text-base">
-          The dream of a globally acclaimed institution promoted Mr. Nurul Haque
-          Chowdhury to set up NCBT. Mr. Chowdhury visited many countries of the
-          world and observed the way the universities of those countries work.
-          He made up his mind to establish such an institution which will be the
-          torch bearer of knowledge and wisdom. In spite of his busy schedule,
-          he spent a lot of time to actualize his dream into reality. Being the
-          chairman of Reliance industrial park, he has also associated himself
-          with a variety of humanitarian works.
-        </p>
-        <button
-          class="mt-2 w-max rounded bg-green-600 px-7 py-3 text-sm font-semibold uppercase text-white"
+        <div class="text-justify text-sm text-gray-500 md:text-base">
+          {{ founder.founder_details|striptags|safe|truncatechars_html:400 }}
+        </div>
+        <a
+          href="#"
+          class="mt-2 w-max rounded bg-green-600 px-7 py-3 text-sm font-semibold uppercase text-white hover:bg-green-800"
         >
           <span class="btn-text">Read More</span>
-        </button>
+        </a>
       </div>
 
       <div
@@ -143,59 +110,31 @@
         data-animation="animate__fadeInRightBig"
       >
         <img
-          src="{% static 'assets/images/advisors-img_1.jpg' %}"
+          src="{% if founder.profile %}{{ founder.profile.url }}{% else %}{% static 'assets/images/advisors-img_1.jpg' %}{% endif %}"
           alt=""
           class="aspect-[3/4] h-full w-full object-cover"
         />
       </div>
     </div>
+    {% endif %}
 
+    {% if important_facilities %}
     <div class="flex flex-col gap-8 lg:flex-row">
+      {% for facility in important_facilities %}
       <div
         class="feature-wrapper rounded-lg border-l-8 border-l-green-600 bg-white p-5 drop-shadow-xl"
       >
         <div class="feature-title-heading mb-2 flex justify-between">
-          <h3 class="text-xl font-semibold text-gray-900">Lab Facility</h3>
-          <span class="text-3xl text-gray-300">01</span>
+          <h3 class="text-xl font-semibold text-gray-900">{{ facility.title }}</h3>
+          <span class="text-3xl text-gray-300">0{{ forloop.counter }}</span>
         </div>
         <p class="feature-text text-sm text-gray-500 md:text-base">
-          No science can survive without labs. NCBT has a spacious computer lab.
-          Groomed with 50 computers the lab is an example of ultra-modern
-          technology. The lab gives the most cutting-edge technical support to
-          the students.
+          {{ facility.details }}
         </p>
       </div>
-      <div
-        class="feature-wrapper rounded-lg border-l-8 border-l-green-600 bg-white p-5 drop-shadow-xl"
-      >
-        <div class="feature-title-heading mb-2 flex justify-between">
-          <h3 class="text-xl font-semibold text-gray-900">Hostel Facility</h3>
-          <span class="text-3xl text-gray-300">02</span>
-        </div>
-        <p class="feature-text text-sm text-gray-500 md:text-base">
-          For the purpose of accommodating the students a modern residential
-          complex is being built on the bank of the Modhumoti river. At least,
-          200 students will live in the yet to-be made complex. A makeshift
-          hostel is currently at work.
-        </p>
-      </div>
-      <div
-        class="feature-wrapper rounded-lg border-l-8 border-l-green-600 bg-white p-5 drop-shadow-xl"
-      >
-        <div class="feature-title-heading mb-2 flex justify-between">
-          <h3 class="text-xl font-semibold text-gray-900">
-            Scholarship Facility
-          </h3>
-          <span class="text-3xl text-gray-300">03</span>
-        </div>
-        <p class="feature-text text-sm text-gray-500 md:text-base">
-          Students who have outstanding result at SSC and HSC levels are
-          eligible for scholarships and financial assistance. Besides these,
-          students who have excellent performance in the first and second
-          semesters are given special scholarship.
-        </p>
-      </div>
+      {% endfor %}
     </div>
+    {% endif %}
   </div>
 </div>
 <!-- about end -->
@@ -520,7 +459,7 @@
       {% for obj in notice %}
       <div class="event flex justify-between overflow-hidden rounded bg-white">
         <img
-          src="{% static 'assets/images/notice-default.png' %}"
+          src="{% if obj.thumbnail %}{{ obj.thumbnail.url }}{% else %}{% static 'assets/images/notice-default.png' %}{% endif %}"
           alt=""
           class="hidden bg-white object-cover md:block md:w-48"
         />
@@ -536,13 +475,13 @@
             </div>
             <div class="events-text-title">
               <h4 class="line-clamp-1 text-xl font-semibold text-gray-900">
-                {{ obj.post_title }}
+                {{ obj.title }}
               </h4>
 
               <div class="time-area mt-1 text-sm">
                 <span class="published-time text-gray-500">
                   <i class="ti ti-clock mr-1"></i>
-                  05:23 AM - 09:23 AM
+                  {{ obj.date|date:"h:i A" }}
                 </span>
               </div>
             </div>
@@ -550,12 +489,11 @@
           <div
             class="events-para line-clamp-2 text-sm text-gray-500 md:text-base"
           >
-            <p>{{ obj.post_content }}</p>
+            <div>{{ obj.content|striptags|safe|truncatechars_html:600 }}</div>
           </div>
           <div class="mt-2 text-right">
             <a
-              href=""
-              #
+              href="{% url 'app_main:notice_details' obj.id %}"
               class="inline-block gap-2 text-green-600 transition-colors hover:text-green-700"
             >
               Read more &rarr;
@@ -582,86 +520,75 @@
 <!-- events end -->
 
 <!-- Extra -->
+{% if activities %}
 <div id="infos" class="my-8 py-8 md:my-16 md:py-16">
   <div class="container">
-    <div
-      class="mb-14 flex flex-col-reverse justify-between gap-4 md:mb-20 md:flex-row"
-    >
-      <div class="flex w-full flex-col justify-center md:w-1/2">
-        <h3
-          class="mb-4 text-2xl font-semibold text-gray-900 md:mb-8 md:text-4xl"
+    {% for activity in activities %}
+    {% if not forloop.counter|divisibleby:2 %}
+      <div
+        class="mb-14 flex flex-col-reverse justify-between gap-4 md:mb-20 md:flex-row"
         >
-          ACADEMIC COLLABORATION
-        </h3>
-        <p class="line-clamp-5 text-gray-700 md:line-clamp-none">
-          NCBT's strong international partnerships create a vibrant, globally
-          connected educational community. The institution collaborates with
-          renowned universities worldwide, offering students opportunities for
-          higher education abroad. NCBT is committed to diversity, welcoming
-          students from diverse backgrounds to foster cross-cultural
-          interactions.
-          <br />
-          <br />
-          The institution envisions a future where students worldwide can engage
-          in enriching learning experiences. It is excited to expand its global
-          network, promoting education and knowledge exchange on a global scale.
-        </p>
-        <a
-          class="mt-6 inline-block w-max rounded bg-green-600 px-6 py-2 font-medium uppercase text-white md:mt-10 md:px-10 md:py-3"
-          data-animation="fadeInUp"
-          data-delay=".6s"
-        >
-          <span class="btn-text">admit now</span>
-        </a>
+        <div class="flex w-full flex-col justify-center md:w-1/2">
+          <h3
+            class="mb-4 text-2xl font-semibold text-gray-900 md:mb-8 md:text-4xl"
+          >
+            {{ activity.title }}
+          </h3>
+          <div class="line-clamp-5 text-gray-700 md:line-clamp-none">
+            {{ activity.details|safe }}
+          </div>
+          <a
+            href="{% if activity.btn_link %}{{ activity.btn_link }}{% else %}#{% endif %}"
+            class="mt-6 inline-block w-max rounded bg-green-600 px-6 py-2 font-medium uppercase text-white md:mt-10 md:px-10 md:py-3"
+            data-animation="fadeInUp"
+            data-delay=".6s"
+          >
+            <span class="btn-text">admit now</span>
+          </a>
+        </div>
+        <img
+          src="{{ activity.image.url }}"
+          alt="activity-img-{{ forloop.counter }}"
+          class="animate__animated w-full object-cover md:w-2/5"
+          data-animation="animate__backInRight"
+        />
       </div>
-      <img
-        src="{% static 'assets/images/academic_new.jpg' %}"
-        alt=""
-        class="animate__animated w-full object-cover md:w-2/5"
-        data-animation="animate__backInRight"
-      />
-    </div>
-    <div class="flex flex-col justify-between gap-4 md:flex-row">
-      <img
-        src="{% static 'assets/images/extra.jpg' %}"
-        alt=""
-        class="animate__animated w-full object-cover md:w-2/5"
-        data-animation="animate__backInRight"
-      />
-      <div class="flex w-full flex-col justify-center md:w-1/2">
-        <h3
-          class="mb-4 text-2xl font-semibold text-gray-900 md:mb-8 md:text-4xl"
-        >
-          EXTRA - CURRICULAR ACTIVITIE
-        </h3>
-        <p class="line-clamp-5 text-gray-700 md:line-clamp-none">
-          NCBT places equal importance on physical and mental well-being,
-          offering diverse sports opportunities like football, cricket, and
-          more. They nurture artistic and intellectual growth through a vibrant
-          cultural club, promoting drama, poetry, music, and debate training.
-          Additionally, non-Computer Science and Engineering (CSE) students have
-          access to free computer courses.
-          <br />
-          <br />
-          The NCBT English club further enhances language skills and critical
-          thinking while organizing debate competitions. This comprehensive
-          approach ensures students' all-around development, covering physical
-          fitness, creative expression, and intellectual growth.
-        </p>
-        <a
-          class="mt-6 inline-block w-max rounded bg-green-600 px-6 py-2 font-medium uppercase text-white md:mt-10 md:px-10 md:py-3"
-          data-animation="fadeInUp"
-          data-delay=".6s"
-        >
-          <span class="btn-text">admit now</span>
-        </a>
+    {% else %}
+      <div class="flex flex-col justify-between gap-4 md:flex-row">
+        <img
+          src="{{ activity.image.url }}"
+          alt="activity-img-{{ forloop.counter }}"
+          class="animate__animated w-full object-cover md:w-2/5"
+          data-animation="animate__backInRight"
+        />
+        <div class="flex w-full flex-col justify-center md:w-1/2">
+          <h3
+            class="mb-4 text-2xl font-semibold text-gray-900 md:mb-8 md:text-4xl"
+          >
+          {{ activity.title }}
+          </h3>
+          <div class="line-clamp-5 text-gray-700 md:line-clamp-none">
+            {{ activity.details|safe }}
+          </div>
+          <a
+            href="{% if activity.btn_link %}{{ activity.btn_link }}{% else %}#{% endif %}"
+            class="mt-6 inline-block w-max rounded bg-green-600 px-6 py-2 font-medium uppercase text-white md:mt-10 md:px-10 md:py-3"
+            data-animation="fadeInUp"
+            data-delay=".6s"
+          >
+            <span class="btn-text">admit now</span>
+          </a>
+        </div>
       </div>
-    </div>
+    {% endif %}
+    {% endfor %}
   </div>
 </div>
+{% endif %}
 <!-- Extra end -->
 
 <!-- counter start -->
+{% if counter %}
 <div
   id="counters"
   class="counter-area relative isolate my-8 py-10 md:my-16 md:py-20"
@@ -683,7 +610,7 @@
             alt=""
             class=""
           />
-          <span class="counter mt-4 text-4xl font-bold">1500</span>
+          <span class="counter mt-4 text-4xl font-bold">{{ counter.total_student }}</span>
           <h3 class="text-gray-200">Total Students</h3>
         </div>
       </div>
@@ -692,7 +619,7 @@
           class="couter-wrapper flex flex-col items-center justify-center text-center"
         >
           <img src="{% static 'assets/images/counter_icon4.png' %}" alt="" />
-          <span class="counter mt-4 text-4xl font-bold">30</span>
+          <span class="counter mt-4 text-4xl font-bold">{{ counter.total_teacher }}</span>
           <h3 class="text-gray-200">Expert Teacher</h3>
         </div>
       </div>
@@ -701,7 +628,7 @@
           class="couter-wrapper flex flex-col items-center justify-center text-center"
         >
           <img src="{% static 'assets/images/counter_icon2.png' %}" alt="" />
-          <span class="counter mt-4 text-4xl font-bold">2500</span>
+          <span class="counter mt-4 text-4xl font-bold">{{ counter.total_book }}</span>
           <h3 class="text-gray-200">Books</h3>
         </div>
       </div>
@@ -710,13 +637,14 @@
           class="couter-wrapper flex flex-col items-center justify-center text-center"
         >
           <img src="{% static 'assets/images/counter_4.png' %}" alt="" />
-          <span class="counter mt-4 text-4xl font-bold">40</span>
+          <span class="counter mt-4 text-4xl font-bold">{{ counter.total_computer }}</span>
           <h3 class="text-gray-200">Computer</h3>
         </div>
       </div>
     </div>
   </div>
 </div>
+{% endif %}
 <!-- counter end -->
 
 <!-- student facilites start -->
@@ -734,88 +662,32 @@
 
     <div id="student-facilities" class="swiper pb-12">
       <!-- Additional required wrapper -->
+      {% if facilities %}
       <div class="swiper-wrapper">
         <!-- Slides -->
+        {% for facility in facilities %}
         <div class="swiper-slide">
           <div
             class="slide-wrapper border-4 border-dashed border-green-600 bg-white p-4"
           >
             <div class="testimonilas-heading mb-3">
               <h3 class="font-semibold text-gray-900">
-                Free Transportation Facility
+                {{ facility.title }}
               </h3>
               <span class="text-sm text-gray-700">From NCBT</span>
             </div>
             <div class="testimonilas-para text-gray-500">
               <p>
-                But also the leap into electronic type reman see essentially
-                unchanged. It was popul arised thew with the release of letraset
-                sheets.
+                {{ facility.details }}
               </p>
             </div>
           </div>
         </div>
+        {% endfor %}
         <!-- Slides -->
-        <div class="swiper-slide">
-          <div
-            class="slide-wrapper border-4 border-dashed border-green-600 bg-white p-4"
-          >
-            <div class="testimonilas-heading mb-3">
-              <h3 class="font-semibold text-gray-900">
-                Free Transportation Facility
-              </h3>
-              <span class="text-sm text-gray-700">From NCBT</span>
-            </div>
-            <div class="testimonilas-para text-gray-500">
-              <p>
-                But also the leap into electronic type reman see essentially
-                unchanged. It was popul arised thew with the release of letraset
-                sheets.
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- Slides -->
-        <div class="swiper-slide">
-          <div
-            class="slide-wrapper border-4 border-dashed border-green-600 bg-white p-4"
-          >
-            <div class="testimonilas-heading mb-3">
-              <h3 class="font-semibold text-gray-900">
-                Free Transportation Facility
-              </h3>
-              <span class="text-sm text-gray-700">From NCBT</span>
-            </div>
-            <div class="testimonilas-para text-gray-500">
-              <p>
-                But also the leap into electronic type reman see essentially
-                unchanged. It was popul arised thew with the release of letraset
-                sheets.
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- Slides -->
-        <div class="swiper-slide">
-          <div
-            class="slide-wrapper border-4 border-dashed border-green-600 bg-white p-4"
-          >
-            <div class="testimonilas-heading mb-3">
-              <h3 class="font-semibold text-gray-900">
-                Free Transportation Facility
-              </h3>
-              <span class="text-sm text-gray-700">From NCBT</span>
-            </div>
-            <div class="testimonilas-para text-gray-500">
-              <p>
-                But also the leap into electronic type reman see essentially
-                unchanged. It was popul arised thew with the release of letraset
-                sheets.
-              </p>
-            </div>
-          </div>
-        </div>
+
       </div>
+      {% endif %}
       <!-- If we need pagination -->
       <div class="swiper-pagination"></div>
     </div>

@@ -15,12 +15,14 @@ class Teacher(models.Model):
 
 
 class Notice(models.Model):
-    post_title = models.CharField(null=True, max_length=150)
-    post_content = models.TextField(null=True, max_length=500)
+    title = models.CharField(null=True, max_length=150)
+    content = RichTextUploadingField(null=True)
+    thumbnail = models.ImageField(upload_to="notice-thumbnail-images", null=True, blank=True, help_text="image size: w-350px x h-400")
+
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Post: {self.post_title}"
+        return f"Notice: {self.title}"
 
 
 class Contact(models.Model):
@@ -34,18 +36,6 @@ class Contact(models.Model):
     def __str__(self):
         return f"{self.email}"
 
-
-class NoticeImages(models.Model):
-    title = models.CharField(max_length=120, null=True, blank=True)
-    notice_images = models.ImageField(upload_to="notice_images", null=True, blank=True)
-    created_at = models.DateField(auto_now_add=True, null=True)
-
-    def __str__(self):
-        return f"#{self.id} {self.title}"
-
-    class Meta:
-        verbose_name = "Image Notice"
-        verbose_name_plural = "Image Notice"
 
 
 class ContactInformationModel(models.Model):
@@ -67,17 +57,6 @@ class ContactInformationModel(models.Model):
         verbose_name_plural = "Contact Informations"
         ordering = ["-id"]
 
-
-class AdmissionModel(models.Model):
-    admission_banner = models.ImageField(upload_to="admission-banner", null=True)
-    admission_details = RichTextUploadingField(null=True)
-
-    def __str__(self):
-        return f"{self.id} - Admission"
-
-    class Meta:
-        verbose_name = "Admission"
-        verbose_name_plural = "Admissions"
 
 # Define Footer Information Model
 class FooterInformationModel(models.Model):
@@ -102,3 +81,98 @@ class FooterInformationModel(models.Model):
         verbose_name = "Footer Information"
         verbose_name_plural = "Footer Informations"
         ordering = ["-id"]
+
+
+# ----------- new addition 2.0 ----------
+
+class HeaderSliderModel(models.Model):
+    title = models.CharField(null=True, blank=True, max_length=125)
+    sub_title = models.TextField(null=True, blank=True, max_length=225)
+    btn_text = models.CharField(
+        max_length=20, null=True, blank=True, verbose_name="button text"
+    )
+    btn_link = models.URLField(null=True, blank=True, verbose_name="button link")
+    bg_img = models.ImageField(
+        upload_to="header-sliders-bg",
+        null=True,
+        verbose_name="slider image",
+        help_text="image size: w-1920px x h-800",
+    )
+    active = models.BooleanField(default=True, null=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.title} - {self.created_at}"
+
+    class Meta:
+        verbose_name = "Header Slider"
+        verbose_name_plural = "Header Sliders"
+
+
+
+class AdmissionModel(models.Model):
+    admission_banner = models.ImageField(upload_to="admission-banner", null=True)
+    admission_details = RichTextUploadingField(null=True)
+
+    def __str__(self):
+        return f"{self.id} - Admission"
+
+    class Meta:
+        verbose_name = "Admission"
+        verbose_name_plural = "Admissions"
+
+
+class CounterModel(models.Model):
+    total_student = models.CharField(max_length=255, null=True, verbose_name="total students")
+    total_teacher = models.CharField(max_length=255, null=True, verbose_name="total teachers")
+    total_book = models.CharField(max_length=255, null=True, verbose_name="total books")
+    total_computer = models.CharField(max_length=255, null=True, verbose_name="total computers")
+
+    def __str__(self):
+        return f"Counter Data | Editable Object"
+
+
+class FounderModel(models.Model):
+    profile = models.ImageField(upload_to="founder-profile-image", null=True, verbose_name="profile image")
+    founder_details = RichTextUploadingField(null=True)
+
+    def __str__(self):
+        return f"{self.id} - Founder | Editable Object"
+
+    class Meta:
+        verbose_name = "Founder"
+        verbose_name_plural = "Founder Details"
+
+
+class FacilityModel(models.Model):
+    title = models.CharField(null=True, max_length=125)
+    details = models.TextField(null=True, max_length=525, verbose_name="short details")
+    is_important = models.BooleanField(default=False, null=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.id} - Facility"
+
+    class Meta:
+        verbose_name = "Student Facility"
+        verbose_name_plural = "Student Facilities"
+
+
+
+class StudentActivitiesModel(models.Model):
+    title = models.CharField(null=True, max_length=125, verbose_name="card title")
+    details = RichTextUploadingField(null=True)
+    btn_link = models.URLField(null=True, blank=True, verbose_name="button link")
+    image = models.ImageField(upload_to="activities-images", null=True)
+
+    is_active = models.BooleanField(default=True, null=True)
+    status = models.CharField(null=True, max_length=125, default="Editable Data", editable=False)
+
+    def __str__(self):
+        return f"{self.id} - Activities"
+
+    class Meta:
+        verbose_name = "Student Activities"
+        verbose_name_plural = "Student Activities"

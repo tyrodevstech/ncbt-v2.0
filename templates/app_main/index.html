@@ -6,7 +6,7 @@
     <!-- Slides -->
     <div class="swiper-slide">
       <div
-        class="relative isolate flex min-h-[400px] items-center bg-gray-950 md:min-h-[700px] lg:h-[85vh]"
+        class="relative isolate flex min-h-[520px] items-center bg-gray-950 md:min-h-[700px] lg:h-[85vh]"
       >
         <img
           src="{% static 'assets/images/web_banner_1.jpg' %}"
@@ -44,7 +44,7 @@
     <!-- Slides -->
     <div class="swiper-slide">
       <div
-        class="relative isolate flex min-h-[400px] items-center bg-gray-950 md:min-h-[700px] lg:h-[85vh]"
+        class="relative isolate flex min-h-[520px] items-center bg-gray-950 md:min-h-[700px] lg:h-[85vh]"
       >
         <img
           src="{% static 'assets/images/web_banner_1.jpg' %}"
@@ -207,7 +207,7 @@
 >
   <img
     loading="lazy"
-    src="{% static 'assets/images/courses_bg.png' %}"
+    src="{% static 'assets/images/section-bg-dark.png' %}"
     alt="courses bg image"
     class="absolute inset-0 -z-10 h-full w-full object-cover"
   />
@@ -377,7 +377,7 @@
       </p>
     </div>
 
-    <div id="advisor-slider" class="advisor-list swiper pb-8">
+    <div id="advisor-slider" class="advisor-list swiper pb-10">
       <div class="swiper-wrapper">
         <div
           class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
@@ -502,7 +502,7 @@
 >
   <img
     loading="lazy"
-    src="{% static 'assets/images/courses_bg.png' %}"
+    src="{% static 'assets/images/section-bg-dark.png' %}"
     alt="notices bg image"
     class="absolute inset-0 -z-10 h-full w-full object-cover"
   />
@@ -515,18 +515,18 @@
         N.Haque College of Business and Technology (NCBT) notice and events
       </p>
     </div>
-    <div class="events grid gap-7 md:grid-cols-2">
+    <div class="events grid gap-7 lg:grid-cols-2">
       <!-- Notice Content Start -->
       {% for obj in notice %}
       <div class="event flex justify-between overflow-hidden rounded bg-white">
         <img
-          src="{% static 'assets/images/notice-default.png' %}"
+          src="{% static 'assets/images/notice.png' %}"
           alt=""
           class="hidden bg-white object-cover md:block md:w-48"
         />
-        <div class="events-text p-6">
+        <div class="events-text flex-1 p-6">
           <div
-            class="event-text-heading mb-4 flex flex-col justify-start gap-4 md:mb-6 md:flex-row md:items-center md:gap-3"
+            class="event-text-heading mb-2 flex flex-col justify-start gap-3 md:mb-6 md:flex-row md:items-center"
           >
             <div
               class="events-calendar flex w-max flex-col items-center justify-center whitespace-nowrap rounded bg-green-600 px-3 py-1.5 text-center text-white"
@@ -539,7 +539,7 @@
                 {{ obj.post_title }}
               </h4>
 
-              <div class="time-area mt-1 text-sm">
+              <div class="time-area text-sm md:mt-1">
                 <span class="published-time text-gray-500">
                   <i class="ti ti-clock mr-1"></i>
                   05:23 AM - 09:23 AM
@@ -552,7 +552,7 @@
           >
             <p>{{ obj.post_content }}</p>
           </div>
-          <div class="mt-2 text-right">
+          <div class="text-right md:mt-2">
             <a
               href=""
               #
@@ -662,18 +662,15 @@
 <!-- Extra end -->
 
 <!-- counter start -->
-<div
-  id="counters"
-  class="counter-area relative isolate my-8 py-10 md:my-16 md:py-20"
->
+<div id="counters" class="counter-area relative isolate my-8 py-20 md:my-16">
   <img
     loading="lazy"
-    src="{% static 'assets/images/courses_bg.png' %}"
+    src="{% static 'assets/images/section-bg-dark.png' %}"
     alt="courses bg image"
     class="absolute inset-0 -z-10 h-full w-full object-cover"
   />
   <div class="container">
-    <div class="grid gap-8 text-white md:grid-cols-4">
+    <div class="grid grid-cols-2 gap-8 text-white md:grid-cols-4">
       <div class="w-full">
         <div
           class="couter-wrapper flex flex-col items-center justify-center text-center"
@@ -683,7 +680,7 @@
             alt=""
             class=""
           />
-          <span class="counter mt-4 text-4xl font-bold">1500</span>
+          <span class="counter mt-4 text-4xl font-bold" data-purecounter-end="225">0</span>
           <h3 class="text-gray-200">Total Students</h3>
         </div>
       </div>
@@ -692,7 +689,7 @@
           class="couter-wrapper flex flex-col items-center justify-center text-center"
         >
           <img src="{% static 'assets/images/counter_icon4.png' %}" alt="" />
-          <span class="counter mt-4 text-4xl font-bold">30</span>
+          <span class="counter mt-4 text-4xl font-bold" data-purecounter-end="225">0</span>
           <h3 class="text-gray-200">Expert Teacher</h3>
         </div>
       </div>
@@ -701,7 +698,7 @@
           class="couter-wrapper flex flex-col items-center justify-center text-center"
         >
           <img src="{% static 'assets/images/counter_icon2.png' %}" alt="" />
-          <span class="counter mt-4 text-4xl font-bold">2500</span>
+          <span class="counter mt-4 text-4xl font-bold" data-purecounter-end="225">0</span>
           <h3 class="text-gray-200">Books</h3>
         </div>
       </div>
@@ -709,8 +706,8 @@
         <div
           class="couter-wrapper flex flex-col items-center justify-center text-center"
         >
-          <img src="{% static 'assets/images/counter_4.png' %}" alt="" />
-          <span class="counter mt-4 text-4xl font-bold">40</span>
+          <img src="{% static 'assets/images/counter_icon3.png' %}" alt="" />
+          <span class="counter mt-4 text-4xl font-bold" data-purecounter-end="225">0</span>
           <h3 class="text-gray-200">Computer</h3>
         </div>
       </div>
@@ -720,7 +717,7 @@
 <!-- counter end -->
 
 <!-- student facilites start -->
-<div class="student-facilities-area my-8 py-8 md:my-16 md:py-16">
+<div class="student-facilities-area my-8 py-16 md:my-16">
   <div class="container">
     <div class="section-title mb-12 text-center text-gray-900">
       <h1 class="section-title-heading mb-3 text-3xl font-semibold md:text-4xl">
@@ -732,7 +729,7 @@
       </p>
     </div>
 
-    <div id="student-facilities" class="swiper pb-12">
+    <div id="student-facilities-slider" class="swiper pb-12">
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->

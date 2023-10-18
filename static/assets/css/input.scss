@@ -137,12 +137,15 @@ body {
   transform: rotate(-90deg);
 }
 
-#header-slider .swiper-pagination-bullet {
-  @apply !bg-gray-200 transition-all w-4 h-1 rounded;
+.swiper-pagination-bullet {
+  @apply h-1 w-4 rounded !bg-gray-200 transition-all;
 }
 
-#advisor-slider .swiper-pagination-bullet {
-  @apply !bg-gray-700 transition-all w-4 h-1 rounded;
+#advisor-slider,
+#student-facilities-slider {
+  .swiper-pagination-bullet {
+    @apply !bg-gray-700;
+  }
 }
 .swiper-pagination-bullet-active {
   @apply !w-10;

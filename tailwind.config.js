@@ -32,11 +32,12 @@ module.exports = {
     function ({ addComponents }) {
       addComponents({
         ".container": {
+          width: "100%",
           maxWidth: "100%",
           marginLeft: "auto",
           marginRight: "auto",
-          paddingLeft: "1.5rem",
-          paddingRight: "1.5rem",
+          paddingLeft: "1.85rem",
+          paddingRight: "1.85rem",
           "@screen sm": {
             maxWidth: "540px",
             paddingLeft: "1rem",

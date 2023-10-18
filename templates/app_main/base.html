@@ -7,7 +7,10 @@
     <title>N. Haque University College - NCBT</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}" />
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}" />
     <!-- <link rel="manifest" href="site.html"> -->
     <link rel="shortcut icon" type="image/x-icon" href="#" />
     <!-- Place favicon.ico in the root directory -->
@@ -53,8 +56,8 @@
         <h1 class="text-loading">Reading</h1>
     </div> -->
     <!-- Preloader End -->
-    {% include 'components/nav.html' %} {% block main %} {% endblock main %} {%
-    include 'components/footer.html' %}
+    {% include 'components/nav.html' %} {% block main %} {% endblock main %} 
+    {% include 'components/footer.html' %}
 
     <!-- JS here -->
     <script
@@ -85,6 +88,7 @@
     <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
     <script src="{% static 'assets/js/plugins.js' %}"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="{% static 'assets/js/pure-counter.js' %}"></script>
 
     <script src="{% static 'assets/js/main.js' %}"></script>
 
@@ -118,29 +122,32 @@
             },
           },
         });
-        const student_facilities = new Swiper("#student-facilities", {
-          // Optional parameters
-          // centeredSlides: true,
+        const student_facilities_slider = new Swiper(
+          "#student-facilities-slider",
+          {
+            // Optional parameters
+            // centeredSlides: true,
 
-          // If we need pagination
-          pagination: {
-            el: ".swiper-pagination",
-          },
+            // If we need pagination
+            pagination: {
+              el: ".swiper-pagination",
+            },
 
-          slidesPerView: 1,
-          spaceBetween: 30,
-          // Responsive breakpoints
-          breakpoints: {
-            // when window width is >= 480px
-            576: {
-              slidesPerView: 2,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            // Responsive breakpoints
+            breakpoints: {
+              // when window width is >= 480px
+              576: {
+                slidesPerView: 2,
+              },
+              // when window width is >= 640px
+              768: {
+                slidesPerView: 3,
+              },
             },
-            // when window width is >= 640px
-            768: {
-              slidesPerView: 3,
-            },
-          },
-        });
+          }
+        );
         const advisor_slider = new Swiper("#advisor-slider", {
           // Optional parameters
           // centeredSlides: true,

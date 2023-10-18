@@ -80,6 +80,21 @@ window.addEventListener("load", (event) => {
     mainClass: "mfp-fade",
   });
 
+  new PureCounter({
+    selector: ".counter",
+    start: 0,
+    // end: 100,
+    duration: 2,
+    delay: 20,
+    // once: false,
+    // repeat: false,
+    // decimals: 0,
+    legacy: true,
+    filesizing: false,
+    currency: false,
+    separator: false,
+  });
+
   hidePreloader();
 });
 

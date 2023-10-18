@@ -456,7 +456,7 @@
       {% for obj in notice %}
       <div class="event flex justify-between overflow-hidden rounded bg-white">
         <img
-          src="{% if obj.thumbnail %}{{ obj.thumbnail.url }}{% else %}{% static 'assets/images/notice-default.png' %}{% endif %}"
+          src="{% if obj.thumbnail %}{{ obj.thumbnail.url }}{% else %}{% static 'assets/images/notice.png' %}{% endif %}"
           alt=""
           class="hidden bg-white object-cover md:block md:w-48"
         />

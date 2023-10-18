@@ -29,6 +29,7 @@ module.exports = {
     container: false,
   },
   plugins: [
+    require('@tailwindcss/typography'),
     function ({ addComponents }) {
       addComponents({
         ".container": {

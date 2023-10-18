@@ -66,6 +66,13 @@ def notice_details_view(request, pk):
     return render(request, "app_main/notice_details.html", context)
 
 
+def course_details_view(request, slug):
+    context = {
+        "course": get_object_or_404(CourseModel, slug=slug)
+    }
+    return render(request, "app_main/course_details.html", context)
+
+
 def contact_us_view(request):
     info = ContactInformationModel.objects.first()
     form = ContactForm()

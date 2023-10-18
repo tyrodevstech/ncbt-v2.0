@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils.text import slugify
 
 
 class Teacher(models.Model):
@@ -176,3 +177,31 @@ class StudentActivitiesModel(models.Model):
     class Meta:
         verbose_name = "Student Activities"
         verbose_name_plural = "Student Activities"
+
+
+class CourseModel(models.Model):
+    course_name = models.CharField(null=True, max_length=125, verbose_name="course name")
+    slug = models.SlugField(null=True, blank=True, editable=False)
+    code_name = models.CharField(null=True, max_length=125, verbose_name="course code name")
+    course_article = models.TextField(null=True, max_length=500, verbose_name="course article")
+    cover_image = models.ImageField(upload_to="course-cover-images", null=True, verbose_name="course cover image", help_text="image size: w-800, h-500")
+    course_glance = RichTextUploadingField(null=True)
+    total_student_seat = models.CharField(null=True, max_length=125)
+    total_student = models.CharField(null=True, max_length=125)
+    total_graduated = models.CharField(null=True, max_length=125)
+    total_credit = models.CharField(null=True, blank=True, max_length=125, help_text="it's mandatory for hon's courses")
+    per_semester_fee = models.CharField(null=True, blank=True, max_length=125, help_text="it's mandatory for hon's courses")
+    total_tuition_fee = models.CharField(null=True, blank=True, max_length=125, help_text="it's mandatory for hon's courses")
+
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.course_name)
+        super(CourseModel, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.id} - {self.course_name}"
+
+    class Meta:
+        verbose_name = "Course"
+        verbose_name_plural = "Courses"

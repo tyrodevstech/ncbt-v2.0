@@ -66,3 +66,9 @@ class StudentActivitiesModelAdmin(admin.ModelAdmin):
             return True
 
 admin.site.register(StudentActivitiesModel, StudentActivitiesModelAdmin)
+
+
+class CourseModelAdmin(admin.ModelAdmin):
+    list_display = ("course_name", "code_name", "total_student", "total_student_seat")
+
+admin.site.register(CourseModel, CourseModelAdmin)

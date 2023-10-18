@@ -1,0 +1,67 @@
+{% extends 'app_main/base.html' %} {% load static %} {% block main %}
+
+<!-- cover image start -->
+<section id="contact-cover-image">
+  <div class="relative isolate h-[24rem] w-full bg-black">
+    <img
+      loading="lazy"
+      class="absolute inset-0 -z-10 h-full w-full object-cover opacity-70"
+      src="{% static 'assets/images/sliedbar-bg.jpg' %}"
+      alt="contact-cover"
+    />
+    <div class="pt-[10rem] text-center text-white">
+      <h2 class="text-4xl font-bold uppercase md:text-6xl">
+        Notice Details
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- cover image end -->
+
+<!-- banner image start -->
+
+{% if notice %}
+<section class="my-8 py-8 md:my-16 md:py-16">
+  <div class="container">
+    {% if notice.thumbnail %}
+    <div class="z-10 max-w-full bg-green-300 mb-12">
+      <img
+        loading="lazy"
+        class="popup-image h-full w-full object-cover aspect-[3/1] hover:opacity-70"
+        src="{{ notice.thumbnail.url }}"
+        alt="about-img-1"
+      />
+    </div>
+    {% endif %}
+
+    <div class="max-w-full">
+        <h2 class="line-clamp-1 text-xl md:text-3xl font-semibold text-gray-900">
+            {{ notice.title }}
+        </h2>
+        <div class="mt-2 flex flex-row justify-start items-center gap-2">
+            <i class="ti ti-calendar-stats text-gray-500"></i>
+            <p class=" text-sm text-gray-500 font-medium">{{ notice.date }}</p>
+        </div>
+        <div class="mt-4">
+            {{ notice.content|safe }}
+        </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- banner image end -->
+
+{% endblock main %} {% block script %}
+<script>
+  $(".popup-image").magnificPopup({
+    type: "image",
+    mainClass: "mfp-fade",
+    callbacks: {
+      elementParse: function (item) {
+        item.src = item.el.attr("src");
+      },
+    },
+  });
+</script>
+{% endblock script %}

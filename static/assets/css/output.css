@@ -599,6 +599,9 @@ video {
 .top-0 {
   top: 0px;
 }
+.top-10 {
+  top: 2.5rem;
+}
 .isolate {
   isolation: isolate;
 }
@@ -639,6 +642,12 @@ video {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+<<<<<<< HEAD
+=======
+.\!mt-8 {
+  margin-top: 2rem !important;
+}
+>>>>>>> devs
 .-mt-16 {
   margin-top: -4rem;
 }
@@ -714,6 +723,9 @@ video {
 .mt-8 {
   margin-top: 2rem;
 }
+.-mb-12 {
+  margin-bottom: -3rem;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -785,6 +797,15 @@ video {
 }
 .aspect-square {
   aspect-ratio: 1 / 1;
+}
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+.aspect-\[2\/1\] {
+  aspect-ratio: 2/1;
+}
+.aspect-\[3\/1\] {
+  aspect-ratio: 3/1;
 }
 .h-1 {
   height: 0.25rem;
@@ -1319,9 +1340,12 @@ video {
 .\!pr-0 {
   padding-right: 0px !important;
 }
+<<<<<<< HEAD
 .pb-10 {
   padding-bottom: 2.5rem;
 }
+=======
+>>>>>>> devs
 .pb-12 {
   padding-bottom: 3rem;
 }
@@ -2209,6 +2233,11 @@ input[type="number"]::-webkit-outer-spin-button {
   --tw-bg-opacity: 1;
   background-color: rgba(21, 128, 61, 1);
   background-color: rgba(21, 128, 61, var(--tw-bg-opacity));
+}
+.hover\:bg-green-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(22, 101, 52, 1);
+  background-color: rgba(22, 101, 52, var(--tw-bg-opacity));
 }
 .hover\:bg-zinc-300:hover {
   --tw-bg-opacity: 1;

@@ -43,7 +43,7 @@
 </div>
 <nav class="sticky top-0 z-50 w-full bg-white" aria-label="Global">
   <div
-    class="nav-wrapper container px-4 flex h-16 items-center justify-between lg:h-20"
+    class="nav-wrapper container flex h-16 items-center justify-between px-4 lg:h-20"
   >
     <div class="flex w-full items-center justify-between lg:w-auto">
       <a class="flex items-center gap-3" href="{% url 'app_main:home' %}">
@@ -74,7 +74,7 @@
           </svg>
         </a>
         <button
-          class="nav-toggle-btn inline-flex items-center justify-center gap-2 rounded-md border bg-white p-2 align-middle text-sm text-zinc-700 shadow-sm transition-all hover:bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-zinc-600 focus:ring-offset-2 focus:ring-offset-white"
+          class="nav-toggle-btn inline-flex items-center justify-center gap-2 rounded-md border bg-white p-2 align-middle text-sm text-gray-700 shadow-sm transition-all hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2 focus:ring-offset-white"
         >
           <i class="ti ti-menu-2"></i>
         </button>
@@ -126,7 +126,9 @@
 
           <ul class="dropdown-menu">
             <li>
-              <a class="menu-link" href="">Notice</a>
+              <a class="menu-link" href="{% url 'app_main:notices' %}">
+                Notice
+              </a>
             </li>
             <li
               class="submenu__left submenu [--strategy:static] lg:[--strategy:absolute]"
@@ -180,7 +182,7 @@
         <li class="mt-4 inline-block lg:mt-0 lg:hidden">
           <a
             href="{% url 'admin:index' %}"
-            class="flex w-max items-center gap-2 rounded bg-zinc-800 py-1.5 pl-3 pr-3.5 text-sm uppercase text-white"
+            class="flex w-max items-center gap-2 rounded bg-gray-800 py-1.5 pl-3 pr-3.5 text-sm uppercase text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

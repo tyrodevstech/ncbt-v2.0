@@ -15,7 +15,7 @@ def index_view(request):
         "founder": FounderModel.objects.first(),
         "important_facilities": FacilityModel.objects.filter(is_important=True)[:3],
         "facilities": FacilityModel.objects.filter(is_important=False),
-        "activities": StudentActivitiesModel.objects.filter(is_active=True)
+        "activities": StudentActivitiesModel.objects.filter(is_active=True),
     }
     return render(request, "app_main/index.html", context)
 
@@ -41,34 +41,33 @@ def teachers_view(request):
     return render(request, "app_main/teachers.html", context)
 
 
-def notice_view(request):
-    notice_obj = Notice.objects.all().order_by("-date")
-    all_post = Paginator(notice_obj, 6)
+def notices_view(request):
+    notice_queryset = Notice.objects.all().order_by("-date")
+    notice_paginator = Paginator(notice_queryset, 6)
     page = request.GET.get("page")
 
     try:
-        notice = all_post.page(page)
+        notices = notice_paginator.page(page)
     except PageNotAnInteger:
-        notice = all_post.page(1)
-    except:
-        notice = all_post.page(all_post.num_pages)
+        notices = notice_paginator.page(1)
+    except EmptyPage:
+        notices = notice_paginator.page(notice_paginator.num_pages)
 
     context = {
-        "notice": notice,
+        "notices": notices,
     }
-    return render(request, "app_main/notice.html", context)
+    return render(request, "app_main/notices.html", context)
 
 
 def notice_details_view(request, pk):
-    context = {
-        "notice": get_object_or_404(Notice, id=pk)
-    }
+    context = {"notice": get_object_or_404(Notice, id=pk)}
     return render(request, "app_main/notice_details.html", context)
 
 
 def contact_us_view(request):
     info = ContactInformationModel.objects.first()
     form = ContactForm()
+    email = request.GET.get("email", "")
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -79,6 +78,7 @@ def contact_us_view(request):
     context = {
         "form": form,
         "info": info,
+        "email": email,
     }
     return render(request, "app_main/contact_us.html", context)
 

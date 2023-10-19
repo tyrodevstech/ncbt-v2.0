@@ -1,0 +1,98 @@
+{% extends 'app_main/base.html' %} 
+{% load static %} 
+
+{% block main %}
+<!-- section banner start -->
+<div class="banner-area relative isolate h-60 md:h-96 bg-gray-950">
+  <img loading="lazy" src="{% static 'assets/images/section-banner-bg.jpg' %}" alt="section banner"
+    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-80" />
+  <div class="container grid h-full place-items-center text-center">
+    <h1 class="text-3xl font-bold uppercase text-white md:text-5xl">
+      Notice Board
+    </h1>
+  </div>
+</div>
+<!-- section banner end -->
+
+<!-- notices start -->
+<div id="notice" class="notice-area relative isolate my-8 py-8 md:my-16 md:py-16">
+  <div class="container">
+    <div class="notices grid gap-7 lg:grid-cols-2">
+      <!-- Notice Content Start -->
+      {% for obj in notices %}
+      <div class="notice flex justify-between overflow-hidden rounded bg-white">
+        <img loading="lazy"
+          src="{% if obj.thumbnail %}{{ obj.thumbnail.url }}{% else %}{% static 'assets/images/notice.png' %}{% endif %}"
+          alt="" class="hidden bg-white object-cover md:block md:w-48" />
+        <div class="notice-text flex-1 p-6">
+          <div class="notice-text-heading mb-2 flex flex-col justify-start gap-3 md:mb-6 md:flex-row md:items-center">
+            <div
+              class="notice-calendar flex w-max flex-col items-center justify-center whitespace-nowrap rounded bg-green-600 px-3 py-1.5 text-center text-white">
+              <span class="date text-xl font-bold">{{obj.date|date:'d'}}</span>
+              <span class="month text-xs">{{obj.date|date:'M, Y'}}</span>
+            </div>
+            <div class="notice-text-title">
+              <h4 class="line-clamp-1 text-xl font-semibold text-gray-900">
+                {{ obj.title }}
+              </h4>
+
+              <div class="time-area text-sm md:mt-1">
+                <span class="published-time text-gray-500">
+                  <i class="ti ti-clock mr-1"></i>
+                  {{ obj.date|date:"h:i A" }}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="notice-para line-clamp-2 text-sm text-gray-500 md:text-base">
+            <div>{{ obj.content|striptags|safe|truncatechars_html:600 }}</div>
+          </div>
+          <div class="text-right md:mt-2">
+            <a href="{% url 'app_main:notice_details' obj.id %}"
+              class="inline-block gap-2 text-green-600 transition-colors hover:text-green-700">
+              Read more &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- Notice Content End -->
+
+    <div class="mt-8 flex justify-center gap-2 text-sm font-bold md:mt-16">
+      {% if notices.has_previous %}
+      <a href="?page={{ notices.previous_page_number }}"
+        class="flex items-center rounded px-4 py-2 text-gray-700 transition-colors duration-300 hover:bg-gray-700 hover:text-white">
+        <i class="ti ti-arrow-left font-bold"></i>
+      </a>
+      {% else %}
+      <a href="#" class="flex cursor-not-allowed items-center rounded px-4 py-2 text-gray-400">
+        <i class="ti ti-arrow-left font-bold"></i>
+      </a>
+      {% endif %}
+      {% for page_number in notices.paginator.page_range %}
+      {% if notices.number == page_number %}
+      <a class="items-center rounded bg-gray-700 px-4 py-2 text-white duration-300 sm:flex">
+        {{ page_number }}
+      </a>
+      {% else %}
+      <a href="?page={{ page_number }}"
+        class="items-center rounded px-4 py-2 text-gray-700 transition-colors duration-300 hover:bg-gray-700 hover:text-white sm:flex">
+        {{ page_number }}
+      </a>
+      {% endif %} {% endfor %} 
+      {% if notices.has_next %}
+      <a href="?page={{ notices.next_page_number }}"
+        class="flex items-center rounded px-4 py-2 text-gray-700 transition-colors duration-300 hover:bg-gray-700 hover:text-white">
+        <i class="ti ti-arrow-right font-bold"></i>
+      </a>
+      {% else %}
+      <a href="#" class="flex cursor-not-allowed items-center rounded px-4 py-2 text-gray-400">
+        <i class="ti ti-arrow-right font-bold"></i>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<!-- notices end -->
+{% endblock main %}

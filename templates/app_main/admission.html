@@ -1,22 +1,16 @@
 {% extends 'app_main/base.html' %} {% load static %} {% block main %}
 
-<!-- cover image start -->
-<section id="contact-cover-image">
-  <div class="relative isolate h-[24rem] w-full bg-black">
-    <img
-      loading="lazy"
-      class="absolute inset-0 -z-10 h-full w-full object-cover opacity-70"
-      src="{% static 'assets/images/section-banner-bg.jpg' %}"
-      alt="contact-cover"
-    />
-    <div class="pt-[10rem] text-center text-white">
-      <h2 class="text-4xl font-bold uppercase md:text-6xl">
-        Admission Information
-      </h2>
-    </div>
+<!-- section banner start -->
+<div class="banner-area relative isolate h-60 md:h-96 bg-gray-950">
+  <img loading="lazy" src="{% static 'assets/images/section-banner-bg.jpg' %}" alt="section banner"
+    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-80" />
+  <div class="container grid h-full place-items-center text-center">
+    <h1 class="text-3xl font-bold uppercase text-white md:text-5xl">
+      Admission Information
+    </h1>
   </div>
-</section>
-<!-- cover image end -->
+</div>
+<!-- section banner end -->
 
 <!-- banner image start -->
 
@@ -32,23 +26,12 @@
       />
     </div>
 
-    <div class="my-16 max-w-full">{{ admission.admission_details|safe }}</div>
+    <div class="w-full max-w-full mt-5 md:mt-10">{{ admission.admission_details|safe }}</div>
   </div>
 </section>
 {% endif %}
 
 <!-- banner image end -->
 
-{% endblock main %} {% block script %}
-<script>
-  $(".popup-image").magnificPopup({
-    type: "image",
-    mainClass: "mfp-fade",
-    callbacks: {
-      elementParse: function (item) {
-        item.src = item.el.attr("src");
-      },
-    },
-  });
-</script>
-{% endblock script %}
+{% endblock main %} 
+

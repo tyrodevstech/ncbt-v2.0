@@ -1,100 +1,69 @@
 {% extends 'app_main/base.html' %} {% load static %} {% block main %}
-<!-- cover image start -->
-<section id="contact-cover-image">
-  <div class="relative isolate h-[24rem] w-full bg-black">
-    <img
-      loading="lazy"
-      class="absolute inset-0 -z-10 h-full w-full object-cover opacity-70"
-      src="{% static 'assets/images/section-banner-bg.jpg' %}"
-      alt="contact-cover"
-    />
-    <div class="pt-[10rem] text-center text-white">
-      <h2 class="text-4xl font-bold uppercase md:text-6xl">Contact US</h2>
-    </div>
+<!-- section banner start -->
+<div class="banner-area relative isolate h-60 bg-gray-950 md:h-96">
+  <img loading="lazy" src="{% static 'assets/images/section-banner-bg.jpg' %}" alt="section banner"
+    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-80" />
+  <div class="container grid h-full place-items-center text-center">
+    <h1 class="text-3xl font-bold uppercase text-white md:text-5xl">
+      Contact Us
+    </h1>
   </div>
-</section>
-<!-- cover image end -->
+</div>
+<!-- section banner end -->
 
 <!-- card & contact form start -->
 <section id="card-contact-form" class="my-8 py-8 md:my-16 md:py-16">
-  <div
-    class="container flex flex-col items-start justify-start gap-8 md:flex-row md:justify-center md:gap-12"
-  >
+  <div class="container flex flex-col items-start justify-start gap-8 md:flex-row md:justify-center md:gap-12">
     <div class="w-full md:w-1/2">
       <h2 class="mb-6 text-4xl font-bold uppercase text-green-700">
         GET IN TOUCH WITH US
       </h2>
       {% if contact %}
-      <p class="text-sm font-normal text-zinc-900">{{ info.details }}</p>
+      <p class="text-sm font-normal text-gray-900 md:text-base">
+        {{ info.details }}
+      </p>
       <div class="mt-10 flex flex-row items-center justify-start gap-2">
         <i class="ti ti-phone"></i>
-        <p class="text-sm text-zinc-900">{{ info.phone }}</p>
+        <p class="text-sm text-gray-900 md:text-base">{{ info.phone }}</p>
       </div>
       <div class="mt-2 flex flex-row items-center justify-start gap-2">
         <i class="ti ti-mail"></i>
-        <p class="text-sm text-zinc-900">{{ info.email }}</p>
+        <p class="text-sm text-gray-900 md:text-base">{{ info.email }}</p>
       </div>
       <div class="mt-2 flex flex-row items-center justify-start gap-2">
         <i class="ti ti-map"></i>
-        <p class="text-sm text-zinc-900">{{ info.address }}</p>
+        <p class="text-sm text-gray-900 md:text-base">{{ info.address }}</p>
       </div>
       <div class="mt-2 flex flex-row items-start justify-start gap-2">
         <i class="ti ti-calendar-time"></i>
-        <p class="text-sm text-black">{{ contact.work }}</p>
+        <p class="text-sm text-black md:text-base">{{ contact.work }}</p>
       </div>
       {% endif %}
     </div>
     <div class="mt-4 w-full md:mt-0 md:w-1/2">
-      <form class="mb-10 md:mb-0" action="" method="post">
+      <form class="mb-10 md:mb-0" action="" method="post" id="contact-form">
         {% csrf_token %}
-        <div
-          class="flex flex-col items-center justify-center gap-4 md:flex-row"
-        >
+        <div class="flex flex-col items-center justify-center gap-4 md:flex-row">
           <input
-            class="block w-full border-b-[1.5px] border-green-700 bg-zinc-50 py-2 placeholder:text-xs placeholder:font-bold placeholder:text-zinc-600 focus:outline-none placeholder:focus:text-zinc-900"
-            type="text"
-            name="name"
-            placeholder="NAME"
-            required
-          />
+            class="block w-full border-b-[1.5px] border-green-700 bg-transparent py-2 placeholder:text-xs placeholder:font-bold placeholder:text-gray-600 focus:outline-none placeholder:focus:text-gray-900"
+            type="text" name="name" placeholder="NAME" required />
           <input
-            class="block w-full border-b-[1.5px] border-green-700 bg-zinc-50 py-2 placeholder:text-xs placeholder:font-bold placeholder:text-zinc-600 focus:outline-none placeholder:focus:text-zinc-900"
-            type="email"
-            name="email"
-            placeholder="EMAIL"
-            required
-          />
+            class="block w-full border-b-[1.5px] border-green-700 bg-transparent py-2 placeholder:text-xs placeholder:font-bold placeholder:text-gray-600 focus:outline-none placeholder:focus:text-gray-900"
+            type="email" name="email" placeholder="EMAIL" value="{{email}}" required />
         </div>
-        <div
-          class="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row"
-        >
+        <div class="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row">
           <input
-            class="block w-full border-b-[1.5px] border-green-700 bg-zinc-50 py-2 placeholder:text-xs placeholder:font-bold placeholder:text-zinc-600 focus:outline-none placeholder:focus:text-zinc-900"
-            type="text"
-            name="phone"
-            placeholder="PHONE"
-            required
-          />
+            class="block w-full border-b-[1.5px] border-green-700 bg-transparent py-2 placeholder:text-xs placeholder:font-bold placeholder:text-gray-600 focus:outline-none placeholder:focus:text-gray-900"
+            type="text" name="phone" placeholder="PHONE" required />
           <input
-            class="block w-full border-b-[1.5px] border-green-700 bg-zinc-50 py-2 placeholder:text-xs placeholder:font-bold placeholder:text-zinc-600 focus:outline-none placeholder:focus:text-zinc-900"
-            type="text"
-            name="address"
-            placeholder="ADDRESS"
-            required
-          />
+            class="block w-full border-b-[1.5px] border-green-700 bg-transparent py-2 placeholder:text-xs placeholder:font-bold placeholder:text-gray-600 focus:outline-none placeholder:focus:text-gray-900"
+            type="text" name="address" placeholder="ADDRESS" required />
         </div>
         <textarea
-          class="mt-8 block w-full border-b-[1.5px] border-green-700 bg-zinc-50 placeholder:text-xs placeholder:font-bold placeholder:text-zinc-600 focus:outline-none placeholder:focus:text-zinc-900"
-          name="message"
-          id=""
-          rows="6"
-          placeholder="MESSAGE"
-          required
-        ></textarea>
-        <button
-          type="text"
-          class="mt-8 border-[1.5px] border-green-700 px-8 py-4 font-sans text-xs font-semibold uppercase hover:bg-green-700 hover:text-white hover:duration-1000"
-        >
+          class="mt-8 block w-full border-b-[1.5px] border-green-700 bg-transparent placeholder:text-xs placeholder:font-bold placeholder:text-gray-600 focus:outline-none placeholder:focus:text-gray-900"
+          name="message" id="" rows="6" placeholder="MESSAGE" required></textarea>
+        <button type="text"
+          class="mt-8 border-[1.5px] border-green-700 px-8 py-4 font-sans text-xs font-semibold uppercase hover:bg-green-700 hover:text-white hover:duration-500">
           Send Message
         </button>
       </form>
@@ -103,26 +72,51 @@
 </section>
 <!-- card & contact form end -->
 
-{% if messages %} {% for message in messages %}
-<div id="msg_text_success" class="message" style="display: none">
-  {{ message }}
-</div>
-{% endfor %} {% endif %}
-
-<style>
-  .tata-text {
-    color: #fff !important;
-  }
-</style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="{% static 'assets/std_portal/js/tata.js' %}"></script>
+{% endblock main %}
+{% block script %}
 <script>
-  if ($("#msg_text_success").text() != "") {
-    tata.success("Success", $("#msg_text_success").text(), {
-      position: "tr",
-      duration: 10000,
+  window.addEventListener("load", (event) => {
+
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags == 'success' %}
+    new Toast({
+      title: "Success",
+      message: "{{message}}",
+      position: "top-right",
+      pauseOnHover: true,
+      pauseOnFocusLoss: true,
+      toastType: 'success'
     });
+    {% elif message.tags == 'error' %}
+    new Toast({
+      title: "Error",
+      message: "{{message}}",
+      position: "top-right",
+      pauseOnHover: true,
+      pauseOnFocusLoss: true,
+      toastType: 'error'
+    });
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+  });
+  const hash = window.location.hash;
+
+  if (hash) {
+    const formId = hash.slice(1);
+    const form = document.getElementById(formId);
+
+    if (form) {
+      window.scrollTo({
+        behavior: "smooth",
+        top: form.offsetTop - 128,
+      });
+      const firstInput = form.querySelector("input[name=name]");
+      if (firstInput) {
+        firstInput.focus();
+      }
+    }
   }
 </script>
-
-{% endblock main %}
+{% endblock script %}

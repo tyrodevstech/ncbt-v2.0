@@ -1,10 +1,10 @@
 {% load static %}
 <footer
-  class="footer-bg flex w-full flex-col items-center justify-center bg-indigo-950 text-gray-300"
+  class="footer-bg mt-16 md:mt-32 flex w-full flex-col items-center justify-center bg-indigo-950 text-gray-300"
 >
   <div class="container">
     <div
-      class="-mt-16 flex flex-col justify-between gap-4 bg-green-700 p-6 md:h-32 md:flex-row md:items-center md:px-8 xl:px-20"
+      class="flex flex-col -mt-8 md:-mt-16 justify-between gap-4 bg-green-700 p-6 min-h-[8rem] md:flex-row md:items-center md:px-8 xl:px-20"
     >
       <div>
         <h2 class="text-xl text-white md:text-3xl">Contact Us</h2>
@@ -14,7 +14,7 @@
       </div>
       <form
         class="flex w-full gap-2 rounded-3xl bg-white px-5 py-2 md:max-w-xs"
-        action="{% url 'app_main:contactus' %}"
+        action="{% url 'app_main:contactus' %}#contact-form"
       >
         <input
           type="email"
@@ -49,7 +49,7 @@
           <li>
             <a
               href="{% if  footer.facebook_link %}{{ footer.facebook_link }}{% else %}#{% endif %}"
-              class="grid aspect-square w-8 place-items-center rounded-full bg-white text-zinc-500"
+              class="grid aspect-square w-8 place-items-center rounded-full bg-white text-gray-500"
             >
               <i class="ti ti-brand-facebook"></i>
             </a>
@@ -57,7 +57,7 @@
           <li>
             <a
               href="{% if  footer.instagram_link %}{{ footer.instagram_link }}{% else %}#{% endif %}"
-              class="grid aspect-square w-8 place-items-center rounded-full bg-white text-zinc-500"
+              class="grid aspect-square w-8 place-items-center rounded-full bg-white text-gray-500"
             >
               <i class="ti ti-brand-instagram"></i>
             </a>
@@ -65,7 +65,7 @@
           <li>
             <a
               href="{% if  footer.twitter_link %}{{ footer.twitter_link }}{% else %}#{% endif %}"
-              class="grid aspect-square w-8 place-items-center rounded-full bg-white text-zinc-500"
+              class="grid aspect-square w-8 place-items-center rounded-full bg-white text-gray-500"
             >
               <i class="ti ti-brand-twitter"></i>
             </a>
@@ -73,7 +73,7 @@
           <li>
             <a
               href="{% if  footer.youtube_link %}{{ footer.youtube_link }}{% else %}#{% endif %}"
-              class="grid aspect-square w-8 place-items-center rounded-full bg-white text-zinc-500"
+              class="grid aspect-square w-8 place-items-center rounded-full bg-white text-gray-500"
             >
               <i class="ti ti-brand-youtube"></i>
             </a>

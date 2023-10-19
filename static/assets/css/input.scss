@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import './_base.scss';
+@import './_preload.scss';
 
 body {
   font-family: "Roboto", sans-serif;
@@ -40,7 +39,7 @@ body {
 }
 
 .nav-link {
-  @apply font-medium text-zinc-600 hover:text-zinc-400;
+  @apply font-medium text-gray-600 hover:text-gray-400;
 }
 @media screen(lg) {
   #navbar {
@@ -48,7 +47,7 @@ body {
   }
 
   .dropdown > .dropdown-menu {
-    @apply absolute top-full z-10  mt-0 w-48 translate-y-5 rounded-lg bg-white p-2 px-2 py-2 shadow-md outline outline-1 outline-zinc-200 transition-all;
+    @apply absolute top-full z-10  mt-0 w-48 translate-y-5 rounded-lg bg-white p-2 px-2 py-2 shadow-md outline outline-1 outline-gray-200 transition-all;
     @apply before:absolute before:-top-5 before:left-0 before:h-5 before:w-full;
   }
 
@@ -58,7 +57,7 @@ body {
   }
 
   .submenu > .submenu-menu {
-    @apply absolute top-0 z-10 mt-0 w-48 rounded-lg bg-white p-2 px-2 py-2 shadow-md outline outline-1 outline-zinc-200 transition-all;
+    @apply absolute top-0 z-10 mt-0 w-48 rounded-lg bg-white p-2 px-2 py-2 shadow-md outline outline-1 outline-gray-200 transition-all;
     @apply before:absolute before:top-0 before:h-full before:w-5;
   }
 
@@ -97,7 +96,7 @@ body {
 
 .menu-link,
 .submenu-btn {
-  @apply flex w-full items-center gap-x-3 rounded-md  px-3 py-1.5 text-sm text-zinc-800 hover:bg-zinc-100 focus:ring-2 focus:ring-blue-500;
+  @apply flex w-full items-center gap-x-3 rounded-md  px-3 py-1.5 text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500;
 }
 
 .splide__slide {
@@ -165,51 +164,13 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .tab-link {
-  @apply font-semibold uppercase text-zinc-500 transition-colors hover:text-zinc-950;
+  @apply font-semibold uppercase text-gray-500 transition-colors hover:text-gray-950;
 }
 
 .active-tab-link {
-  @apply border-b-2 border-b-zinc-950 text-zinc-950;
+  @apply border-b-2 border-b-gray-950 text-gray-950;
 }
 
 #subcategory-filter-panel.active {
   @apply visible translate-y-3 opacity-100;
-}
-
-.lds-dual-ring {
-  display: inline-block;
-  width: 80px;
-  height: 80px;
-}
-.lds-dual-ring:after {
-  content: " ";
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border-radius: 50%;
-  border: 6px solid #fff;
-  border-color: #fff transparent #fff transparent;
-  -webkit-animation: lds-dual-ring 1.2s linear infinite;
-  animation: lds-dual-ring 1.2s linear infinite;
-}
-@-webkit-keyframes lds-dual-ring {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes lds-dual-ring {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
 }

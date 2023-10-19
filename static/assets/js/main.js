@@ -3,7 +3,7 @@ const $menuToggleBtns = $(".menu-toggle-btn");
 const $navToggleBtn = $(".nav-toggle-btn");
 const progressCircle = document.querySelector(".autoplay-progress svg");
 const progressContent = document.querySelector(".autoplay-progress span");
-const preloader = document.querySelector(".preloader");
+const preloader = document.querySelector(".preloader-main");
 
 // Function to handle preloader animation
 function hidePreloader() {
@@ -16,8 +16,8 @@ function hidePreloader() {
   document.body.style.overflowY = "unset";
 }
 
-// Hide preloader on page load
-window.addEventListener("load", (event) => {
+
+document.addEventListener("DOMContentLoaded", (event) => {
   // Click event handler for menu toggle buttons
   $menuToggleBtns.on("click", function () {
     const $dropdownEl = $(this).parent();
@@ -31,9 +31,7 @@ window.addEventListener("load", (event) => {
     $(this).find("i").toggleClass("ti-x");
     $("#navbar").toggleClass("nav-open");
   });
-
-  // Initialize Swiper for header slider
-  new Swiper("#header-slider", {
+  const header_slider = new Swiper("#header-slider", {
     preloadImages: false,
     lazy: true,
     centeredSlides: true,
@@ -58,26 +56,86 @@ window.addEventListener("load", (event) => {
     },
   });
 
-  // Initialize Swiper for testimonial slider
-  new Swiper(".testimonial-slider", {
-    preloadImages: false,
-    lazy: true,
-    centeredSlides: true,
-    autoplay: {
-      delay: 4000,
-      disableOnInteraction: false,
+  const student_facilities_slider = new Swiper("#student-facilities-slider", {
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    slidesPerView: 1,
+    spaceBetween: 30,
+    breakpoints: {
+      // when window width is >= 480px
+      576: {
+        slidesPerView: 2,
+      },
+      // when window width is >= 640px
+      768: {
+        slidesPerView: 3,
+      },
+    },
+  });
+
+  const advisor_slider = new Swiper("#advisor-slider", {
+    pagination: {
+      el: ".swiper-pagination",
     },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
-    keyboard: true,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    breakpoints: {
+      // when window width is >= 480px
+      576: {
+        slidesPerView: 2,
+      },
+      // when window width is >= 640px
+      768: {
+        slidesPerView: 3,
+      },
+      992: {
+        slidesPerView: 4,
+      },
+    },
   });
 
-  $(".open-popup-link").magnificPopup({
-    type: "iframe",
-    midClick: true,
+  function scrollWaypointInit(items, trigger) {
+    items.each(function () {
+      var element = $(this),
+        osAnimationClass = element.data("animation"),
+        osAnimationDelay = element.attr("data-animation-delay");
+
+      element.css({
+        "-webkit-animation-delay": osAnimationDelay,
+        "-moz-animation-delay": osAnimationDelay,
+        "animation-delay": osAnimationDelay,
+      });
+
+      var trigger = trigger ? trigger : element;
+
+      trigger.waypoint(
+        function () {
+          element.addClass(osAnimationClass);
+        },
+        {
+          triggerOnce: true,
+          offset: "80%",
+        }
+      );
+    });
+  }
+
+  //Call the init
+  // scrollWaypointInit($(".animate__animated"));
+
+  $(".popup-image").magnificPopup({
+    type: "image",
     mainClass: "mfp-fade",
+    callbacks: {
+      elementParse: function (item) {
+        item.src = item.el.attr("src");
+      },
+    },
   });
 
   new PureCounter({
@@ -95,8 +153,14 @@ window.addEventListener("load", (event) => {
     separator: false,
   });
 
-  hidePreloader();
 });
+
+
+window.addEventListener("load", (event) => {
+  hidePreloader();
+
+});
+
 
 // Automatically hide preloader after 5 seconds
 setTimeout(hidePreloader, 5000);

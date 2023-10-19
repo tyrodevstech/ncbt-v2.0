@@ -1,9 +1,5 @@
-$main-color-1:#00A651;
-$main-color-2:#1ba75f;
-$main-color-3:#34d683;
-
 .preloader-main {
-    background: $main-color-1;
+    background: #00A651;
     position: fixed;
     inset: 0;
     z-index: 923879834798327;
@@ -46,13 +42,13 @@ $main-color-3:#34d683;
     width: 30px;
     height: 45px;
     border: 4px solid #FFFFFF;
-    border-left: 1px solid $main-color-2;
+    border-left: 1px solid #1ba75f;
     margin: 0;
     position: absolute;
     right: -4px;
     top: -4px;
     overflow: hidden;
-    background: $main-color-2;
+    background: #1ba75f;
     transform-style: preserve-3d;
     -webkit-transform-origin: left center;
     transform-origin: left center;
@@ -83,17 +79,17 @@ $main-color-3:#34d683;
     }
 
     20% {
-        background: $main-color-3;
+        background: #34d683;
     }
 
     40% {
-        background: $main-color-1;
+        background: #00A651;
         -webkit-transform: rotateY(-180deg);
         transform: rotateY(-180deg);
     }
 
     100% {
-        background: $main-color-1;
+        background: #00A651;
         -webkit-transform: rotateY(-180deg);
         transform: rotateY(-180deg);
     }
@@ -105,16 +101,16 @@ $main-color-3:#34d683;
     }
 
     20% {
-        background: $main-color-3;
+        background: #34d683;
     }
 
     40% {
-        background: $main-color-1;
+        background: #00A651;
         transform: rotateY(-180deg);
     }
 
     100% {
-        background: $main-color-1;
+        background: #00A651;
         transform: rotateY(-180deg);
     }
 }

@@ -1,19 +1,15 @@
 {% extends 'app_main/base.html' %} {% load static %} {% block main %}
-<!-- cover image start -->
-<section id="contact-cover-image">
-  <div class="relative isolate h-[24rem] w-full bg-black">
-    <img
-      loading="lazy"
-      class="absolute inset-0 -z-10 h-full w-full object-cover opacity-70"
-      src="{% static 'assets/images/section-banner-bg.jpg' %}"
-      alt="contact-cover"
-    />
-    <div class="pt-[10rem] text-center text-white">
-      <h2 class="text-4xl font-bold uppercase md:text-6xl">About US</h2>
-    </div>
+<!-- section banner start -->
+<div class="banner-area relative isolate h-60 md:h-96 bg-gray-950">
+  <img loading="lazy" src="{% static 'assets/images/section-banner-bg.jpg' %}" alt="section banner"
+    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-80" />
+  <div class="container grid h-full place-items-center text-center">
+    <h1 class="text-3xl font-bold uppercase text-white md:text-5xl">
+      About Us
+    </h1>
   </div>
-</section>
-<!-- cover image end -->
+</div>
+<!-- section banner end -->
 
 <!-- our history start -->
 <section id="our-history" class="my-8 py-8 md:my-16 md:py-16">
@@ -24,7 +20,7 @@
       <h2 class="mb-6 text-3xl font-bold uppercase text-green-700">
         Our History
       </h2>
-      <p class="text-sm font-normal text-zinc-900">
+      <p class="text-sm font-normal text-gray-900">
         N.Haque College of Business and Technology (NCBT) is one of the leading
         institutes affiliated with the National University of Bangladesh.
         N.Haque College of Business and Technology is a seat of higher
@@ -39,7 +35,7 @@
         education in Business and Technology with innovative research and
         development as a private institution.
       </p>
-      <p class="mt-4 text-sm font-normal text-zinc-900">
+      <p class="mt-4 text-sm font-normal text-gray-900">
         Students are encouraged to challenge themselves their partners and their
         teachers in a setting that gives them confidence and builds their skills
         to think independently.NCBT undertakes to build up a reputation as a
@@ -71,11 +67,11 @@
   <div class="container">
     <div class="mb-12 text-center md:mb-24">
       <h2
-        class="text-2xl font-bold uppercase leading-tight tracking-wider text-zinc-900 md:text-3xl"
+        class="text-2xl font-bold uppercase leading-tight tracking-wider text-gray-900 md:text-3xl"
       >
         Why Choose Us
       </h2>
-      <p class="text-md mt-2 font-medium text-zinc-700">
+      <p class="text-md mt-2 font-medium text-gray-700">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui
         neque sint eveniet tempore sapiente.
       </p>
@@ -97,10 +93,10 @@
       </div>
       <div class="w-full px-0 py-8 md:w-1/2 md:px-24">
         <p class="mb-2 text-xs uppercase">NICE TEXT HERE</p>
-        <h2 class="mb-6 text-4xl font-bold uppercase text-zinc-900 lg:text-6xl">
+        <h2 class="mb-6 text-4xl font-bold uppercase text-gray-900 lg:text-6xl">
           Excellent Teachers
         </h2>
-        <p class="text-sm text-zinc-900">
+        <p class="text-sm text-gray-900">
           Even the all-powerful Pointing has no control about the blind texts it
           is an almost unorthographic life One day however a small line of blind
           text by the name of Lorem Ipsum decided to leave for the far World of
@@ -125,10 +121,10 @@
       </div>
       <div class="w-full px-0 py-8 md:w-1/2 md:px-24">
         <p class="mb-2 text-xs uppercase">NICE TEXT HERE</p>
-        <h2 class="mb-6 text-4xl font-bold uppercase text-zinc-900 lg:text-6xl">
+        <h2 class="mb-6 text-4xl font-bold uppercase text-gray-900 lg:text-6xl">
           Outstanding Facilities
         </h2>
-        <p class="text-sm text-zinc-900">
+        <p class="text-sm text-gray-900">
           Even the all-powerful Pointing has no control about the blind texts it
           is an almost unorthographic life One day however a small line of blind
           text by the name of Lorem Ipsum decided to leave for the far World of
@@ -153,10 +149,10 @@
       </div>
       <div class="w-full px-0 py-8 md:w-1/2 md:px-24">
         <p class="mb-2 text-xs uppercase">World Class Education</p>
-        <h2 class="mb-6 text-4xl font-bold uppercase text-zinc-900 lg:text-6xl">
+        <h2 class="mb-6 text-4xl font-bold uppercase text-gray-900 lg:text-6xl">
           Excellent Teachers
         </h2>
-        <p class="text-sm text-zinc-900">
+        <p class="text-sm text-gray-900">
           Even the all-powerful Pointing has no control about the blind texts it
           is an almost unorthographic life One day however a small line of blind
           text by the name of Lorem Ipsum decided to leave for the far World of
@@ -184,7 +180,7 @@
         Code of Conduct
       </h2>
       <p
-        class="text-md border-b-2 border-green-700 py-4 font-medium text-zinc-700"
+        class="text-md border-b-2 border-green-700 py-4 font-medium text-gray-700"
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui
         neque sint eveniet tempore sapiente.
@@ -192,11 +188,11 @@
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Students must abide by the rules of NCBT. Lorem ipsum dolor sit amet
           consectetur adipisicing elit. Doloribus, sed.
         </p>
@@ -204,33 +200,33 @@
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Any type of political activity is banned in the campus.
         </p>
       </div>
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Every student should dress well before entering the campus.
         </p>
       </div>
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Sunglasses are not allowed in the classrooms or in the examination
           halls.
         </p>
@@ -238,11 +234,11 @@
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Using any kinds of offensive language is strictly prohibited in the
           campus.
         </p>
@@ -250,44 +246,44 @@
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Students should take care of all types of properties of NCBT.
         </p>
       </div>
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Cheating or coping in the examination halls is a punishable offence.
         </p>
       </div>
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Students shall not write anything on the walls, chairs and tables.
         </p>
       </div>
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Students are not permitted to paste any poster or write any slogan on
           the walls.
         </p>
@@ -295,11 +291,11 @@
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           The use of cellular phone in the classrooms or in the examination
           halls is strictly prohibited.
         </p>
@@ -307,33 +303,33 @@
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Smoking is not allowed in the campus.
         </p>
       </div>
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Possession or use of drugs in the campus is prohibited.
         </p>
       </div>
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           In case of any discontent against any official or student of NCBT, a
           written application should be forwarded to the authority.
         </p>
@@ -341,44 +337,44 @@
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Any activity subversive to the state is strictly prohibited.
         </p>
       </div>
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Breaking the code of conduct is a serious offence.
         </p>
       </div>
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Students should not take law in their hands.
         </p>
       </div>
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           The NCBT authority has the right to take disciplinary actions against
           any student for unethical or illegal acts.
         </p>
@@ -386,11 +382,11 @@
     </div>
 
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-zinc-950 hover:bg-zinc-300 hover:duration-700"
+      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-zinc-900">
+        <p class="text-lg font-semibold text-gray-900">
           Eve-teasing or stalking is strictly prohibited.
         </p>
       </div>

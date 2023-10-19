@@ -1,9 +1,13 @@
 {% extends 'app_main/base.html' %} {% load static %} {% block main %}
 
 <!-- section banner start -->
-<div class="banner-area relative isolate h-60 md:h-96 bg-gray-950">
-  <img loading="lazy" src="{% static 'assets/images/section-banner-bg.jpg' %}" alt="section banner"
-    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-80" />
+<div class="banner-area relative isolate h-60 bg-gray-950 md:h-96">
+  <img
+    loading="lazy"
+    src="{% static 'assets/images/section-banner-bg.jpg' %}"
+    alt="section banner"
+    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-80"
+  />
   <div class="container grid h-full place-items-center text-center">
     <h1 class="text-3xl font-bold uppercase text-white md:text-5xl">
       Notice Details
@@ -16,27 +20,25 @@
 
 {% if notice %}
 <section class="my-8 py-8 md:my-16 md:py-16">
-  <div class="container flex flex-col gap-8 md:gap-16 md:flex-row-reverse">
-    <div class="w-full relative bg-green-300 hidden md:block max-h-64">
+  <div class="container flex flex-col gap-8 md:flex-row-reverse md:gap-16">
+    <div class="relative hidden max-h-64 w-full bg-green-300 md:block">
       <img
         loading="lazy"
-        class="popup-image w-full object-cover hover:opacity-70 absolute inset-0 h-full"
+        class="popup-image absolute inset-0 h-full w-full object-cover hover:opacity-70"
         src="{% if notice.thumbnail %}{{ notice.thumbnail.url }}{% else %}{% static 'assets/images/notice-landscape.jpg' %}{% endif %}"
         alt="{{notice.title}} image"
       />
     </div>
 
     <div class="max-w-full md:max-w-3xl">
-        <h2 class="line-clamp-1 text-xl md:text-3xl font-semibold text-gray-900">
-            {{ notice.title }}
-        </h2>
-        <div class="mt-2 flex flex-row justify-start items-center gap-2">
-            <i class="ti ti-calendar-stats text-gray-500"></i>
-            <p class=" text-sm text-gray-500 font-medium">{{ notice.date }}</p>
-        </div>
-        <div class="mt-4">
-            {{ notice.content|safe }}
-        </div>
+      <h2 class="line-clamp-1 text-xl font-semibold text-gray-900 md:text-3xl">
+        {{ notice.title }}
+      </h2>
+      <div class="mt-2 flex flex-row items-center justify-start gap-2">
+        <i class="ti ti-calendar-stats text-gray-500"></i>
+        <p class="text-sm font-medium text-gray-500">{{ notice.date }}</p>
+      </div>
+      <div class="mt-4">{{ notice.content|safe }}</div>
     </div>
   </div>
 </section>

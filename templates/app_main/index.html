@@ -7,24 +7,39 @@
     <!-- Slides -->
     {% for slider in sliders %}
     <div class="swiper-slide">
-      <div class="relative isolate flex min-h-[420px] items-center bg-gray-950 md:min-h-[700px] lg:h-[85vh]">
-        <img src="{{ slider.bg_img.url }}" alt="slider bg"
-          class="absolute inset-0 -z-10 h-full w-full object-cover opacity-90" />
+      <div
+        class="relative isolate flex min-h-[420px] items-center bg-gray-950 md:min-h-[700px] lg:h-[85vh]"
+      >
+        <img
+          src="{{ slider.bg_img.url }}"
+          alt="slider bg"
+          class="absolute inset-0 -z-10 h-full w-full object-cover opacity-90"
+        />
         <div class="container w-full text-white">
           {% if slider.title %}
-          <h1 class="text-4xl font-bold uppercase md:text-5xl lg:text-7xl" data-animation="fadeInUp" data-delay=".2s">
+          <h1
+            class="text-4xl font-bold uppercase md:text-5xl lg:text-7xl"
+            data-animation="fadeInUp"
+            data-delay=".2s"
+          >
             <span></span>
             {{ slider.title }}
           </h1>
           {% endif %} {% if slider.sub_title %}
-          <p data-animation="fadeInUp" data-delay=".4s"
-            class="mb-8 mt-10 max-w-3xl text-base text-gray-200 md:text-lg md:leading-loose">
+          <p
+            data-animation="fadeInUp"
+            data-delay=".4s"
+            class="mb-8 mt-10 max-w-3xl text-base text-gray-200 md:text-lg md:leading-loose"
+          >
             {{ slider.sub_title }}
           </p>
           {% endif %} {% if slider.btn_text and slider.btn_link %}
-          <a href="{% if slider.btn_link %}{{ slider.btn_link }}{% else %}#{% endif %}"
+          <a
+            href="{% if slider.btn_link %}{{ slider.btn_link }}{% else %}#{% endif %}"
             class="rounded bg-green-600 px-6 py-2 text-sm font-semibold uppercase md:px-12 md:py-4"
-            data-animation="fadeInUp" data-delay=".6s">
+            data-animation="fadeInUp"
+            data-delay=".6s"
+          >
             <span class="btn-text">{{ slider.btn_text }}</span>
           </a>
           {% endif %}
@@ -37,10 +52,14 @@
   <div class="swiper-pagination"></div>
 
   <!-- If we need navigation buttons -->
-  <div class="swiper-button-prev !hidden text-green-50 after:content-none lg:!flex">
+  <div
+    class="swiper-button-prev !hidden text-green-50 after:content-none lg:!flex"
+  >
     <i class="ti ti-arrow-left text-3xl"></i>
   </div>
-  <div class="swiper-button-next !hidden text-green-50 after:content-none lg:!flex">
+  <div
+    class="swiper-button-next !hidden text-green-50 after:content-none lg:!flex"
+  >
     <i class="ti ti-arrow-right text-3xl"></i>
   </div>
 
@@ -58,36 +77,46 @@
 <div id="about" class="about-area my-8 py-8 md:my-16 md:py-16">
   <div class="container">
     {% if founder %}
-    <div class="mb-12 flex flex-col-reverse items-center justify-between gap-8 md:mb-16 lg:flex-row">
+    <div
+      class="mb-12 flex flex-col-reverse items-center justify-between gap-8 md:mb-16 lg:flex-row"
+    >
       <div
-        class="about-title-section flex max-w-xl flex-col items-center gap-6 text-center md:max-w-xl lg:items-start lg:text-left xl:max-w-2xl">
+        class="about-title-section flex max-w-xl flex-col items-center gap-6 text-center md:max-w-xl lg:items-start lg:text-left xl:max-w-2xl"
+      >
         <h1 class="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
           ABOUT THE FOUNDER
         </h1>
-        <span class="inline-block font-semibold text-gray-700 md:mt-4 text-lg">
+        <span class="inline-block text-lg font-semibold text-gray-700 md:mt-4">
           Founder of N.Haque College of Business and Technology.
         </span>
         <div class="text-justify text-sm text-gray-500 md:text-base">
           {{ founder.founder_details|striptags|safe|truncatechars_html:400 }}
         </div>
-        <a href="#"
-          class="mt-2 w-max rounded bg-green-600 px-7 py-3 text-sm font-semibold uppercase text-white hover:bg-green-800">
+        <a
+          href="#"
+          class="mt-2 w-max rounded bg-green-600 px-7 py-3 text-sm font-semibold uppercase text-white hover:bg-green-800"
+        >
           <span class="btn-text">Read More</span>
         </a>
       </div>
 
       <div
         class="advisor-img animate__animated relative w-full max-w-xs p-2 before:absolute before:bottom-0 before:right-0 before:h-12 before:w-2/5 before:border-b-4 before:border-r-4 before:border-gray-600 before:transition-all before:duration-300 before:ease-in-out after:absolute after:left-0 after:top-0 after:h-12 after:w-2/5 after:border-l-4 after:border-t-4 after:border-gray-600 after:transition-all after:duration-300 after:ease-in-out hover:before:h-[calc(100%+0.5rem)] hover:before:w-[calc(100%+0.5rem)] hover:after:h-[calc(100%+0.5rem)] hover:after:w-[calc(100%+0.5rem)]"
-        data-animation="animate__fadeInRightBig">
+        data-animation="animate__fadeInRightBig"
+      >
         <img
           src="{% if founder.profile %}{{ founder.profile.url }}{% else %}{% static 'assets/images/advisors-img_1.jpg' %}{% endif %}"
-          alt="" class="aspect-[3/4] h-full w-full object-cover" />
+          alt=""
+          class="aspect-[3/4] h-full w-full object-cover"
+        />
       </div>
     </div>
     {% endif %} {% if important_facilities %}
     <div class="flex flex-col gap-8 lg:flex-row">
       {% for facility in important_facilities %}
-      <div class="feature-wrapper rounded-lg border-l-8 border-l-green-600 bg-white p-5 drop-shadow-xl">
+      <div
+        class="feature-wrapper rounded-lg border-l-8 border-l-green-600 bg-white p-5 drop-shadow-xl"
+      >
         <div class="feature-title-heading mb-2 flex justify-between">
           <h3 class="text-xl font-semibold text-gray-900">
             {{ facility.title }}
@@ -106,9 +135,16 @@
 <!-- about end -->
 
 <!-- courses start -->
-<div id="courses" class="courses-area relative isolate my-8 py-16 md:my-16 md:py-20">
-  <img loading="lazy" src="{% static 'assets/images/section-bg-dark.png' %}" alt="courses bg image"
-    class="absolute inset-0 -z-10 h-full w-full object-cover" />
+<div
+  id="courses"
+  class="courses-area relative isolate my-8 py-16 md:my-16 md:py-20"
+>
+  <img
+    loading="lazy"
+    src="{% static 'assets/images/section-bg-dark.png' %}"
+    alt="courses bg image"
+    class="absolute inset-0 -z-10 h-full w-full object-cover"
+  />
   <div class="container">
     <div class="section-title mb-12 text-center text-white">
       <h1 class="section-title-heading mb-3 text-3xl font-semibold md:text-4xl">
@@ -121,92 +157,135 @@
     </div>
     <div class="courses-list mx-auto max-w-6xl">
       <div class="courses-active grid gap-6 md:grid-cols-3">
-        <div class="course animate__animated overflow-hidden rounded bg-white md:scale-95"
-          data-animation="animate__fadeInUp">
+        <div
+          class="course animate__animated overflow-hidden rounded bg-white md:scale-95"
+          data-animation="animate__fadeInUp"
+        >
           <div class="courses-thumb">
             <a href="{% url 'app_main:course' %}">
-              <img src="{% static 'assets/images/course_1.jpg' %}" class="aspect-[3/2] w-full" alt="" />
+              <img
+                src="{% static 'assets/images/course_1.jpg' %}"
+                class="aspect-[3/2] w-full"
+                alt=""
+              />
             </a>
           </div>
           <div class="course-main-content p-5">
             <div class="courses-content">
               <span
-                class="courses-category-name mb-4 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white">
+                class="courses-category-name mb-4 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white"
+              >
                 Business
               </span>
-              <h1 class="courses-heading mb-2 font-semibold uppercase leading-snug text-gray-900">
+              <h1
+                class="courses-heading mb-2 font-semibold uppercase leading-snug text-gray-900"
+              >
                 Bachelor of Business Administration
               </h1>
-              <p class="courses-para line-clamp-3 text-sm text-gray-500 md:text-base">
+              <p
+                class="courses-para line-clamp-3 text-sm text-gray-500 md:text-base"
+              >
                 The Bachelor of Business Administration (BBA) Program aims at
                 training the boys and girls for this act and providing clear
                 understanding of the functioning of business from theoretical,
                 practical, and managerial perspectives.
               </p>
               <div class="mt-2 text-right">
-                <a href="" #
-                  class="inline-block gap-2 font-medium text-green-600 transition-colors hover:text-green-700">
+                <a
+                  href=""
+                  #
+                  class="inline-block gap-2 font-medium text-green-600 transition-colors hover:text-green-700"
+                >
                   Read more &rarr;
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <div class="course animate__animated overflow-hidden rounded bg-white" data-animation="animate__fadeInUp">
+        <div
+          class="course animate__animated overflow-hidden rounded bg-white"
+          data-animation="animate__fadeInUp"
+        >
           <div class="courses-thumb">
             <a href="{% url 'app_main:course' %}">
-              <img src="{% static 'assets/images/course_2.jpg' %}" class="aspect-[3/2] w-full" alt="" />
+              <img
+                src="{% static 'assets/images/course_2.jpg' %}"
+                class="aspect-[3/2] w-full"
+                alt=""
+              />
             </a>
           </div>
           <div class="course-main-content p-5">
             <div class="courses-content">
               <span
-                class="courses-category-name mb-2 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white">
+                class="courses-category-name mb-2 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white"
+              >
                 CSE
               </span>
-              <h1 class="courses-heading mb-4 font-semibold uppercase leading-snug text-gray-900">
+              <h1
+                class="courses-heading mb-4 font-semibold uppercase leading-snug text-gray-900"
+              >
                 Computer Science & Engineering
               </h1>
-              <p class="courses-para line-clamp-3 text-sm text-gray-500 md:text-base">
+              <p
+                class="courses-para line-clamp-3 text-sm text-gray-500 md:text-base"
+              >
                 The Bachelor of Business Administration (BBA) Program aims at
                 training the boys and girls for this act and providing clear
                 understanding of the functioning of business from theoretical,
                 practical, and managerial perspectives.
               </p>
               <div class="mt-2 text-right">
-                <a href="" #
-                  class="inline-block gap-2 font-medium text-green-600 transition-colors hover:text-green-700">
+                <a
+                  href=""
+                  #
+                  class="inline-block gap-2 font-medium text-green-600 transition-colors hover:text-green-700"
+                >
                   Read more &rarr;
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <div class="course animate__animated overflow-hidden rounded bg-white md:scale-95"
-          data-animation="animate__fadeInUp">
+        <div
+          class="course animate__animated overflow-hidden rounded bg-white md:scale-95"
+          data-animation="animate__fadeInUp"
+        >
           <div class="courses-thumb">
             <a href="{% url 'app_main:course' %}">
-              <img src="{% static 'assets/images/course_3.jpg' %}" class="aspect-[3/2] w-full" alt="" />
+              <img
+                src="{% static 'assets/images/course_3.jpg' %}"
+                class="aspect-[3/2] w-full"
+                alt=""
+              />
             </a>
           </div>
           <div class="course-main-content p-5">
             <div class="courses-content">
               <span
-                class="courses-category-name mb-4 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white">
+                class="courses-category-name mb-4 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white"
+              >
                 HSC
               </span>
-              <h1 class="courses-heading mb-2 font-semibold uppercase leading-snug text-gray-900">
+              <h1
+                class="courses-heading mb-2 font-semibold uppercase leading-snug text-gray-900"
+              >
                 Higher Secondary Certificate
               </h1>
-              <p class="courses-para line-clamp-3 text-sm text-gray-500 md:text-base">
+              <p
+                class="courses-para line-clamp-3 text-sm text-gray-500 md:text-base"
+              >
                 The Bachelor of Business Administration (BBA) Program aims at
                 training the boys and girls for this act and providing clear
                 understanding of the functioning of business from theoretical,
                 practical, and managerial perspectives.
               </p>
               <div class="mt-2 text-right">
-                <a href="" #
-                  class="inline-block gap-2 font-medium text-green-600 transition-colors hover:text-green-700">
+                <a
+                  href=""
+                  #
+                  class="inline-block gap-2 font-medium text-green-600 transition-colors hover:text-green-700"
+                >
                   Read more &rarr;
                 </a>
               </div>
@@ -235,61 +314,97 @@
     <div id="advisor-slider" class="advisor-list swiper pb-10">
       <div class="swiper-wrapper">
         <div
-          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all">
+          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
+        >
           <div
-            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100">
-            <img src="{% static 'assets/images/teammember1.jpg' %}" alt="" class="w-full" />
+            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
+          >
+            <img
+              src="{% static 'assets/images/teammember1.jpg' %}"
+              alt=""
+              class="w-full"
+            />
             <div
-              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100">
+              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100"
+            >
               N.Haque College of Business and Technology ( NCBT )
             </div>
           </div>
-          <div class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center">
+          <div
+            class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
+          >
             <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
             <span class="text-sm text-gray-500">Vice Chancellor</span>
           </div>
         </div>
         <div
-          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all">
+          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
+        >
           <div
-            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100">
-            <img src="{% static 'assets/images/teammember1.jpg' %}" alt="" class="w-full" />
+            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
+          >
+            <img
+              src="{% static 'assets/images/teammember1.jpg' %}"
+              alt=""
+              class="w-full"
+            />
             <div
-              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100">
+              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100"
+            >
               N.Haque College of Business and Technology ( NCBT )
             </div>
           </div>
-          <div class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center">
+          <div
+            class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
+          >
             <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
             <span class="text-sm text-gray-500">Vice Chancellor</span>
           </div>
         </div>
         <div
-          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all">
+          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
+        >
           <div
-            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100">
-            <img src="{% static 'assets/images/teammember1.jpg' %}" alt="" class="w-full" />
+            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
+          >
+            <img
+              src="{% static 'assets/images/teammember1.jpg' %}"
+              alt=""
+              class="w-full"
+            />
             <div
-              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100">
+              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100"
+            >
               N.Haque College of Business and Technology ( NCBT )
             </div>
           </div>
-          <div class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center">
+          <div
+            class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
+          >
             <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
             <span class="text-sm text-gray-500">Vice Chancellor</span>
           </div>
         </div>
         <div
-          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all">
+          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
+        >
           <div
-            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100">
-            <img src="{% static 'assets/images/teammember1.jpg' %}" alt="" class="w-full" />
+            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
+          >
+            <img
+              src="{% static 'assets/images/teammember1.jpg' %}"
+              alt=""
+              class="w-full"
+            />
             <div
-              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100">
+              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100"
+            >
               N.Haque College of Business and Technology ( NCBT )
             </div>
           </div>
-          <div class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center">
+          <div
+            class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
+          >
             <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
             <span class="text-sm text-gray-500">Vice Chancellor</span>
           </div>
@@ -299,10 +414,14 @@
       <div class="swiper-pagination"></div>
 
       <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev !hidden text-gray-50 after:content-none lg:!flex">
+      <div
+        class="swiper-button-prev !hidden text-gray-50 after:content-none lg:!flex"
+      >
         <i class="ti ti-arrow-left text-3xl"></i>
       </div>
-      <div class="swiper-button-next !hidden text-gray-50 after:content-none lg:!flex">
+      <div
+        class="swiper-button-next !hidden text-gray-50 after:content-none lg:!flex"
+      >
         <i class="ti ti-arrow-right text-3xl"></i>
       </div>
     </div>
@@ -311,9 +430,16 @@
 <!-- team end -->
 
 <!-- notice start -->
-<div id="notice" class="notice-area relative isolate my-8 py-8 md:my-16 md:py-16">
-  <img loading="lazy" src="{% static 'assets/images/section-bg-dark.png' %}" alt="notices bg image"
-    class="absolute inset-0 -z-10 h-full w-full object-cover" />
+<div
+  id="notice"
+  class="notice-area relative isolate my-8 py-8 md:my-16 md:py-16"
+>
+  <img
+    loading="lazy"
+    src="{% static 'assets/images/section-bg-dark.png' %}"
+    alt="notices bg image"
+    class="absolute inset-0 -z-10 h-full w-full object-cover"
+  />
   <div class="container">
     <div class="section-title mb-12 text-center text-white">
       <h1 class="section-title-heading mb-3 text-3xl font-semibold md:text-4xl">
@@ -329,11 +455,16 @@
       <div class="notice flex justify-between overflow-hidden rounded bg-white">
         <img
           src="{% if obj.thumbnail %}{{ obj.thumbnail.url }}{% else %}{% static 'assets/images/notice.png' %}{% endif %}"
-          alt="" class="hidden bg-white object-cover md:block md:w-48" />
+          alt=""
+          class="hidden bg-white object-cover md:block md:w-48"
+        />
         <div class="notice-text flex-1 p-6">
-          <div class="notice-text-heading mb-2 flex flex-col justify-start gap-3 md:mb-6 md:flex-row md:items-center">
+          <div
+            class="notice-text-heading mb-2 flex flex-col justify-start gap-3 md:mb-6 md:flex-row md:items-center"
+          >
             <div
-              class="notice-calendar flex w-max flex-col items-center justify-center whitespace-nowrap rounded bg-green-600 px-3 py-1.5 text-center text-white">
+              class="notice-calendar flex w-max flex-col items-center justify-center whitespace-nowrap rounded bg-green-600 px-3 py-1.5 text-center text-white"
+            >
               <span class="date text-xl font-bold">{{obj.date|date:'d'}}</span>
               <span class="month text-xs">{{obj.date|date:'M, Y'}}</span>
             </div>
@@ -350,12 +481,16 @@
               </div>
             </div>
           </div>
-          <div class="notice-para line-clamp-2 text-sm text-gray-500 md:text-base">
+          <div
+            class="notice-para line-clamp-2 text-sm text-gray-500 md:text-base"
+          >
             <div>{{ obj.content|striptags|safe|truncatechars_html:600 }}</div>
           </div>
           <div class="text-right md:mt-2">
-            <a href="{% url 'app_main:notice_details' obj.id %}"
-              class="inline-block gap-2 text-green-600 transition-colors hover:text-green-700">
+            <a
+              href="{% url 'app_main:notice_details' obj.id %}"
+              class="inline-block gap-2 text-green-600 transition-colors hover:text-green-700"
+            >
               Read more &rarr;
             </a>
           </div>
@@ -366,7 +501,10 @@
     </div>
   </div>
   <div class="notices-view-btn mt-10 text-center uppercase text-white">
-    <a href="{% url 'app_main:notices' %}" class="text-sm font-semibold transition-colors hover:text-green-400">
+    <a
+      href="{% url 'app_main:notices' %}"
+      class="text-sm font-semibold transition-colors hover:text-green-400"
+    >
       view all notice
       <span>&rarr;</span>
     </a>
@@ -379,37 +517,57 @@
 <div id="infos" class="my-8 py-8 md:my-16 md:py-16">
   <div class="container">
     {% for activity in activities %} {% if not forloop.counter|divisibleby:2 %}
-    <div class="mb-14 flex flex-col-reverse justify-between gap-4 md:mb-20 md:flex-row">
+    <div
+      class="mb-14 flex flex-col-reverse justify-between gap-4 md:mb-20 md:flex-row"
+    >
       <div class="flex w-full flex-col justify-center md:w-1/2">
-        <h3 class="mb-4 text-2xl font-semibold text-gray-900 md:mb-8 md:text-4xl">
+        <h3
+          class="mb-4 text-2xl font-semibold text-gray-900 md:mb-8 md:text-4xl"
+        >
           {{ activity.title }}
         </h3>
         <div class="line-clamp-5 text-gray-700 md:line-clamp-none">
           {{ activity.details|safe }}
         </div>
-        <a href="{% if activity.btn_link %}{{ activity.btn_link }}{% else %}#{% endif %}"
+        <a
+          href="{% if activity.btn_link %}{{ activity.btn_link }}{% else %}#{% endif %}"
           class="mt-6 inline-block w-max rounded bg-green-600 px-6 py-2 font-medium uppercase text-white md:mt-10 md:px-10 md:py-3"
-          data-animation="fadeInUp" data-delay=".6s">
+          data-animation="fadeInUp"
+          data-delay=".6s"
+        >
           <span class="btn-text">admit now</span>
         </a>
       </div>
-      <img src="{{ activity.image.url }}" alt="activity-img-{{ forloop.counter }}"
-        class="animate__animated w-full object-cover md:w-2/5" data-animation="animate__backInRight" />
+      <img
+        src="{{ activity.image.url }}"
+        alt="activity-img-{{ forloop.counter }}"
+        class="animate__animated w-full object-cover md:w-2/5"
+        data-animation="animate__backInRight"
+      />
     </div>
     {% else %}
     <div class="flex flex-col justify-between gap-4 md:flex-row">
-      <img src="{{ activity.image.url }}" alt="activity-img-{{ forloop.counter }}"
-        class="animate__animated w-full object-cover md:w-2/5" data-animation="animate__backInRight" />
+      <img
+        src="{{ activity.image.url }}"
+        alt="activity-img-{{ forloop.counter }}"
+        class="animate__animated w-full object-cover md:w-2/5"
+        data-animation="animate__backInRight"
+      />
       <div class="flex w-full flex-col justify-center md:w-1/2">
-        <h3 class="mb-4 text-2xl font-semibold text-gray-900 md:mb-8 md:text-4xl">
+        <h3
+          class="mb-4 text-2xl font-semibold text-gray-900 md:mb-8 md:text-4xl"
+        >
           {{ activity.title }}
         </h3>
         <div class="line-clamp-5 text-gray-700 md:line-clamp-none">
           {{ activity.details|safe }}
         </div>
-        <a href="{% if activity.btn_link %}{{ activity.btn_link }}{% else %}#{% endif %}"
+        <a
+          href="{% if activity.btn_link %}{{ activity.btn_link }}{% else %}#{% endif %}"
           class="mt-6 inline-block w-max rounded bg-green-600 px-6 py-2 font-medium uppercase text-white md:mt-10 md:px-10 md:py-3"
-          data-animation="fadeInUp" data-delay=".6s">
+          data-animation="fadeInUp"
+          data-delay=".6s"
+        >
           <span class="btn-text">admit now</span>
         </a>
       </div>
@@ -422,42 +580,73 @@
 
 <!-- counter start -->
 {% if counter %}
-<div id="counters" class="counter-area relative isolate my-8 py-10 md:my-16 md:py-20">
-  <img loading="lazy" src="{% static 'assets/images/section-bg-dark.png' %}" alt="courses bg image"
-    class="absolute inset-0 -z-10 h-full w-full object-cover" />
+<div
+  id="counters"
+  class="counter-area relative isolate my-8 py-10 md:my-16 md:py-20"
+>
+  <img
+    loading="lazy"
+    src="{% static 'assets/images/section-bg-dark.png' %}"
+    alt="courses bg image"
+    class="absolute inset-0 -z-10 h-full w-full object-cover"
+  />
   <div class="container">
     <div class="grid grid-cols-2 gap-8 text-white md:grid-cols-4">
       <div class="w-full">
-        <div class="couter-wrapper flex flex-col items-center justify-center text-center">
-          <img src="{% static 'assets/images/counter_icon1.png' %}" alt="" class="" />
-          <span class="counter mt-4 text-4xl font-bold" data-purecounter-end="{{ counter.total_student }}">
+        <div
+          class="couter-wrapper flex flex-col items-center justify-center text-center"
+        >
+          <img
+            src="{% static 'assets/images/counter_icon1.png' %}"
+            alt=""
+            class=""
+          />
+          <span
+            class="counter mt-4 text-4xl font-bold"
+            data-purecounter-end="{{ counter.total_student }}"
+          >
             {{ counter.total_student }}
           </span>
           <h3 class="text-gray-200">Total Students</h3>
         </div>
       </div>
       <div class="w-full">
-        <div class="couter-wrapper flex flex-col items-center justify-center text-center">
+        <div
+          class="couter-wrapper flex flex-col items-center justify-center text-center"
+        >
           <img src="{% static 'assets/images/counter_icon4.png' %}" alt="" />
-          <span class="counter mt-4 text-4xl font-bold" data-purecounter-end="{{ counter.total_teacher }}">
+          <span
+            class="counter mt-4 text-4xl font-bold"
+            data-purecounter-end="{{ counter.total_teacher }}"
+          >
             {{ counter.total_teacher }}
           </span>
           <h3 class="text-gray-200">Expert Teacher</h3>
         </div>
       </div>
       <div class="w-full">
-        <div class="couter-wrapper flex flex-col items-center justify-center text-center">
+        <div
+          class="couter-wrapper flex flex-col items-center justify-center text-center"
+        >
           <img src="{% static 'assets/images/counter_icon2.png' %}" alt="" />
-          <span class="counter mt-4 text-4xl font-bold" data-purecounter-end="{{ counter.total_book }}">
+          <span
+            class="counter mt-4 text-4xl font-bold"
+            data-purecounter-end="{{ counter.total_book }}"
+          >
             {{ counter.total_book }}
           </span>
           <h3 class="text-gray-200">Books</h3>
         </div>
       </div>
       <div class="w-full">
-        <div class="couter-wrapper flex flex-col items-center justify-center text-center">
+        <div
+          class="couter-wrapper flex flex-col items-center justify-center text-center"
+        >
           <img src="{% static 'assets/images/counter_icon4.png' %}" alt="" />
-          <span class="counter mt-4 text-4xl font-bold" data-purecounter-end="{{ counter.total_computer }}">
+          <span
+            class="counter mt-4 text-4xl font-bold"
+            data-purecounter-end="{{ counter.total_computer }}"
+          >
             {{ counter.total_computer }}
           </span>
           <h3 class="text-gray-200">Computer</h3>
@@ -470,7 +659,7 @@
 <!-- counter end -->
 
 <!-- student facilites start -->
-<div class="student-facilities-area my-8 py-8 md:py-16 md:my-16">
+<div class="student-facilities-area my-8 py-8 md:my-16 md:py-16">
   <div class="container">
     <div class="section-title mb-12 text-center text-gray-900">
       <h1 class="section-title-heading mb-3 text-3xl font-semibold md:text-4xl">
@@ -489,7 +678,9 @@
         <!-- Slides -->
         {% for facility in facilities %}
         <div class="swiper-slide">
-          <div class="slide-wrapper border-4 border-dashed border-green-600 bg-white p-4">
+          <div
+            class="slide-wrapper border-4 border-dashed border-green-600 bg-white p-4"
+          >
             <div class="testimonilas-heading mb-3">
               <h3 class="font-semibold text-gray-900">{{ facility.title }}</h3>
               <span class="text-sm text-gray-700">From NCBT</span>

@@ -1,0 +1,246 @@
+{% extends 'app_main/base.html' %} {% load static %} {% block main %}
+
+<!-- cover image start -->
+<section id="contact-cover-image">
+  <div class="relative isolate h-[24rem] w-full bg-black">
+    <img
+      loading="lazy"
+      class="absolute inset-0 -z-10 h-full w-full object-cover opacity-70"
+      src="{% static 'assets/images/section-banner-bg.jpg' %}"
+      alt="contact-cover"
+    />
+    <div class="pt-[10rem] text-center text-white">
+      <h2 class="text-4xl font-bold uppercase md:text-6xl">
+        {{ course.course_name }}
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- cover image end -->
+
+<!-- welcome to course start -->
+<section id="our-history" class="my-8 py-8 md:my-16 md:py-16">
+  <div
+    class="container flex flex-col items-start justify-start gap-8 md:flex-row md:justify-center md:gap-8"
+  >
+    <div class="w-full md:w-1/2">
+      <h2 class="mb-6 text-3xl font-bold uppercase text-green-700">
+        Welcome to {{ course.code_name }}
+      </h2>
+      <p class="text-sm md:text-base font-normal text-zinc-900">
+        {{ course.course_article }}
+      </p>
+    </div>
+    <div class="mt-4 w-full md:mt-0 md:w-1/2">
+      <div class="grid grid-flow-col place-items-end">
+        <img
+          class="rounded-md"
+          src="{{ course.cover_image.url }}"
+          alt="course-cover-img"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<!-- welcome to course end -->
+
+<!-- line draw start -->
+<div class="grid place-items-center">
+  <span class="inline-block h-1 w-56 bg-green-700"></span>
+</div>
+<!-- line draw end -->
+
+<section class="my-8 py-8 md:my-16 md:py-16">
+  <div class="container">
+    <div class="mb-4 text-center md:mb-6">
+      <h2
+        class="text-2xl font-bold leading-tight uppercase tracking-wider text-zinc-900 md:text-3xl"
+      >
+        {{ course.course_name }} at a Glance
+      </h2>
+    </div>
+
+    <div class="prose prose-stone max-w-full text-md tracking-tighter text-zinc-900">
+      {{ course.course_glance|safe }}
+    </div>
+  </div>
+</section>
+
+<!-- course information table start -->
+
+<section id="cse-info" class="my-8 py-8 md:my-16 md:py-16">
+  <div class="container mx-auto px-4 sm:px-8">
+    <!-- course info table -->
+    <div class="mb-10">
+      <div>
+        <h2 class="text-2xl font-semibold leading-tight uppercase">
+            {{ course.code_name }} Information
+        </h2>
+      </div>
+      <div class="-mx-4 overflow-x-auto px-4 py-4 sm:-mx-8 sm:px-8">
+        <div
+          class="inline-block min-w-full overflow-hidden rounded-lg shadow-md"
+        >
+          <table class="min-w-full leading-normal">
+            <thead>
+              <tr>
+                <th
+                  class="border-b-2 border-gray-200 bg-green-200 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-700"
+                >
+                    Course Name
+                </th>
+                <th
+                  class="border-b-2 border-gray-200 bg-green-200 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-700"
+                >
+                    Total Student Seat
+                </th>
+                <th
+                  class="border-b-2 border-gray-200 bg-green-200 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-700"
+                >
+                    Total Student
+                </th>
+                <th
+                  class="border-b-2 border-gray-200 bg-green-200 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-700"
+                >
+                    Total Graduated
+                </th>
+                <th
+                  class="border-b-2 border-gray-200 bg-green-200 px-5 py-3"
+                ></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                  <p class="whitespace-no-wrap text-gray-900">{{ course.code_name }}</p>
+                </td>
+                <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                  <p class="whitespace-no-wrap text-gray-900"><i class="ti ti-users"></i> &nbsp; {{ course.total_student_seat }}</p>
+                </td>
+                <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                  <p class="whitespace-no-wrap text-gray-900"><i class="ti ti-users"></i> &nbsp; {{ course.total_student }}</p>
+                </td>
+                <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                    <p class="whitespace-no-wrap text-gray-900"><i class="ti ti-users"></i> &nbsp; {{ course.total_graduated }}</p>
+                </td>
+                <td
+                  class="border-b border-gray-200 bg-white px-5 py-5 text-right text-sm"
+                >
+                  <button
+                    type="button"
+                    class="inline-block text-gray-500 hover:text-gray-700"
+                  >
+                    <svg
+                      class="inline-block h-6 w-6 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 6a2 2 0 110-4 2 2 0 010 4zm0 8a2 2 0 110-4 2 2 0 010 4zm-2 6a2 2 0 104 0 2 2 0 00-4 0z"
+                      />
+                    </svg>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- course tuition fee table -->
+    {% if not course.code_name == "HSC" %}
+    <div>
+      <div>
+        <h2 class="text-2xl font-semibold leading-tight uppercase">
+            {{ course.code_name }}  Tuition Fee
+        </h2>
+      </div>
+      <div class="-mx-4 overflow-x-auto px-4 py-4 sm:-mx-8 sm:px-8">
+        <div
+          class="inline-block min-w-full overflow-hidden rounded-lg shadow-md"
+        >
+          <table class="min-w-full leading-normal">
+            <thead>
+              <tr>
+                <th
+                  class="border-b-2 border-gray-200 bg-green-200 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-700"
+                >
+                    Course Name
+                </th>
+                <th
+                  class="border-b-2 border-gray-200 bg-green-200 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-700"
+                >
+                    Total Credit
+                </th>
+                <th
+                  class="border-b-2 border-gray-200 bg-green-200 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-700"
+                >
+                    Per Semester Fee
+                </th>
+                <th
+                  class="border-b-2 border-gray-200 bg-green-200 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-700"
+                >
+                    Total Tuition Fee
+                </th>
+                <th
+                  class="border-b-2 border-gray-200 bg-green-200 px-5 py-3"
+                ></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                    <p class="whitespace-no-wrap text-gray-900">{{ course.code_name }}</p>
+                </td>
+                <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                    <p class="whitespace-no-wrap text-gray-900"><i class="ti ti-brand-days-counter"></i> &nbsp; {{ course.total_credit }}</p>
+                </td>
+                <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                    <p class="whitespace-no-wrap text-gray-900"><i class="ti ti-cash"></i> &nbsp; {{ course.per_semester_fee }}</p>
+                </td>
+                <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                    <p class="whitespace-no-wrap text-gray-900"><i class="ti ti-cash"></i> &nbsp; {{ course.total_tuition_fee }}</p>
+                </td>
+                <td
+                  class="border-b border-gray-200 bg-white px-5 py-5 text-right text-sm"
+                >
+                  <button
+                    type="button"
+                    class="inline-block text-gray-500 hover:text-gray-700"
+                  >
+                    <svg
+                      class="inline-block h-6 w-6 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 6a2 2 0 110-4 2 2 0 010 4zm0 8a2 2 0 110-4 2 2 0 010 4zm-2 6a2 2 0 104 0 2 2 0 00-4 0z"
+                      />
+                    </svg>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- course information table end -->
+
+{% endblock main %} {% block script %}
+<script>
+  $(".popup-image").magnificPopup({
+    type: "image",
+    mainClass: "mfp-fade",
+    callbacks: {
+      elementParse: function (item) {
+        item.src = item.el.attr("src");
+      },
+    },
+  });
+</script>
+{% endblock script %}

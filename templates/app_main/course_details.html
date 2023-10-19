@@ -1,22 +1,16 @@
 {% extends 'app_main/base.html' %} {% load static %} {% block main %}
 
-<!-- cover image start -->
-<section id="contact-cover-image">
-  <div class="relative isolate h-[24rem] w-full bg-black">
-    <img
-      loading="lazy"
-      class="absolute inset-0 -z-10 h-full w-full object-cover opacity-70"
-      src="{% static 'assets/images/section-banner-bg.jpg' %}"
-      alt="contact-cover"
-    />
-    <div class="pt-[10rem] text-center text-white">
-      <h2 class="text-4xl font-bold uppercase md:text-6xl">
-        {{ course.course_name }}
-      </h2>
-    </div>
+<!-- section banner start -->
+<div class="banner-area relative isolate h-60 md:h-96 bg-gray-950">
+  <img loading="lazy" src="{% static 'assets/images/section-banner-bg.jpg' %}" alt="section banner"
+    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-80" />
+  <div class="container grid h-full place-items-center text-center">
+    <h1 class="text-3xl font-bold uppercase text-white md:text-5xl">
+      {{course.course_name}}
+    </h1>
   </div>
-</section>
-<!-- cover image end -->
+</div>
+<!-- section banner end -->
 
 <!-- welcome to course start -->
 <section id="our-history" class="my-8 py-8 md:my-16 md:py-16">

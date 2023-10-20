@@ -6,7 +6,18 @@ admin.site.register(Teacher)
 admin.site.register(Contact)
 admin.site.register(Notice)
 admin.site.register(FooterInformationModel)
-admin.site.register(ContactInformationModel)
+
+class ContactInformationModelAdmin(admin.ModelAdmin):
+    list_display = ("contact_info_type", "phone", "email", "work")
+
+    def has_add_permission(self, request):
+        num_objects = self.model.objects.count()
+        if num_objects >= 2:
+            return False
+        else:
+            return True
+
+admin.site.register(ContactInformationModel, ContactInformationModelAdmin)
 
 
 # ----------- new addition 2.0 ----------

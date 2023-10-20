@@ -2,16 +2,18 @@
   <div
     class="container hidden items-center justify-between py-1.5 text-sm text-gray-300 md:flex"
   >
+  {% if main_campus %}
     <div class="flex items-center gap-5">
       <span class="flex items-center gap-2">
         <i class="ti ti-phone-call text-green-600"></i>
-        <span class="mt-1">+880177837750</span>
+        <span class="mt-1">{{ main_campus.phone }}</span>
       </span>
       <span class="flex items-center gap-2">
         <i class="ti ti-mail text-green-600"></i>
-        <span class="mt-0.5">nhaquecollege@gmail.com</span>
+        <span class="mt-0.5">{{ main_campus.email }}</span>
       </span>
     </div>
+  {% endif %}
     <div class="flex items-center gap-3 text-sm text-gray-300">
       <a
         href="{% if  footer.facebook_link %}{{ footer.facebook_link }}{% else %}#{% endif %}"

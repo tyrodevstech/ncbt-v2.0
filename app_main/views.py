@@ -11,6 +11,7 @@ def index_view(request):
     context = {
         "notice": Notice.objects.all().order_by("-date")[:4],
         "sliders": HeaderSliderModel.objects.all(),
+        "courses":  CourseModel.objects.all(),
         "counter": CounterModel.objects.first(),
         "founder": FounderModel.objects.first(),
         "important_facilities": FacilityModel.objects.filter(is_important=True)[:3],
@@ -69,6 +70,13 @@ def course_details_view(request, slug):
         "course": get_object_or_404(CourseModel, slug=slug)
     }
     return render(request, "app_main/course_details.html", context)
+
+
+def founder_view(request):
+    context = {
+        "founder": FounderModel.objects.first(),
+    }
+    return render(request, "app_main/founder.html", context)
 
 
 def contact_us_view(request):

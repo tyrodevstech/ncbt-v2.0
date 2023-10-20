@@ -40,23 +40,28 @@ class Contact(models.Model):
 
 
 class ContactInformationModel(models.Model):
-    details = models.TextField(
-        null=True, blank=True, max_length=325, verbose_name="Short Summary"
+    TYPE = (
+        ("", "Select Type"),
+        ("Main Campus", "Main Campus"),
+        ("Dhaka Office", "Dhaka Office"),
     )
-    phone = models.CharField(max_length=122, null=True)
-    email = models.CharField(max_length=122, null=True)
-    address = models.TextField(null=True, blank=True, max_length=325)
+    contact_info_type = models.CharField(max_length=125, null=True, choices=TYPE)
+    details = models.TextField(
+        null=True, max_length=325, blank=True, verbose_name="contact short summary", help_text="Please provide information regarding the primary objective at the main campus."
+    )
+    phone = models.CharField(max_length=125, null=True)
+    email = models.CharField(max_length=125, null=True)
+    address = models.TextField(null=True, max_length=525)
     work = models.CharField(
-        null=True, blank=True, max_length=225, verbose_name="Working Date & Time"
+        null=True, max_length=225, verbose_name="working date & time"
     )
 
     def __str__(self):
-        return f"{self.id} - Contact Info"
+        return f"{self.id} - {self.contact_info_type}"
 
     class Meta:
         verbose_name = "Contact Information"
         verbose_name_plural = "Contact Informations"
-        ordering = ["-id"]
 
 
 # Define Footer Information Model
@@ -135,15 +140,16 @@ class CounterModel(models.Model):
 
 
 class FounderModel(models.Model):
+    name = models.CharField(null=True, max_length=125, verbose_name="founder name")
     profile = models.ImageField(upload_to="founder-profile-image", null=True, verbose_name="profile image")
     founder_details = RichTextUploadingField(null=True)
 
     def __str__(self):
-        return f"{self.id} - Founder | Editable Object"
+        return f"{self.id} - {self.name} Founder | Editable Object"
 
     class Meta:
         verbose_name = "Founder"
-        verbose_name_plural = "Founder Details"
+        verbose_name_plural = "Founder Info"
 
 
 class FacilityModel(models.Model):
@@ -184,6 +190,7 @@ class CourseModel(models.Model):
     slug = models.SlugField(null=True, blank=True, editable=False)
     code_name = models.CharField(null=True, max_length=125, verbose_name="course code name")
     course_article = models.TextField(null=True, max_length=500, verbose_name="course article")
+    home_cover_image = models.ImageField(upload_to="course-home-cover-images", null=True, blank=True, verbose_name="course home cover image", help_text="image size: w-370, h-230")
     cover_image = models.ImageField(upload_to="course-cover-images", null=True, verbose_name="course cover image", help_text="image size: w-800, h-500")
     course_glance = RichTextUploadingField(null=True)
     total_student_seat = models.CharField(null=True, max_length=125)
@@ -205,3 +212,4 @@ class CourseModel(models.Model):
     class Meta:
         verbose_name = "Course"
         verbose_name_plural = "Courses"
+

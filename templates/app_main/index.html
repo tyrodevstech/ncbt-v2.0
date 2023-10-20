@@ -86,14 +86,16 @@
         <h1 class="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
           ABOUT THE FOUNDER
         </h1>
-        <span class="inline-block text-lg font-semibold text-gray-700 md:mt-4">
+        <p class="text-lg font-semibold text-gray-700 md:mt-2">
+          {{ founder.name }} <br>
           Founder of N.Haque College of Business and Technology.
-        </span>
+        </p>
+
         <div class="text-justify text-sm text-gray-500 md:text-base">
           {{ founder.founder_details|striptags|safe|truncatechars_html:400 }}
         </div>
         <a
-          href="#"
+          href="{% url 'app_main:founder' %}"
           class="mt-2 w-max rounded bg-green-600 px-7 py-3 text-sm font-semibold uppercase text-white hover:bg-green-800"
         >
           <span class="btn-text">Read More</span>
@@ -157,6 +159,10 @@
     </div>
     <div class="courses-list mx-auto max-w-6xl">
       <div class="courses-active grid gap-6 md:grid-cols-3">
+       {% if courses %} 
+       {% for course in courses %}
+
+       {% if not forloop.counter == 2 %}
         <div
           class="course animate__animated overflow-hidden rounded bg-white md:scale-95"
           data-animation="animate__fadeInUp"
@@ -164,9 +170,9 @@
           <div class="courses-thumb">
             <a href="">
               <img
-                src="{% static 'assets/images/course_1.jpg' %}"
+                src="{% if course.home_cover_image %}{{ course.home_cover_image.url }}{% else %}{% static 'assets/images/course_1.jpg' %}{% endif %}"
                 class="aspect-[3/2] w-full"
-                alt=""
+                alt="home-cover-img-{{ forloop.counter }}"
               />
             </a>
           </div>
@@ -175,25 +181,21 @@
               <span
                 class="courses-category-name mb-4 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white"
               >
-                Business
+                {{ course.code_name }}
               </span>
               <h1
                 class="courses-heading mb-2 font-semibold uppercase leading-snug text-gray-900"
               >
-                Bachelor of Business Administration
+               {{ course.course_name }}
               </h1>
               <p
                 class="courses-para line-clamp-3 text-sm text-gray-500 md:text-base"
               >
-                The Bachelor of Business Administration (BBA) Program aims at
-                training the boys and girls for this act and providing clear
-                understanding of the functioning of business from theoretical,
-                practical, and managerial perspectives.
+                {{ course.course_article|truncatechars_html:300 }}
               </p>
               <div class="mt-2 text-right">
                 <a
-                  href=""
-                  #
+                  href="{% url 'app_main:course_details' course.slug %}"
                   class="inline-block gap-2 font-medium text-green-600 transition-colors hover:text-green-700"
                 >
                   Read more &rarr;
@@ -202,6 +204,7 @@
             </div>
           </div>
         </div>
+       {% else %}
         <div
           class="course animate__animated overflow-hidden rounded bg-white"
           data-animation="animate__fadeInUp"
@@ -209,9 +212,9 @@
           <div class="courses-thumb">
             <a href="">
               <img
-                src="{% static 'assets/images/course_2.jpg' %}"
+                src="{% if course.home_cover_image %}{{ course.home_cover_image.url }}{% else %}{% static 'assets/images/course_1.jpg' %}{% endif %}"
                 class="aspect-[3/2] w-full"
-                alt=""
+                alt="home-cover-img-{{ forloop.counter }}"
               />
             </a>
           </div>
@@ -220,25 +223,21 @@
               <span
                 class="courses-category-name mb-2 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white"
               >
-                CSE
+                {{ course.code_name }}
               </span>
               <h1
                 class="courses-heading mb-4 font-semibold uppercase leading-snug text-gray-900"
               >
-                Computer Science & Engineering
+                {{ course.course_name }}
               </h1>
               <p
                 class="courses-para line-clamp-3 text-sm text-gray-500 md:text-base"
               >
-                The Bachelor of Business Administration (BBA) Program aims at
-                training the boys and girls for this act and providing clear
-                understanding of the functioning of business from theoretical,
-                practical, and managerial perspectives.
+                {{ course.course_article|truncatechars_html:300 }}
               </p>
               <div class="mt-2 text-right">
                 <a
-                  href=""
-                  #
+                  href="{% url 'app_main:course_details' course.slug %}"
                   class="inline-block gap-2 font-medium text-green-600 transition-colors hover:text-green-700"
                 >
                   Read more &rarr;
@@ -247,51 +246,9 @@
             </div>
           </div>
         </div>
-        <div
-          class="course animate__animated overflow-hidden rounded bg-white md:scale-95"
-          data-animation="animate__fadeInUp"
-        >
-          <div class="courses-thumb">
-            <a href="">
-              <img
-                src="{% static 'assets/images/course_3.jpg' %}"
-                class="aspect-[3/2] w-full"
-                alt=""
-              />
-            </a>
-          </div>
-          <div class="course-main-content p-5">
-            <div class="courses-content">
-              <span
-                class="courses-category-name mb-4 inline-block rounded bg-green-600 px-6 py-2 text-sm font-medium uppercase text-white"
-              >
-                HSC
-              </span>
-              <h1
-                class="courses-heading mb-2 font-semibold uppercase leading-snug text-gray-900"
-              >
-                Higher Secondary Certificate
-              </h1>
-              <p
-                class="courses-para line-clamp-3 text-sm text-gray-500 md:text-base"
-              >
-                The Bachelor of Business Administration (BBA) Program aims at
-                training the boys and girls for this act and providing clear
-                understanding of the functioning of business from theoretical,
-                practical, and managerial perspectives.
-              </p>
-              <div class="mt-2 text-right">
-                <a
-                  href=""
-                  #
-                  class="inline-block gap-2 font-medium text-green-600 transition-colors hover:text-green-700"
-                >
-                  Read more &rarr;
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+       {% endif %}
+       {% endfor %}
+       {% endif %}
       </div>
     </div>
   </div>

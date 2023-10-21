@@ -12,7 +12,7 @@
 <!-- section banner end -->
 
 <!-- card & contact form start -->
-<section id="card-contact-form" class="my-8 py-8 md:my-16 md:py-16">
+<section class="my-8 py-8 md:my-16 md:py-16">
   <div class="container flex flex-col items-start justify-start gap-8 md:flex-row md:justify-center md:gap-12">
     <div class="w-full md:w-1/2">
       <h2 class="mb-6 text-4xl font-bold uppercase text-green-700">
@@ -75,6 +75,8 @@
 {% endblock main %}
 {% block script %}
 <script>
+  const hash = window.location.hash;
+
   window.addEventListener("load", (event) => {
 
     {% if messages %}
@@ -100,23 +102,23 @@
     {% endif %}
     {% endfor %}
     {% endif %}
-  });
-  const hash = window.location.hash;
 
-  if (hash) {
-    const formId = hash.slice(1);
-    const form = document.getElementById(formId);
-
-    if (form) {
-      window.scrollTo({
-        behavior: "smooth",
-        top: form.offsetTop - 128,
-      });
-      const firstInput = form.querySelector("input[name=name]");
-      if (firstInput) {
-        firstInput.focus();
+    if (hash) {
+      const contactSection = hash.slice(1);
+      if (contactSection == 'contact-section') {
+        const form = document.getElementById('contact-form');
+        if (form) {
+          window.scrollTo({
+            behavior: "smooth",
+            top: form.offsetTop - 128,
+          });
+          const firstInput = form.querySelector("input[name=name]");
+          if (firstInput) {
+            firstInput.focus();
+          }
+        }
       }
     }
-  }
+  });
 </script>
 {% endblock script %}

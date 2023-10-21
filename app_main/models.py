@@ -18,7 +18,12 @@ class Teacher(models.Model):
 class Notice(models.Model):
     title = models.CharField(null=True, max_length=150)
     content = RichTextUploadingField(null=True)
-    thumbnail = models.ImageField(upload_to="notice-thumbnail-images", null=True, blank=True, help_text="image size: w-350px x h-400")
+    thumbnail = models.ImageField(
+        upload_to="notice-thumbnail-images",
+        null=True,
+        blank=True,
+        help_text="image size: w-350px x h-400",
+    )
 
     date = models.DateTimeField(auto_now_add=True)
 
@@ -36,7 +41,6 @@ class Contact(models.Model):
 
     def __str__(self):
         return f"{self.email}"
-
 
 
 class ContactInformationModel(models.Model):
@@ -86,6 +90,7 @@ class FooterInformationModel(models.Model):
 
 # ----------- new addition 2.0 ----------
 
+
 class HeaderSliderModel(models.Model):
     title = models.CharField(null=True, blank=True, max_length=125)
     sub_title = models.TextField(null=True, blank=True, max_length=225)
@@ -111,7 +116,6 @@ class HeaderSliderModel(models.Model):
         verbose_name_plural = "Header Sliders"
 
 
-
 class AdmissionModel(models.Model):
     admission_banner = models.ImageField(upload_to="admission-banner", null=True)
     admission_details = RichTextUploadingField(null=True)
@@ -125,17 +129,25 @@ class AdmissionModel(models.Model):
 
 
 class CounterModel(models.Model):
-    total_student = models.CharField(max_length=255, null=True, verbose_name="total students")
-    total_teacher = models.CharField(max_length=255, null=True, verbose_name="total teachers")
+    total_student = models.CharField(
+        max_length=255, null=True, verbose_name="total students"
+    )
+    total_teacher = models.CharField(
+        max_length=255, null=True, verbose_name="total teachers"
+    )
     total_book = models.CharField(max_length=255, null=True, verbose_name="total books")
-    total_computer = models.CharField(max_length=255, null=True, verbose_name="total computers")
+    total_computer = models.CharField(
+        max_length=255, null=True, verbose_name="total computers"
+    )
 
     def __str__(self):
         return f"Counter Data | Editable Object"
 
 
 class FounderModel(models.Model):
-    profile = models.ImageField(upload_to="founder-profile-image", null=True, verbose_name="profile image")
+    profile = models.ImageField(
+        upload_to="founder-profile-image", null=True, verbose_name="profile image"
+    )
     founder_details = RichTextUploadingField(null=True)
 
     def __str__(self):
@@ -161,7 +173,6 @@ class FacilityModel(models.Model):
         verbose_name_plural = "Student Facilities"
 
 
-
 class StudentActivitiesModel(models.Model):
     title = models.CharField(null=True, max_length=125, verbose_name="card title")
     details = RichTextUploadingField(null=True)
@@ -169,7 +180,9 @@ class StudentActivitiesModel(models.Model):
     image = models.ImageField(upload_to="activities-images", null=True)
 
     is_active = models.BooleanField(default=True, null=True)
-    status = models.CharField(null=True, max_length=125, default="Editable Data", editable=False)
+    status = models.CharField(
+        null=True, max_length=125, default="Editable Data", editable=False
+    )
 
     def __str__(self):
         return f"{self.id} - Activities"
@@ -180,19 +193,44 @@ class StudentActivitiesModel(models.Model):
 
 
 class CourseModel(models.Model):
-    course_name = models.CharField(null=True, max_length=125, verbose_name="course name")
+    course_name = models.CharField(
+        null=True, max_length=125, verbose_name="course name"
+    )
     slug = models.SlugField(null=True, blank=True, editable=False)
-    code_name = models.CharField(null=True, max_length=125, verbose_name="course code name")
-    course_article = models.TextField(null=True, max_length=500, verbose_name="course article")
-    cover_image = models.ImageField(upload_to="course-cover-images", null=True, verbose_name="course cover image", help_text="image size: w-800, h-500")
+    code_name = models.CharField(
+        null=True, max_length=125, verbose_name="course code name"
+    )
+    course_article = models.TextField(
+        null=True, max_length=500, verbose_name="course article"
+    )
+    cover_image = models.ImageField(
+        upload_to="course-cover-images",
+        null=True,
+        verbose_name="course cover image",
+        help_text="image size: w-800, h-500",
+    )
     course_glance = RichTextUploadingField(null=True)
     total_student_seat = models.CharField(null=True, max_length=125)
     total_student = models.CharField(null=True, max_length=125)
     total_graduated = models.CharField(null=True, max_length=125)
-    total_credit = models.CharField(null=True, blank=True, max_length=125, help_text="it's mandatory for hon's courses")
-    per_semester_fee = models.CharField(null=True, blank=True, max_length=125, help_text="it's mandatory for hon's courses")
-    total_tuition_fee = models.CharField(null=True, blank=True, max_length=125, help_text="it's mandatory for hon's courses")
-
+    total_credit = models.CharField(
+        null=True,
+        blank=True,
+        max_length=125,
+        help_text="it's mandatory for hon's courses",
+    )
+    per_semester_fee = models.CharField(
+        null=True,
+        blank=True,
+        max_length=125,
+        help_text="it's mandatory for hon's courses",
+    )
+    total_tuition_fee = models.CharField(
+        null=True,
+        blank=True,
+        max_length=125,
+        help_text="it's mandatory for hon's courses",
+    )
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -205,3 +243,25 @@ class CourseModel(models.Model):
     class Meta:
         verbose_name = "Course"
         verbose_name_plural = "Courses"
+
+
+def routine_upload_path(instance, filename):
+    return f"courses/{instance.course.slug}/{filename}"
+
+
+class RoutineModel(models.Model):
+    course = models.ForeignKey(CourseModel, on_delete=models.CASCADE, null=True, related_name='routines')
+    title = models.CharField(max_length=255, null=True)
+    routine = models.FileField(upload_to=routine_upload_path, null=True)
+    semester = models.CharField(max_length=15,null=True,blank=True)
+    year = models.CharField(max_length=15,null=True,blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+    
+    def __str__(self):
+        return f"{self.id} - {self.title}"
+
+    class Meta:
+        verbose_name = "Course Routine"
+        verbose_name_plural = "Course Routines"

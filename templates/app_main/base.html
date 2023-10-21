@@ -31,7 +31,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
     integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  {% block css %}
+  {% endblock css %}
   <link rel="stylesheet" href="{% static 'assets/css/output.css' %}" />
+
 </head>
 
 <body class="bg-gray-100">
@@ -63,8 +66,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
   <script src="{% static 'assets/js/pure-counter.js' %}"></script>
   <script src="{% static 'assets/js/tyrotoast.js' %}"></script>
-  <script src="{% static 'assets/js/main.js' %}"></script>
   {% block script %} {% endblock script %}
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
   <script>
 
     

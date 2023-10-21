@@ -136,15 +136,13 @@
                 <i class="ti ti-chevron-right rotate-90 lg:rotate-0"></i>
               </button>
               <ul class="submenu-menu">
+                {% if courses %}
+                {% for course in courses %}
                 <li>
-                  <a class="menu-link" href="">BBA</a>
+                  <a class="menu-link" href="{% url 'app_main:course_details' course.slug %}#course-routines">{{ course.code_name }}</a>
                 </li>
-                <li>
-                  <a class="menu-link" href="">CSE</a>
-                </li>
-                <li>
-                  <a class="menu-link" href="">HSC</a>
-                </li>
+                {% endfor %}
+                {% endif %}
               </ul>
             </li>
           </ul>

@@ -6,6 +6,7 @@ admin.site.register(Teacher)
 admin.site.register(Contact)
 admin.site.register(Notice)
 admin.site.register(FooterInformationModel)
+admin.site.register(RoutineModel)
 admin.site.register(ContactInformationModel)
 
 

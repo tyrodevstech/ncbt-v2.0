@@ -109,25 +109,25 @@
           <h2 class="mb-3 text-sm font-bold text-green-600 md:text-base">
             Main Campus
           </h2>
-          {% if contact %}
+          {% if main_campus %}
           <div class="flex flex-col gap-3 text-[0.8rem] md:text-sm">
             <a href="#" class="flex items-center gap-4">
               <i class="ti ti-map-pin-filled text-[1.25em]"></i>
-              <span>{{ contact.address }}</span>
+              <span>{{ main_campus.address }}</span>
             </a>
             <a href="#" class="flex items-center gap-4">
               <i class="ti ti-phone-call text-[1.25em]"></i>
-              <span>{{ contact.phone }}</span>
+              <span>{{ main_campus.phone }}</span>
             </a>
             <a href="#" class="flex items-center gap-4">
               <i class="ti ti-mail-filled text-[1.25em]"></i>
-              <span>{{ contact.email }}</span>
+              <span>{{ main_campus.email }}</span>
             </a>
             <div class="mt-2">
               <h5 class="mb-2 font-medium text-white">Opening Hour</h5>
               <span class="flex items-center gap-4">
                 <i class="ti ti-clock text-[1.25em]"></i>
-                {{contact.work}}
+                {{ main_campus.work }}
               </span>
             </div>
           </div>
@@ -137,25 +137,25 @@
           <h2 class="mb-3 text-sm font-bold text-green-600 md:text-base">
             Dhaka Office
           </h2>
-          {% if contact %}
+          {% if dhaka_office %}
           <div class="flex flex-col gap-3 text-[0.8rem] md:text-sm">
             <a href="#" class="flex items-center gap-4">
               <i class="ti ti-map-pin-filled text-[1.25em]"></i>
-              <span>{{ contact.address }}</span>
+              <span>{{ dhaka_office.address }}</span>
             </a>
             <a href="#" class="flex items-center gap-4">
               <i class="ti ti-phone-call text-[1.25em]"></i>
-              <span>{{ contact.phone }}</span>
+              <span>{{ dhaka_office.phone }}</span>
             </a>
             <a href="#" class="flex items-center gap-4">
               <i class="ti ti-mail-filled text-[1.25em]"></i>
-              <span>{{ contact.email }}</span>
+              <span>{{ dhaka_office.email }}</span>
             </a>
             <div class="mt-2">
               <h5 class="mb-2 font-medium text-white">Opening Hour</h5>
               <span class="flex items-center gap-4">
                 <i class="ti ti-clock text-[1.25em]"></i>
-                {{contact.work}}
+                {{ dhaka_office.work }}
               </span>
             </div>
           </div>

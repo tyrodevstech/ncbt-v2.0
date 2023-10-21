@@ -18,25 +18,25 @@
       <h2 class="mb-6 text-4xl font-bold uppercase text-green-700">
         GET IN TOUCH WITH US
       </h2>
-      {% if contact %}
+      {% if main_campus %}
       <p class="text-sm font-normal text-gray-900 md:text-base">
-        {{ info.details }}
+        {{ main_campus.details }}
       </p>
       <div class="mt-10 flex flex-row items-center justify-start gap-2">
         <i class="ti ti-phone"></i>
-        <p class="text-sm text-gray-900 md:text-base">{{ info.phone }}</p>
+        <p class="text-sm text-gray-900 md:text-base">{{ main_campus.phone }}</p>
       </div>
       <div class="mt-2 flex flex-row items-center justify-start gap-2">
         <i class="ti ti-mail"></i>
-        <p class="text-sm text-gray-900 md:text-base">{{ info.email }}</p>
+        <p class="text-sm text-gray-900 md:text-base">{{ main_campus.email }}</p>
       </div>
       <div class="mt-2 flex flex-row items-center justify-start gap-2">
         <i class="ti ti-map"></i>
-        <p class="text-sm text-gray-900 md:text-base">{{ info.address }}</p>
+        <p class="text-sm text-gray-900 md:text-base">{{ main_campus.address }}</p>
       </div>
       <div class="mt-2 flex flex-row items-start justify-start gap-2">
         <i class="ti ti-calendar-time"></i>
-        <p class="text-sm text-black md:text-base">{{ contact.work }}</p>
+        <p class="text-sm text-black md:text-base">{{ main_campus.work }}</p>
       </div>
       {% endif %}
     </div>

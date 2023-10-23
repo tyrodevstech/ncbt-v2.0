@@ -1,0 +1,102 @@
+{% extends 'app_main/base.html' %} {% load static %} {% block main %}
+
+<!-- section banner start -->
+<div class="banner-area relative isolate h-60 bg-gray-950 md:h-96">
+  <img
+    loading="lazy"
+    src="{% static 'assets/images/section-banner-bg.jpg' %}"
+    alt="section banner"
+    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-80"
+  />
+  <div class="container grid h-full place-items-center text-center">
+    <h1 class="text-3xl font-bold uppercase text-white md:text-5xl">
+      Our Administration
+    </h1>
+  </div>
+</div>
+<!-- section banner end -->
+
+<!-- persons list start -->
+<section class="my-8 py-8 md:my-16 md:py-16">
+
+    <div class="advisor-list container">
+
+        {% if administration %}
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
+            
+            {% for item in administration %}
+            <div
+            class="advisor-wrapper group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
+            >
+            <div
+                class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
+            >
+                <img
+                src="{% if item.image %}{{ item.image.url }}{% else %}{% static 'assets/images/default-profile.png' %}{% endif %}"
+                alt="profile-img-{{ forloop.counter }}"
+                class="w-full"
+                />
+                <div
+                class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100"
+                >
+                    {{ item.designation }} at<br>
+                    N.Haque College of Business and Technology ( NCBT )
+                </div>
+            </div>
+            <div
+                class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
+            >
+                <h3 class="text-lg font-semibold text-gray-900 capitalize">{{ item.name }}</h3>
+                <span class="text-sm text-gray-500 capitalize">{{ item.type }}</span>
+                <span class="text-sm text-gray-500">{{ item.education }}</span>
+            </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        {% endif %}
+
+        <!-- pagination start -->
+        
+        <div class="mt-8 flex justify-center gap-2 text-sm font-bold md:mt-16">
+            {% if administration.has_previous %}
+            <a href="?page={{ administration.previous_page_number }}"
+              class="flex items-center rounded px-4 py-2 text-gray-700 transition-colors duration-300 hover:bg-gray-700 hover:text-white">
+              <i class="ti ti-arrow-left font-bold"></i>
+            </a>
+            {% else %}
+            <a href="#" class="flex cursor-not-allowed items-center rounded px-4 py-2 text-gray-400">
+              <i class="ti ti-arrow-left font-bold"></i>
+            </a>
+            {% endif %}
+            {% for page_number in administration.paginator.page_range %}
+            {% if administration.number == page_number %}
+            <a class="items-center rounded bg-gray-700 px-4 py-2 text-white duration-300 sm:flex">
+              {{ page_number }}
+            </a>
+            {% else %}
+            <a href="?page={{ page_number }}"
+              class="items-center rounded px-4 py-2 text-gray-700 transition-colors duration-300 hover:bg-gray-700 hover:text-white sm:flex">
+              {{ page_number }}
+            </a>
+            {% endif %} {% endfor %} 
+            {% if administration.has_next %}
+            <a href="?page={{ administration.next_page_number }}"
+              class="flex items-center rounded px-4 py-2 text-gray-700 transition-colors duration-300 hover:bg-gray-700 hover:text-white">
+              <i class="ti ti-arrow-right font-bold"></i>
+            </a>
+            {% else %}
+            <a href="#" class="flex cursor-not-allowed items-center rounded px-4 py-2 text-gray-400">
+              <i class="ti ti-arrow-right font-bold"></i>
+            </a>
+            {% endif %}
+          </div>
+
+        <!-- pagination end -->
+
+    </div>
+
+</section>
+<!-- persons list end -->
+
+{% endblock main %}

@@ -36,10 +36,22 @@ def admission_view(request):
     return render(request, "app_main/admission.html", context)
 
 
-def teachers_view(request):
-    teachers_obj = Teacher.objects.all()
-    context = {"teachers_obj": teachers_obj}
-    return render(request, "app_main/teachers.html", context)
+def administration_view(request, type):
+    administration_qs =AdministrationModel.objects.filter(type=type)
+    administration_paginator = Paginator(administration_qs, 12)
+    page = request.GET.get("page")
+
+    try:
+        administration = administration_paginator.page(page)
+    except PageNotAnInteger:
+        administration = administration_paginator.page(1)
+    except EmptyPage:
+        administration = administration_paginator.page(administration_paginator.num_pages)
+
+    context = {
+        "administration": administration,
+        }
+    return render(request, "app_main/administration.html", context)
 
 
 def notices_view(request):

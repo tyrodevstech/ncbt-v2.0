@@ -162,5 +162,5 @@ window.addEventListener("load", (event) => {
 });
 
 
-// Automatically hide preloader after 5 seconds
-setTimeout(hidePreloader, 5000);
+// Automatically hide preloader after 4.5 seconds
+setTimeout(hidePreloader, 4500);

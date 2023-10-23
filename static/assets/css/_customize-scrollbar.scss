@@ -1,0 +1,91 @@
+/* Define CSS Variables */
+:root {
+  --scrollbar-width: 8px;
+  --scrollbar-height: 4px;
+  --scrollbar-background: #f1f1f1;
+  --scrollbar-thumb: #9ca3af;
+  --scrollbar-thumb-hover: #6b7280;
+}
+
+/* Webkit (Safari, Chrome, etc.) */
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-height);
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-background);
+}
+
+/* Scrollbar Thumb */
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+/* Hover State for Webkit */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Firefox */
+/* Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-background);
+}
+
+/* Hover State for Firefox */
+*::scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Internet Explorer */
+body {
+  scrollbar-base-color: var(--scrollbar-thumb);
+  scrollbar-arrow-color: var(--scrollbar-background);
+  scrollbar-face-color: var(--scrollbar-thumb);
+  scrollbar-3dlight-color: var(--scrollbar-background);
+  scrollbar-highlight-color: var(--scrollbar-background);
+  scrollbar-shadow-color: var(--scrollbar-background);
+  scrollbar-darkshadow-color: var(--scrollbar-background);
+}
+
+/* Edge */
+body {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/* Opera */
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-height);
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-background);
+}
+
+/* Scrollbar Thumb */
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+/* General */
+/* Scrollbar */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-background);
+}
+
+/* Hover State for General */
+*::scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}

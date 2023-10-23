@@ -1,18 +1,39 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.text import slugify
+from django.utils import timezone
 
+# ----------- new addition 2.0 ----------
 
-class Teacher(models.Model):
-    name = models.CharField(max_length=122, null=True)
-    post = models.CharField(max_length=120, null=True)
-    educational_qualification = models.CharField(max_length=255, null=True)
-    teacher_picture = models.ImageField(
-        upload_to="teacher_picture", null=True, blank=True
+class AdministrationModel(models.Model):
+    CATEGORY = (
+        ("", "Select Administration Type"),
+        ("Authorities", "Authorities"),
+        ("Teachers", "Teachers"),
+        ("Staffs", "Staffs"),
     )
+    type = models.CharField(choices=CATEGORY, max_length=50, null=True)
+    name = models.CharField(max_length=122, null=True)
+    designation = models.CharField(max_length=120, null=True)
+    education = models.CharField(max_length=255, null=True, verbose_name="last educational qualification")
+    image = models.ImageField(
+        upload_to="administration-profile-images", null=True, blank=True, verbose_name="profile picture"
+    )
+
+    active = models.BooleanField(default=True, null=True)
+    joining_date = models.DateField(default=timezone.now)
 
     def __str__(self):
         return f"Name: {self.name}"
+
+    class Meta:
+        verbose_name = "Administration"
+        verbose_name_plural = "Administrations"
+
+        ordering = [
+            "joining_date",
+            "id"
+        ]
 
 
 class Notice(models.Model):
@@ -41,6 +62,10 @@ class Contact(models.Model):
 
     def __str__(self):
         return f"{self.email}"
+
+    class Meta:
+        verbose_name = "Query Contact"
+        verbose_name_plural = "Query Contacts"
 
 
 class ContactInformationModel(models.Model):
@@ -95,9 +120,6 @@ class FooterInformationModel(models.Model):
         verbose_name = "Footer Information"
         verbose_name_plural = "Footer Informations"
         ordering = ["-id"]
-
-
-# ----------- new addition 2.0 ----------
 
 
 class HeaderSliderModel(models.Model):

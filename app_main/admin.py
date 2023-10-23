@@ -2,10 +2,16 @@ from django.contrib import admin
 from .models import *
 
 
-admin.site.register(Teacher)
 admin.site.register(Contact)
 admin.site.register(Notice)
 admin.site.register(FooterInformationModel)
+
+
+
+class AdministrationModelAdmin(admin.ModelAdmin):
+    list_display = ("name", "type", "designation", "joining_date")
+
+admin.site.register(AdministrationModel, AdministrationModelAdmin)
 
 
 class ContactInformationModelAdmin(admin.ModelAdmin):

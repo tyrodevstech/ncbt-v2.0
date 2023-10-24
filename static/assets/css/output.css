@@ -2573,11 +2573,11 @@ video {
 .pr-3\.5 {
   padding-right: 0.875rem;
 }
-.pt-8 {
-  padding-top: 2rem;
-}
 .pt-16 {
   padding-top: 4rem;
+}
+.pt-8 {
+  padding-top: 2rem;
 }
 .text-left {
   text-align: left;
@@ -4202,11 +4202,6 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 @media (min-width: 576px) {
 
-  .sm\:-mx-8 {
-    margin-left: -2rem;
-    margin-right: -2rem;
-  }
-
   .sm\:flex {
     display: flex;
   }
@@ -4221,11 +4216,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .sm\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
   }
 
   .sm\:text-sm {
@@ -4461,17 +4451,8 @@ input[type="number"]::-webkit-outer-spin-button {
     padding-bottom: 1rem;
   }
 
-  .md\:py-8 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
   .md\:pt-16 {
     padding-top: 4rem;
-  }
-
-  .md\:pt-8 {
-    padding-top: 2rem;
   }
 
   .md\:text-left {

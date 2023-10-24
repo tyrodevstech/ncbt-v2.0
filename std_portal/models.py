@@ -37,7 +37,7 @@ class StudentRegistrationUni(models.Model):
     phone = models.BigIntegerField(null=True, blank=True)
     fathername = models.CharField(max_length=120, blank=True, null=True)
     mothername = models.CharField(max_length=120, blank=True, null=True)
-    dob = models.DateField(null=True)
+    dob = models.DateField(null=True, verbose_name="date of birth")
     adminsion_year = models.CharField(max_length=50, null=True, blank=True)
     address = models.TextField(max_length=120, null=True, blank=True)
     academic_status = models.CharField(
@@ -80,7 +80,7 @@ class StudentRegistrationCollage(models.Model):
     phone = models.BigIntegerField(null=True)
     fathername = models.CharField(max_length=120, blank=True, null=True)
     mothername = models.CharField(max_length=120, blank=True, null=True)
-    dob = models.DateField(null=True)
+    dob = models.DateField(null=True, verbose_name="date of birth")
     adminsion_year = models.CharField(max_length=50, null=True)
     address = models.TextField(max_length=120, null=True)
     academic_status = models.CharField(

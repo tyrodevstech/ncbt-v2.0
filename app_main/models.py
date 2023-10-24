@@ -304,3 +304,55 @@ class RoutineModel(models.Model):
     class Meta:
         verbose_name = "Course Routine"
         verbose_name_plural = "Course Routines"
+
+
+class HistoryModel(models.Model):
+    content = RichTextUploadingField(null=True, max_length=9999)
+    history_cover_img = models.ImageField(
+        upload_to="history-cover-image",
+        null=True,
+        verbose_name="history cover image",
+        help_text="image size: w-800, h-500",
+    )
+
+    def __str__(self):
+        return f"{self.id} - history | Editable object"
+
+    class Meta:
+        verbose_name = "History"
+        verbose_name_plural = "History"
+
+
+class AboutInformationModel(models.Model):
+    sub_title = models.CharField(
+        null=True, max_length=100, verbose_name="sub title"
+    )
+    title = models.CharField(null=True, max_length=150)
+    content = RichTextUploadingField(null=True, max_length=999)
+    cover_img = models.ImageField(
+        upload_to="about-section-images",
+        null=True,
+        verbose_name="about section image",
+        help_text="image size: w-800, h-500",
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.id} - {self.title}"
+
+    class Meta:
+        verbose_name = "About Information"
+        verbose_name_plural = "About Informations"
+
+
+class CodeOfConduct(models.Model):
+    text = models.TextField(null=True, max_length=999)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.id} - {self.text}"
+
+    class Meta:
+        verbose_name = "Code Of Conduct"
+        verbose_name_plural = "Code Of Conduct"

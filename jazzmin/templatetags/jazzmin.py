@@ -26,6 +26,8 @@ from django.utils.safestring import SafeText, mark_safe
 from django.utils.text import get_text_list, slugify
 from django.utils.translation import gettext
 
+from jazzmin.templatetags.admin_order import ModelAdminReorder
+
 from .. import version
 from ..settings import CHANGEFORM_TEMPLATES, get_settings, get_ui_tweaks
 from ..utils import get_admin_url, get_filter_id, has_fieldsets_check, make_menu, order_with_respect_to
@@ -52,6 +54,7 @@ def get_side_menu(context: Context, using: str = "available_apps") -> List[Dict]
 
     menu = []
     available_apps = copy.deepcopy(context.get(using, []))
+    available_apps = ModelAdminReorder(available_apps).get_app_list()
 
     custom_links = {
         app_name: make_menu(user, links, options, allow_appmenus=False)

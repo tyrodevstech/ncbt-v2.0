@@ -10,6 +10,21 @@
 
 
     <title>NCBT Student Login</title>
+
+    <style>
+        .link-style{
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            color: #555; 
+            padding-right: 20px; 
+            padding-bottom: 26px;
+        }
+        .text-hover:hover{
+            color: rgb(80, 179, 80);
+        }
+    </style>
+
 </head>
 
 <body>
@@ -22,7 +37,21 @@
         <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
         <button>Login</button>
+
+        <a href="{% url 'app_main:home' %}" class="link-style text-hover">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M17 12h-14"></path>
+                <path d="M6 9l-3 3l3 3"></path>
+                <path d="M19 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+             </svg>
+            <span>
+                Back to Home
+            </span>
+        </a>
+
     </form>
+
 
 
     {% if messages %}

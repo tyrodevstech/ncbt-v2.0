@@ -17,6 +17,7 @@ def index_view(request):
         "important_facilities": FacilityModel.objects.filter(is_important=True)[:3],
         "facilities": FacilityModel.objects.filter(is_important=False),
         "activities": StudentActivitiesModel.objects.filter(is_active=True),
+        "authorities": AdministrationModel.objects.filter(show_on_home=True,active=True),
     }
     return render(request, "app_main/index.html", context)
 
@@ -37,7 +38,7 @@ def admission_view(request):
 
 
 def administration_view(request, type):
-    administration_qs =AdministrationModel.objects.filter(type=type)
+    administration_qs =AdministrationModel.objects.filter(type=type,active=True)
     administration_paginator = Paginator(administration_qs, 12)
     page = request.GET.get("page")
 

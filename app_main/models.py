@@ -21,6 +21,7 @@ class AdministrationModel(models.Model):
     )
 
     active = models.BooleanField(default=True, null=True)
+    show_on_home = models.BooleanField(default=False, null=True,verbose_name='Show on Homepage')
     joining_date = models.DateField(default=timezone.now)
 
     def __str__(self):

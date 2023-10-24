@@ -34,7 +34,7 @@
                 <img
                 src="{% if item.image %}{{ item.image.url }}{% else %}{% static 'assets/images/default-profile.png' %}{% endif %}"
                 alt="profile-img-{{ forloop.counter }}"
-                class="w-full"
+                class="w-full object-cover aspect-[4/5]"
                 />
                 <div
                 class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100"
@@ -47,7 +47,7 @@
                 class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
             >
                 <h3 class="text-lg font-semibold text-gray-900 capitalize">{{ item.name }}</h3>
-                <span class="text-sm text-gray-500 capitalize">{{ item.type }}</span>
+                <span class="text-xs text-gray-700 uppercase mb-2 block">{{ item.type }}</span>
                 <span class="text-sm text-gray-500">{{ item.education }}</span>
             </div>
             </div>

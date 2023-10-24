@@ -270,102 +270,34 @@
 
     <div id="advisor-slider" class="advisor-list swiper pb-10">
       <div class="swiper-wrapper">
+        {% for authority in authorities %}
         <div
-          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
+          class="advisor-wrapper !h-auto swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
         >
           <div
             class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
           >
-            <img
-              src="{% static 'assets/images/teammember1.jpg' %}"
-              alt=""
-              class="w-full"
-            />
+          <img
+          src="{% if authority.image %}{{ authority.image.url }}{% else %}{% static 'assets/images/default-profile.png' %}{% endif %}"
+          alt="profile-img-{{ forloop.counter }}"
+          class="w-full object-cover aspect-[4/5]"
+          />
             <div
               class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100"
             >
-              N.Haque College of Business and Technology ( NCBT )
+            {{ authority.designation }} at <br> N.Haque College of Business and Technology ( NCBT )
             </div>
           </div>
           <div
             class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
           >
-            <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
-            <span class="text-sm text-gray-500">Vice Chancellor</span>
+          <h3 class="text-lg font-semibold text-gray-900 capitalize">{{ authority.name }}</h3>
+          <span class="text-xs text-gray-700 uppercase mb-2">{{ authority.type }}</span>
+          <span class="text-sm text-gray-500">{{ authority.education }}</span>
           </div>
         </div>
-        <div
-          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
-        >
-          <div
-            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
-          >
-            <img
-              src="{% static 'assets/images/teammember1.jpg' %}"
-              alt=""
-              class="w-full"
-            />
-            <div
-              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100"
-            >
-              N.Haque College of Business and Technology ( NCBT )
-            </div>
-          </div>
-          <div
-            class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
-          >
-            <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
-            <span class="text-sm text-gray-500">Vice Chancellor</span>
-          </div>
-        </div>
-        <div
-          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
-        >
-          <div
-            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
-          >
-            <img
-              src="{% static 'assets/images/teammember1.jpg' %}"
-              alt=""
-              class="w-full"
-            />
-            <div
-              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100"
-            >
-              N.Haque College of Business and Technology ( NCBT )
-            </div>
-          </div>
-          <div
-            class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
-          >
-            <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
-            <span class="text-sm text-gray-500">Vice Chancellor</span>
-          </div>
-        </div>
-        <div
-          class="advisor-wrapper swiper-slide group overflow-hidden rounded border-b-2 border-b-green-600 shadow transition-all"
-        >
-          <div
-            class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
-          >
-            <img
-              src="{% static 'assets/images/teammember1.jpg' %}"
-              alt=""
-              class="w-full"
-            />
-            <div
-              class="invisible absolute inset-x-0 bottom-0 z-10 p-4 text-center text-sm text-white opacity-0 transition-all group-hover:visible group-hover:bottom-2 group-hover:opacity-100"
-            >
-              N.Haque College of Business and Technology ( NCBT )
-            </div>
-          </div>
-          <div
-            class="advisor-teacher-info relative z-20 flex flex-col items-center justify-center p-6 text-center"
-          >
-            <h3 class="text-lg font-semibold text-gray-900">Person Name</h3>
-            <span class="text-sm text-gray-500">Vice Chancellor</span>
-          </div>
-        </div>
+        {% endfor %}
+
       </div>
       <!-- If we need pagination -->
       <div class="swiper-pagination"></div>

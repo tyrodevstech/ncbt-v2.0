@@ -1581,6 +1581,10 @@ video {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
 .\!mb-0 {
   margin-bottom: 0px !important;
 }
@@ -1827,6 +1831,9 @@ video {
 .h-max {
   height: -moz-max-content;
   height: max-content;
+}
+.\!h-auto {
+  height: auto !important;
 }
 .max-h-64 {
   max-height: 16rem;
@@ -2573,11 +2580,11 @@ video {
 .pr-3\.5 {
   padding-right: 0.875rem;
 }
-.pt-8 {
-  padding-top: 2rem;
-}
 .pt-16 {
   padding-top: 4rem;
+}
+.pt-8 {
+  padding-top: 2rem;
 }
 .text-left {
   text-align: left;
@@ -2664,6 +2671,9 @@ video {
 }
 .capitalize {
   text-transform: capitalize;
+}
+.\!capitalize {
+  text-transform: capitalize !important;
 }
 .italic {
   font-style: italic;
@@ -4202,11 +4212,6 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 @media (min-width: 576px) {
 
-  .sm\:-mx-8 {
-    margin-left: -2rem;
-    margin-right: -2rem;
-  }
-
   .sm\:flex {
     display: flex;
   }
@@ -4221,11 +4226,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .sm\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
   }
 
   .sm\:text-sm {
@@ -4461,17 +4461,8 @@ input[type="number"]::-webkit-outer-spin-button {
     padding-bottom: 1rem;
   }
 
-  .md\:py-8 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
   .md\:pt-16 {
     padding-top: 4rem;
-  }
-
-  .md\:pt-8 {
-    padding-top: 2rem;
   }
 
   .md\:text-left {

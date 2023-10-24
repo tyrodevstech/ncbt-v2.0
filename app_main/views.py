@@ -23,7 +23,12 @@ def index_view(request):
 
 
 def about_us_view(request):
-    return render(request, "app_main/about_us.html")
+    context = {
+        'history': HistoryModel.objects.first(),
+        'about_info': AboutInformationModel.objects.all(),
+        'conducts': CodeOfConduct.objects.all(),
+    }
+    return render(request, "app_main/about_us.html", context)
 
 
 def course_view(request):

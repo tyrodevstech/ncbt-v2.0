@@ -33,6 +33,12 @@ class StdUAdmin(admin.ModelAdmin):
     @admin.display(ordering='user__username', description='Username')
     def get_username(self, obj):
         return obj.user.username if obj.user else 'N/A'
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "department":
+            kwargs["queryset"] = Department.objects.all()  # Replace YourAuthorModel with your actual Author model
+            kwargs["empty_label"] = "Select a department"  # Customize the empty label
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
     
 
     def save_model(self, request, obj, form, change):
@@ -78,25 +84,67 @@ class EnrollAdmin(admin.ModelAdmin):
     def get_course_name(self, obj):
         return obj.course.course_name if obj.course else 'N/A'
 
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "student":
+            kwargs["queryset"] = StudentRegistrationUni.objects.all()  # Replace YourAuthorModel with your actual Author model
+            kwargs["empty_label"] = "Select a hon's student"  # Customize the empty label
+
+        if db_field.name == "course":
+            kwargs["queryset"] = Course.objects.all()  # Replace YourAuthorModel with your actual Author model
+            kwargs["empty_label"] = "Select a subject"  # Customize the empty label
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
+
 class CourseAdmin(admin.ModelAdmin):
     list_display=('department','course_code', 'course_name',)
     list_filter=('department','course_code', 'course_name',)
     search_fields=('department','course_code', 'course_name',)
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "department":
+            kwargs["queryset"] = Department.objects.all()  # Replace YourAuthorModel with your actual Author model
+            kwargs["empty_label"] = "Select a department"  # Customize the empty label
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 class ResultAdmin(admin.ModelAdmin):
     list_display=('student','enroll_course','grade_point','grade_letter',)
     list_filter=('student__student_id','enroll_course__course__course_code','enroll_course__course__course_name','enroll_course__enroll_year','enroll_course__enroll_semester')
     search_fields = ['student__student_id','enroll_course__course__course_code']
 
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "student":
+            kwargs["queryset"] = StudentRegistrationUni.objects.all()  # Replace YourAuthorModel with your actual Author model
+            kwargs["empty_label"] = "Select a hon's student"  # Customize the empty label
+
+        if db_field.name == "enroll_course":
+            kwargs["queryset"] = Enroll.objects.all()  # Replace YourAuthorModel with your actual Author model
+            kwargs["empty_label"] = "Select enroll subject"  # Customize the empty label
+
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
 class FinancialUAdmin(admin.ModelAdmin):
     list_display = ('student','payment_date','payment_amount','money_receipt_no',)
     list_filter = ('student__student_id','money_receipt_no',)
     search_fields = ('student__student_id','money_receipt_no',)
 
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "student":
+            kwargs["queryset"] = StudentRegistrationUni.objects.all()  # Replace YourAuthorModel with your actual Author model
+            kwargs["empty_label"] = "Select a hon's student"  # Customize the empty label
+
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
 class FinancialCAdmin(admin.ModelAdmin):
     list_display = ('student','payment_date','payment_amount','money_receipt_no',)
     list_filter = ('student__student_id','money_receipt_no',)
     search_fields = ('student__student_id','money_receipt_no',)
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "student":
+            kwargs["queryset"] = StudentRegistrationCollage.objects.all()  # Replace YourAuthorModel with your actual Author model
+            kwargs["empty_label"] = "Select a collage student"  # Customize the empty label
+
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 
 # Re-register UserAdmin

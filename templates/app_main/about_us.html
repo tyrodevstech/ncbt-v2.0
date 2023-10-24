@@ -12,6 +12,7 @@
 <!-- section banner end -->
 
 <!-- our history start -->
+{% if history %}
 <section id="our-history" class="my-8 py-8 md:my-16 md:py-16">
   <div
     class="container flex flex-col items-start justify-start gap-8 md:flex-row md:justify-center md:gap-8"
@@ -20,40 +21,22 @@
       <h2 class="mb-6 text-3xl font-bold uppercase text-green-700">
         Our History
       </h2>
-      <p class="text-sm font-normal text-gray-900">
-        N.Haque College of Business and Technology (NCBT) is one of the leading
-        institutes affiliated with the National University of Bangladesh.
-        N.Haque College of Business and Technology is a seat of higher
-        education, situated in Gopalgonj, the district where the founder
-        president of Bangladesh Bangabandhu Sheikh Mujibur Rahman was born. Our
-        customized curriculum builds the knowledge, skill and attitudes that
-        students need to succeed in their academic and professional careers
-        after College & University. Students are encouraged to challenge
-        themselves their partners and their teachers in a setting that gives
-        them confidence and builds their skills to think independently.NCBT
-        undertakes to build up a reputation as a rural level low cost digital
-        education in Business and Technology with innovative research and
-        development as a private institution.
-      </p>
-      <p class="mt-4 text-sm font-normal text-gray-900">
-        Students are encouraged to challenge themselves their partners and their
-        teachers in a setting that gives them confidence and builds their skills
-        to think independently.NCBT undertakes to build up a reputation as a
-        rural level low cost digital education in Business and Technology with
-        innovative research and development as a private institution.
-      </p>
+      <div class="text-sm font-normal text-gray-900 prose prose-sm md:prose-base prose-slate">
+        {{ history.content|safe|truncatechars_html:999 }}
+      </div>
     </div>
     <div class="mt-4 w-full md:mt-0 md:w-1/2">
       <div class="grid grid-flow-col place-items-end">
         <img
           class="rounded-md"
-          src="https://preview.colorlib.com/theme/university/images/img_1.jpg.webp"
+          src="{{ history.history_cover_img.url }}"
           alt="about-students-img"
         />
       </div>
     </div>
   </div>
 </section>
+{% endif %}
 <!-- our history end -->
 
 <!-- line draw start -->
@@ -76,8 +59,9 @@
         neque sint eveniet tempore sapiente.
       </p>
     </div>
-
-    <!-- item 1 -->
+    {% if about_info %}
+    {% for info in about_info %}
+    {% if not forloop.counter|divisibleby:2 %}
     <div
       class="flex flex-col items-center justify-center md:flex-row md:justify-center"
     >
@@ -86,26 +70,22 @@
           <img
             loading="lazy"
             class="absolute inset-0 -z-10 h-full w-full object-cover"
-            src="https://preview.colorlib.com/theme/university/images/img_2.jpg.webp"
+            src="{{ info.cover_img.url }}"
             alt="about-img-1"
           />
         </div>
       </div>
       <div class="w-full px-0 py-8 md:w-1/2 md:px-24">
-        <p class="mb-2 text-xs uppercase">NICE TEXT HERE</p>
+        <p class="mb-2 text-xs uppercase">{{ info.sub_title }}</p>
         <h2 class="mb-6 text-4xl font-bold uppercase text-gray-900 lg:text-6xl">
-          Excellent Teachers
+          {{ info.title }}
         </h2>
-        <p class="text-sm text-gray-900">
-          Even the all-powerful Pointing has no control about the blind texts it
-          is an almost unorthographic life One day however a small line of blind
-          text by the name of Lorem Ipsum decided to leave for the far World of
-          Grammar.
-        </p>
+        <div class="text-sm text-gray-900 prose prose-sm md:prose-base prose-slate">
+          {{ info.content|safe }}
+        </div>
       </div>
     </div>
-
-    <!-- item 2 -->
+    {% else %}
     <div
       class="flex flex-col items-center justify-center md:flex-row-reverse md:justify-center"
     >
@@ -114,52 +94,24 @@
           <img
             loading="lazy"
             class="absolute inset-0 -z-10 h-full w-full object-cover"
-            src="https://preview.colorlib.com/theme/university/images/img_1.jpg.webp"
+            src="{{ info.cover_img.url }}"
             alt="about-img-1"
           />
         </div>
       </div>
       <div class="w-full px-0 py-8 md:w-1/2 md:px-24">
-        <p class="mb-2 text-xs uppercase">NICE TEXT HERE</p>
+        <p class="mb-2 text-xs uppercase">{{ info.sub_title }}</p>
         <h2 class="mb-6 text-4xl font-bold uppercase text-gray-900 lg:text-6xl">
-          Outstanding Facilities
+          {{ info.title }}
         </h2>
-        <p class="text-sm text-gray-900">
-          Even the all-powerful Pointing has no control about the blind texts it
-          is an almost unorthographic life One day however a small line of blind
-          text by the name of Lorem Ipsum decided to leave for the far World of
-          Grammar.
-        </p>
-      </div>
-    </div>
-
-    <!-- item 3 -->
-    <div
-      class="flex flex-col items-center justify-center md:flex-row md:justify-center"
-    >
-      <div class="w-full md:w-1/2">
-        <div class="relative h-[32rem] w-full">
-          <img
-            loading="lazy"
-            class="absolute inset-0 -z-10 h-full w-full object-cover"
-            src="https://preview.colorlib.com/theme/university/images/img_3.jpg.webp"
-            alt="about-img-1"
-          />
+        <div class="text-sm text-gray-900 prose prose-sm md:prose-base prose-slate">
+          {{ info.content|safe }}
         </div>
       </div>
-      <div class="w-full px-0 py-8 md:w-1/2 md:px-24">
-        <p class="mb-2 text-xs uppercase">World Class Education</p>
-        <h2 class="mb-6 text-4xl font-bold uppercase text-gray-900 lg:text-6xl">
-          Excellent Teachers
-        </h2>
-        <p class="text-sm text-gray-900">
-          Even the all-powerful Pointing has no control about the blind texts it
-          is an almost unorthographic life One day however a small line of blind
-          text by the name of Lorem Ipsum decided to leave for the far World of
-          Grammar.
-        </p>
-      </div>
     </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
   </div>
 </section>
 <!-- about sections end -->
@@ -187,210 +139,21 @@
       </p>
     </div>
 
+    {% if conducts %}
+    {% for list in conducts %}
     <div
       class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
     >
       <div class="flex items-center justify-start gap-4">
         <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
         <p class="text-lg font-semibold text-gray-900">
-          Students must abide by the rules of NCBT. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Doloribus, sed.
+          {{ list.text }}
         </p>
       </div>
     </div>
+    {% endfor %}
+    {% endif %}
 
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          Any type of political activity is banned in the campus.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          Every student should dress well before entering the campus.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          Sunglasses are not allowed in the classrooms or in the examination
-          halls.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          Using any kinds of offensive language is strictly prohibited in the
-          campus.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          Students should take care of all types of properties of NCBT.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          Cheating or coping in the examination halls is a punishable offence.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          Students shall not write anything on the walls, chairs and tables.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          Students are not permitted to paste any poster or write any slogan on
-          the walls.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          The use of cellular phone in the classrooms or in the examination
-          halls is strictly prohibited.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          Smoking is not allowed in the campus.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          Possession or use of drugs in the campus is prohibited.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          In case of any discontent against any official or student of NCBT, a
-          written application should be forwarded to the authority.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          Any activity subversive to the state is strictly prohibited.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          Breaking the code of conduct is a serious offence.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          Students should not take law in their hands.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          The NCBT authority has the right to take disciplinary actions against
-          any student for unethical or illegal acts.
-        </p>
-      </div>
-    </div>
-
-    <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
-      <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
-          Eve-teasing or stalking is strictly prohibited.
-        </p>
-      </div>
-    </div>
   </div>
 </section>
 <!-- code of conduct end -->

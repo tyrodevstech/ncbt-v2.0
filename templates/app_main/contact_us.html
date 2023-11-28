@@ -41,7 +41,7 @@
       {% endif %}
     </div>
     <div class="mt-4 w-full md:mt-0 md:w-1/2">
-      <form class="mb-10 md:mb-0" action="" method="post" id="contact-form">
+      <form class="mb-10 md:mb-0" method="post" id="contact-form">
         {% csrf_token %}
         <div class="flex flex-col items-center justify-center gap-4 md:flex-row">
           <input
@@ -62,7 +62,7 @@
         <textarea
           class="mt-8 block w-full border-b-[1.5px] border-green-700 bg-transparent placeholder:text-xs placeholder:font-bold placeholder:text-gray-600 focus:outline-none placeholder:focus:text-gray-900"
           name="message" id="" rows="6" placeholder="MESSAGE" required></textarea>
-        <button type="text"
+        <button
           class="mt-8 border-[1.5px] border-green-700 px-8 py-4 font-sans text-xs font-semibold uppercase hover:bg-green-700 hover:text-white hover:duration-500">
           Send Message
         </button>

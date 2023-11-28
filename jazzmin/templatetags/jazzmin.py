@@ -55,6 +55,7 @@ def get_side_menu(context: Context, using: str = "available_apps") -> List[Dict]
     menu = []
     available_apps = copy.deepcopy(context.get(using, []))
     available_apps = ModelAdminReorder(available_apps).get_app_list()
+    # print(available_apps)
 
     custom_links = {
         app_name: make_menu(user, links, options, allow_appmenus=False)
@@ -131,16 +132,15 @@ def get_jazzmin_settings(request: WSGIRequest) -> Dict:
     """
     settings = get_settings()
 
-    if hasattr(request, "current_app"):
-        admin_site = {x.name: x for x in all_sites}.get(request.current_app, "admin")
-        if not settings["site_title"]:
-            settings["site_title"] = admin_site.site_title
+    admin_site = {x.name: x for x in all_sites}.get("admin", {})
+    if not settings["site_title"]:
+        settings["site_title"] = getattr(admin_site, "site_title", None)
 
-        if not settings["site_header"]:
-            settings["site_header"] = admin_site.site_header
+    if not settings["site_header"]:
+        settings["site_header"] = getattr(admin_site, "site_header", None)
 
-        if not settings["site_brand"]:
-            settings["site_brand"] = admin_site.site_header
+    if not settings["site_brand"]:
+        settings["site_brand"] = getattr(admin_site, "site_header", None)
 
     return settings
 
@@ -432,7 +432,11 @@ def header_class(header: Dict, forloop: Dict) -> str:
         header.get("descending"),
     )
 
-    if forloop["counter0"] == 0:
+    is_checkbox_column_conditions = (
+        forloop["counter0"] == 0,
+        header.get("class_attrib") == ' class="action-checkbox-column"',
+    )
+    if all(is_checkbox_column_conditions):
         classes.append("djn-checkbox-select-all")
 
     if not header["sortable"]:

@@ -8,12 +8,15 @@
     {% for slider in sliders %}
     <div class="swiper-slide">
       <div
-        class="relative isolate flex min-h-[420px] items-center bg-gray-950 md:min-h-[700px] lg:h-[85vh]"
+        class="relative isolate flex min-h-[420px] items-center md:min-h-[700px] lg:h-[85vh]"
       >
-        <img
+      {% if slider.title or slider.sub_title %}
+      <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-gray-950/70 to-gray-950/40 -z-10"></div>
+      {% endif %}
+        <img loading="lazy"
           src="{{ slider.bg_img.url }}"
           alt="slider bg"
-          class="absolute inset-0 -z-10 h-full w-full object-cover opacity-90"
+          class="absolute inset-0 -z-20 h-full w-full object-cover"
         />
         <div class="container w-full text-white">
           {% if slider.title %}
@@ -87,12 +90,11 @@
           ABOUT THE FOUNDER
         </h1>
         <p class="text-lg font-semibold text-gray-700 md:mt-2">
-          {{ founder.name }} <br>
-          Founder of N.Haque College of Business and Technology.
+          {{ founder.name }}
         </p>
 
         <div class="text-justify text-sm text-gray-500 md:text-base">
-          {{ founder.founder_details|striptags|safe|truncatechars_html:400 }}
+          {{ founder.founder_details|safe|truncatewords_html:120 }}
         </div>
         <a
           href="{% url 'app_main:founder' %}"
@@ -106,15 +108,16 @@
         class="advisor-img animate__animated relative w-full max-w-xs p-2 before:absolute before:bottom-0 before:right-0 before:h-12 before:w-2/5 before:border-b-4 before:border-r-4 before:border-gray-600 before:transition-all before:duration-300 before:ease-in-out after:absolute after:left-0 after:top-0 after:h-12 after:w-2/5 after:border-l-4 after:border-t-4 after:border-gray-600 after:transition-all after:duration-300 after:ease-in-out hover:before:h-[calc(100%+0.5rem)] hover:before:w-[calc(100%+0.5rem)] hover:after:h-[calc(100%+0.5rem)] hover:after:w-[calc(100%+0.5rem)]"
         data-animation="animate__fadeInRightBig"
       >
-        <img
+        <img loading="lazy"
           src="{% if founder.profile %}{{ founder.profile.url }}{% else %}{% static 'assets/images/advisors-img_1.jpg' %}{% endif %}"
           alt=""
           class="aspect-[3/4] h-full w-full object-cover"
         />
       </div>
     </div>
-    {% endif %} {% if important_facilities %}
-    <div class="flex flex-col gap-8 lg:flex-row">
+    {% endif %} 
+    {% if important_facilities %}
+    <div class="gap-8 grid grid-cols-1 lg:grid-cols-3">
       {% for facility in important_facilities %}
       <div
         class="feature-wrapper rounded-lg border-l-8 border-l-green-600 bg-white p-5 drop-shadow-xl"
@@ -168,8 +171,8 @@
           data-animation="animate__fadeInUp"
         >
           <div class="courses-thumb">
-            <a href="">
-              <img
+            <a href="{% url 'app_main:course_details' course.slug %}">
+              <img loading="lazy"
                 src="{% if course.home_cover_image %}{{ course.home_cover_image.url }}{% else %}{% static 'assets/images/course_1.jpg' %}{% endif %}"
                 class="aspect-[3/2] w-full"
                 alt="home-cover-img-{{ forloop.counter }}"
@@ -211,7 +214,7 @@
         >
           <div class="courses-thumb">
             <a href="">
-              <img
+              <img loading="lazy"
                 src="{% if course.home_cover_image %}{{ course.home_cover_image.url }}{% else %}{% static 'assets/images/course_1.jpg' %}{% endif %}"
                 class="aspect-[3/2] w-full"
                 alt="home-cover-img-{{ forloop.counter }}"
@@ -277,7 +280,7 @@
           <div
             class="advisor-thumb relative isolate before:invisible before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-gray-800/40 before:from-0% before:to-green-800/70 before:to-80% before:opacity-0 before:transition-all group-hover:before:visible group-hover:before:opacity-100"
           >
-          <img
+          <img loading="lazy"
           src="{% if authority.image %}{{ authority.image.url }}{% else %}{% static 'assets/images/default-profile.png' %}{% endif %}"
           alt="profile-img-{{ forloop.counter }}"
           class="w-full object-cover aspect-[4/5]"
@@ -342,7 +345,7 @@
       <!-- Notice Content Start -->
       {% for obj in notice %}
       <div class="notice flex justify-between overflow-hidden rounded bg-white">
-        <img
+        <img loading="lazy"
           src="{% if obj.thumbnail %}{{ obj.thumbnail.url }}{% else %}{% static 'assets/images/notice.png' %}{% endif %}"
           alt=""
           class="hidden bg-white object-cover md:block md:w-48"
@@ -427,7 +430,7 @@
           <span class="btn-text">admit now</span>
         </a>
       </div>
-      <img
+      <img loading="lazy"
         src="{{ activity.image.url }}"
         alt="activity-img-{{ forloop.counter }}"
         class="animate__animated w-full object-cover md:w-2/5"
@@ -436,7 +439,7 @@
     </div>
     {% else %}
     <div class="flex flex-col justify-between gap-4 md:flex-row">
-      <img
+      <img loading="lazy"
         src="{{ activity.image.url }}"
         alt="activity-img-{{ forloop.counter }}"
         class="animate__animated w-full object-cover md:w-2/5"
@@ -489,6 +492,7 @@
             src="{% static 'assets/images/counter_icon1.png' %}"
             alt=""
             class=""
+            loading="lazy"
           />
           <span
             class="counter mt-4 text-4xl font-bold"
@@ -503,7 +507,7 @@
         <div
           class="couter-wrapper flex flex-col items-center justify-center text-center"
         >
-          <img src="{% static 'assets/images/counter_icon4.png' %}" alt="" />
+          <img src="{% static 'assets/images/counter_icon4.png' %}" alt="" loading="lazy" />
           <span
             class="counter mt-4 text-4xl font-bold"
             data-purecounter-end="{{ counter.total_teacher }}"
@@ -517,7 +521,7 @@
         <div
           class="couter-wrapper flex flex-col items-center justify-center text-center"
         >
-          <img src="{% static 'assets/images/counter_icon2.png' %}" alt="" />
+          <img src="{% static 'assets/images/counter_icon2.png' %}" alt="" loading="lazy" />
           <span
             class="counter mt-4 text-4xl font-bold"
             data-purecounter-end="{{ counter.total_book }}"
@@ -531,7 +535,7 @@
         <div
           class="couter-wrapper flex flex-col items-center justify-center text-center"
         >
-          <img src="{% static 'assets/images/counter_icon4.png' %}" alt="" />
+          <img src="{% static 'assets/images/counter_icon4.png' %}" alt="" loading="lazy" />
           <span
             class="counter mt-4 text-4xl font-bold"
             data-purecounter-end="{{ counter.total_computer }}"
@@ -566,9 +570,9 @@
       <div class="swiper-wrapper">
         <!-- Slides -->
         {% for facility in facilities %}
-        <div class="swiper-slide">
+        <div class="swiper-slide !h-auto">
           <div
-            class="slide-wrapper border-4 border-dashed border-green-600 bg-white p-4"
+            class="slide-wrapper h-full border-4 border-dashed border-green-600 bg-white p-4"
           >
             <div class="testimonilas-heading mb-3">
               <h3 class="font-semibold text-gray-900">{{ facility.title }}</h3>

@@ -8,7 +8,7 @@ from django.utils import timezone
 class AdministrationModel(models.Model):
     CATEGORY = (
         ("", "Select Administration Type"),
-        ("Authorities", "Authorities"),
+        ("Governing Body", "Governing Body"),
         ("Teachers", "Teachers"),
         ("Staffs", "Staffs"),
     )
@@ -54,11 +54,11 @@ class Notice(models.Model):
 
 
 class Contact(models.Model):
-    name = models.CharField(max_length=122, null=True)
-    email = models.CharField(max_length=122, null=True)
-    phone = models.CharField(max_length=12, null=True)
-    address = models.CharField(max_length=12, null=True, blank=True)
-    desc = models.TextField(max_length=255, null=True, blank=True)
+    name = models.CharField(max_length=100, null=True)
+    email = models.CharField(max_length=100, null=True)
+    phone = models.CharField(max_length=15, null=True)
+    address = models.CharField(max_length=255, null=True, blank=True)
+    desc = models.TextField(max_length=999, null=True, blank=True)
     date = models.DateField(auto_now_add=True)
 
     def __str__(self):
@@ -303,8 +303,8 @@ class RoutineModel(models.Model):
         return f"{self.id} - {self.title}"
 
     class Meta:
-        verbose_name = "Course Routine"
-        verbose_name_plural = "Course Routines"
+        verbose_name = "Routine & Syllabus"
+        verbose_name_plural = "Routines & Syllabus"
 
 
 class HistoryModel(models.Model):

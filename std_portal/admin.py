@@ -10,20 +10,6 @@ admin.site.register(Department)
 admin.site.site_header = 'NCBT ADMIN PORTAL'
 
 
-class CustomUserAdmin(UserAdmin):
-    list_display = ('username', 'first_name', 'last_name', 'is_staff',
-                'is_active')
-    fieldsets = (
-        (("User Details"), {'fields': ('username','email', 'password')}),
-        (_("Account Details"), {'fields': ('date_joined', 'last_login')}),
-        (_("Permission"), {'fields': ('is_active', 'is_staff',)}),
-    )
-    add_fieldsets = (
-        ("User Details", {'fields': ('username','email', 'password1', 'password2')}),
-        ("Permission", {'fields': ('is_active', 'is_staff',)}),
-    )
-
-
 class StdUAdmin(admin.ModelAdmin):
     list_display=('name','student_id','phone','get_username','academic_status')
     list_filter=('student_id','phone','academic_status',)
@@ -148,10 +134,6 @@ class FinancialCAdmin(admin.ModelAdmin):
 
 
 # Re-register UserAdmin
-admin.site.unregister(User)
-admin.site.unregister(Group)
-admin.site.register(User, CustomUserAdmin)
-
 admin.site.register(StudentRegistrationUni,StdUAdmin)
 admin.site.register(StudentRegistrationCollage,StdCAdmin)
 admin.site.register(Enroll, EnrollAdmin)

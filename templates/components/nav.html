@@ -36,7 +36,7 @@
         <i class="ti ti-brand-youtube"></i>
       </a>
       <span class="inline-block h-4 w-0.5 bg-gray-600"></span>
-      <a href="" class="font-medium uppercase">
+      <a href="{% url 'login' %}" class="font-medium uppercase text-green-500 hover:text-green-600">
         <i class="ti ti-user mr-1"></i>
         Student Portal
       </a>
@@ -49,7 +49,7 @@
   >
     <div class="flex w-full items-center justify-between lg:w-auto">
       <a class="flex items-center gap-3" href="{% url 'app_main:home' %}">
-        <img
+        <img loading="lazy"
           src="{{footer.logo.url}}"
           alt="footer logo"
           class="w-12 rounded-full bg-white p-1 md:w-14"
@@ -160,13 +160,13 @@
 
           <ul class="dropdown-menu">
             <li>
-              <a class="menu-link" href="{% url 'app_main:administration' 'Authorities' %}">Authorities</a>
+              <a class="menu-link" href="{% url 'app_main:administration' 'governing body' %}">Governing Body</a>
             </li>
             <li>
-              <a class="menu-link" href="{% url 'app_main:administration' 'Teachers' %}">Teachers</a>
+              <a class="menu-link" href="{% url 'app_main:administration' 'teachers' %}">Teachers</a>
             </li>
             <li>
-              <a class="menu-link" href="{% url 'app_main:administration' 'Staffs' %}">Staffs</a>
+              <a class="menu-link" href="{% url 'app_main:administration' 'staffs' %}">Staffs</a>
             </li>
           </ul>
         </li>

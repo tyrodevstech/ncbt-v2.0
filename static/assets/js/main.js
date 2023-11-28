@@ -38,6 +38,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     autoplay: {
       delay: 6000,
       disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+
     },
     navigation: {
       nextEl: ".swiper-button-next",

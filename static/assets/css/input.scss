@@ -40,7 +40,7 @@ body {
 }
 
 .nav-link {
-  @apply font-medium text-gray-600 hover:text-gray-400;
+  @apply font-medium uppercase text-gray-800 hover:text-gray-950;
 }
 @media screen(lg) {
   #navbar {

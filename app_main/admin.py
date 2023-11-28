@@ -1,9 +1,6 @@
 from django.contrib import admin
 from .models import *
 
-
-admin.site.register(Contact)
-
 class FooterInformationModelAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         num_objects = self.model.objects.count()
@@ -110,6 +107,11 @@ class FacilityModelAdmin(admin.ModelAdmin):
 
 
 admin.site.register(FacilityModel, FacilityModelAdmin)
+class ContactModelAdmin(admin.ModelAdmin):
+    list_display = ("name", "email", "phone","date")
+
+
+admin.site.register(Contact, ContactModelAdmin)
 
 
 class StudentActivitiesModelAdmin(admin.ModelAdmin):
@@ -147,7 +149,7 @@ admin.site.register(HistoryModel, HistoryModelAdmin)
 
 
 class AboutInformationModelAdmin(admin.ModelAdmin):
-    list_display = ("title", "sub_title", "sub_title")
+    list_display = ("title", "sub_title",)
 
 admin.site.register(AboutInformationModel, AboutInformationModelAdmin)
 

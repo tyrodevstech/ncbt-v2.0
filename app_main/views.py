@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .form import *
 from .models import *
+import urllib
 
 # Create your views here.
 
@@ -15,7 +16,7 @@ def index_view(request):
         "counter": CounterModel.objects.first(),
         "founder": FounderModel.objects.first(),
         "important_facilities": FacilityModel.objects.filter(is_important=True)[:3],
-        "facilities": FacilityModel.objects.filter(is_important=False),
+        "facilities": FacilityModel.objects.filter(),
         "activities": StudentActivitiesModel.objects.filter(is_active=True),
         "authorities": AdministrationModel.objects.filter(show_on_home=True,active=True),
     }
@@ -43,7 +44,8 @@ def admission_view(request):
 
 
 def administration_view(request, type):
-    administration_qs =AdministrationModel.objects.filter(type=type,active=True)
+    type_q = urllib.parse.unquote(type)
+    administration_qs =AdministrationModel.objects.filter(type__icontains=type_q,active=True)
     administration_paginator = Paginator(administration_qs, 12)
     page = request.GET.get("page")
 
@@ -106,7 +108,7 @@ def contact_us_view(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Your message has been sent successfully!")
-            return redirect("contactus")
+            return redirect("app_main:contactus")
 
     context = {
         "form": form,

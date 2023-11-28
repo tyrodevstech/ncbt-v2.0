@@ -64,11 +64,9 @@
   <div class="container">
     <!-- course info table -->
     <div class="mb-10"> 
-      <div>
-        <h2 class="text-2xl font-semibold uppercase leading-tight">
+        <h2 class="text-2xl font-semibold uppercase leading-tight mb-2">
           {{ course.code_name }} Information
         </h2>
-      </div>
       <div class="overflow-x-auto">
           <table class="min-w-full leading-normal">
             <thead>
@@ -134,11 +132,9 @@
     <!-- course tuition fee table -->
     {% if not course.code_name == "HSC" %}
     <div>
-      <div>
-        <h2 class="text-2xl font-semibold uppercase leading-tight">
+        <h2 class="text-2xl font-semibold uppercase leading-tight mb-2">
           {{ course.code_name }} Tuition Fee
         </h2>
-      </div>
       <div class="overflow-x-auto">
         <div class="inline-block min-w-full overflow-hidden rounded-lg shadow-md">
           <table class="min-w-full leading-normal">
@@ -211,10 +207,10 @@
   <div class="container">
     <div class="mb-2">
       <h2 class="text-2xl font-semibold uppercase leading-tight">
-        {{ course.code_name }} Routines
+        {{ course.code_name }} Routines and Syllabus
       </h2>
     </div>
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto px-px">
       <table id="routines" class="display">
         <thead>
           <tr>

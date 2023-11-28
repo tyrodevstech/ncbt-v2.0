@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-brum3j1#t@3ranh&^7%ma@x8uc6196-a_mrv_d-651c4%vn_$1"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "whitenoise.runserver_nostatic",
-    # "django.contrib.staticfiles",
+    "django.contrib.staticfiles",
     "django_cleanup.apps.CleanupConfig",
     'ckeditor',
     'ckeditor_uploader',
@@ -311,7 +311,7 @@ ADMIN_REORDER = (
         "label": "Courses & routines",
         "models": (
             {"model": "app_main.CourseModel", "label": "Course"},
-            {"model": "app_main.RoutineModel", "label": "Routine"},
+            {"model": "app_main.RoutineModel", "label": "Routine & Syllabus"},
         ),
     },
     {
@@ -418,7 +418,7 @@ JAZZMIN_SETTINGS = {
 JAZZMIN_UI_TWEAKS = {
     "navbar_small_text": False,
     "footer_small_text": False,
-    "body_small_text": True,
+    "body_small_text": False,
     "brand_small_text": False,
     "brand_colour": False,
     "accent": "accent-lightblue",
@@ -429,7 +429,7 @@ JAZZMIN_UI_TWEAKS = {
     "footer_fixed": False,
     "sidebar_fixed": True,
     "sidebar": "sidebar-dark-primary",
-    "sidebar_nav_small_text": False,
+    "sidebar_nav_small_text": True,
     "sidebar_disable_expand": False,
     "sidebar_nav_child_indent": True,
     "sidebar_nav_compact_style": True,

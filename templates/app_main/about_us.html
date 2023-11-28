@@ -14,65 +14,44 @@
 <!-- our history start -->
 {% if history %}
 <section id="our-history" class="my-8 py-8 md:my-16 md:py-16">
-  <div
-    class="container flex flex-col items-start justify-start gap-8 md:flex-row md:justify-center md:gap-8"
-  >
-    <div class="w-full md:w-1/2">
-      <h2 class="mb-6 text-3xl font-bold uppercase text-green-700">
+  <div class="container flex flex-col items-center gap-8 lg:flex-row justify-between lg:gap-12">
+    <div class="w-full md:max-w-2xl">
+      <h2 class="mb-6 text-3xl md:text-4xl font-bold uppercase text-green-700 text-center lg:text-left">
         Our History
       </h2>
-      <div class="text-sm font-normal text-gray-900 prose prose-sm md:prose-base prose-slate">
+      <div class="font-normal max-w-full text-gray-900 prose prose-sm md:prose-base prose-slate">
         {{ history.content|safe|truncatechars_html:999 }}
       </div>
     </div>
-    <div class="mt-4 w-full md:mt-0 md:w-1/2">
-      <div class="grid grid-flow-col place-items-end">
-        <img
-          class="rounded-md"
-          src="{{ history.history_cover_img.url }}"
-          alt="about-students-img"
-        />
-      </div>
+    <div class="md:max-w-md w-full">
+      <img class="rounded-md" src="{{ history.history_cover_img.url }}" alt="about-students-img" />
     </div>
   </div>
 </section>
 {% endif %}
 <!-- our history end -->
 
-<!-- line draw start -->
-<div class="grid place-items-center">
-  <span class="inline-block h-1 w-56 bg-green-700"></span>
-</div>
-<!-- line draw end -->
-
 <!-- about sections starts -->
 <section class="my-8 py-8 md:my-16 md:py-16">
   <div class="container">
-    <div class="mb-12 text-center md:mb-24">
-      <h2
-        class="text-2xl font-bold uppercase leading-tight tracking-wider text-gray-900 md:text-3xl"
-      >
+    <div class="text-center">
+      <h2 class="text-2xl font-bold uppercase leading-tight tracking-wider text-gray-900 md:text-3xl">
         Why Choose Us
       </h2>
-      <p class="text-md mt-2 font-medium text-gray-700">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui
-        neque sint eveniet tempore sapiente.
-      </p>
     </div>
+    <!-- line draw start -->
+    <div class="grid place-items-center mb-8 md:mb-14 mt-4">
+      <span class="inline-block h-1 w-56 bg-green-700"></span>
+    </div>
+    <!-- line draw end -->
     {% if about_info %}
     {% for info in about_info %}
     {% if not forloop.counter|divisibleby:2 %}
-    <div
-      class="flex flex-col items-center justify-center md:flex-row md:justify-center"
-    >
+    <div class="flex flex-col items-center justify-center md:flex-row md:justify-center">
       <div class="w-full md:w-1/2">
         <div class="relative h-[32rem] w-full">
-          <img
-            loading="lazy"
-            class="absolute inset-0 -z-10 h-full w-full object-cover"
-            src="{{ info.cover_img.url }}"
-            alt="about-img-1"
-          />
+          <img loading="lazy" class="absolute inset-0 -z-10 h-full w-full object-cover" src="{{ info.cover_img.url }}"
+            alt="about-img-1" />
         </div>
       </div>
       <div class="w-full px-0 py-8 md:w-1/2 md:px-24">
@@ -86,17 +65,11 @@
       </div>
     </div>
     {% else %}
-    <div
-      class="flex flex-col items-center justify-center md:flex-row-reverse md:justify-center"
-    >
+    <div class="flex flex-col items-center justify-center md:flex-row-reverse md:justify-center">
       <div class="w-full md:w-1/2">
         <div class="relative h-[32rem] w-full">
-          <img
-            loading="lazy"
-            class="absolute inset-0 -z-10 h-full w-full object-cover"
-            src="{{ info.cover_img.url }}"
-            alt="about-img-1"
-          />
+          <img loading="lazy" class="absolute inset-0 -z-10 h-full w-full object-cover" src="{{ info.cover_img.url }}"
+            alt="about-img-1" />
         </div>
       </div>
       <div class="w-full px-0 py-8 md:w-1/2 md:px-24">
@@ -116,44 +89,32 @@
 </section>
 <!-- about sections end -->
 
-<!-- line draw start -->
-<div class="grid place-items-center">
-  <span class="inline-block h-1 w-56 bg-green-700"></span>
-</div>
-<!-- line draw end -->
-
 <!-- code of conduct start -->
 <section class="my-8 py-8 md:my-16 md:py-16">
   <div class="container">
-    <div class="mb-8 text-center md:mb-16">
-      <h2
-        class="text-2xl font-bold uppercase leading-tight tracking-wider text-green-700 md:text-3xl"
-      >
+    <div class="text-center">
+      <h2 class="text-2xl font-bold uppercase leading-tight tracking-wider text-green-700 md:text-3xl">
         Code of Conduct
       </h2>
-      <p
-        class="text-md border-b-2 border-green-700 py-4 font-medium text-gray-700"
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui
-        neque sint eveniet tempore sapiente.
-      </p>
     </div>
-
+    <!-- line draw start -->
+    <div class="grid place-items-center mb-8 md:mb-14 mt-4">
+      <span class="inline-block h-1 w-56 bg-green-700"></span>
+    </div>
+    <!-- line draw end -->
     {% if conducts %}
     {% for list in conducts %}
     <div
-      class="w-full border-l-4 border-transparent px-4 py-4 hover:border-gray-950 hover:bg-gray-300 hover:duration-700"
-    >
+      class="w-full border-l-4 border-transparent px-4 py-2 hover:border-gray-950 hover:bg-gray-300 hover:duration-700">
       <div class="flex items-center justify-start gap-4">
-        <i class="ti ti-arrow-big-right-line-filled text-3xl"></i>
-        <p class="text-lg font-semibold text-gray-900">
+        <i class="ti ti-arrow-badge-right text-2xl"></i>
+        <p class="text-sm md:text-base font-medium text-gray-800">
           {{ list.text }}
         </p>
       </div>
     </div>
     {% endfor %}
     {% endif %}
-
   </div>
 </section>
 <!-- code of conduct end -->

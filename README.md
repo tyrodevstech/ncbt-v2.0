@@ -28,7 +28,7 @@ NCBT 2.0 is a modern and user-friendly website designed to serve the community o
 - **Version Control:** This project uses [Git](https://git-scm.com/) for version control, and the code is hosted on [GitHub](https://github.com/yourusername/ncbt-website).
 
 ## Deployment
-The website is deployed using [Cpanel](https://www.cpanel.com/) for seamless and scalable hosting. The production version of the website can be accessed at [www.ncbt.edu](https://www.ncbt.edu).
+The website is deployed using [Cpanel](https://www.cpanel.com/) for seamless and scalable hosting. The production version of the website can be accessed at [www.ncbt.info](https://www.ncbt.info).
 
 ## Feedback
 We welcome feedback and suggestions! If you encounter any issues, have ideas for improvements, or would like to report a bug, please [open an issue](https://github.com/yourusername/ncbt-website/issues).
